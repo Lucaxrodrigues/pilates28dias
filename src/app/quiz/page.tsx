@@ -79,6 +79,27 @@ const quizQuestions = [
         { id: 'acredito', label: '✅ Eu acredito!' },
         { id: 'nao_acredito', label: '❌ Eu NÃO acredito.' },
     ],
+  },
+  {
+    id: 6,
+    type: 'transition',
+    progress: 42,
+    title: 'Olha só o que o Programa Pilates na Parede fez com a Silvana e a Marcia em poucos dias! ❤️',
+    testimonials: [
+        {
+            subtitle: 'Texto Silvana - 47 anos',
+            imageSrc: '/DM_20250826140527_001.png',
+            imageAlt: 'Depoimento da Silvana',
+            imageHint: 'testimonial chat'
+        },
+        {
+            subtitle: 'Texto Marcia - 62 anos',
+            imageSrc: '/DM_20250826140558_001.png',
+            imageAlt: 'Depoimento da Marcia',
+            imageHint: 'testimonial chat'
+        }
+    ],
+    ctaText: 'Responda às últimas perguntas e receba um **plano personalizado do Programa Pilates na Parede feito exclusivamente pra você!** ✅👇',
   }
 ];
 
@@ -199,6 +220,35 @@ export default function QuizPage() {
                 </div>
             </>
         );
+      case 'transition':
+        return (
+            <div className="w-full max-w-md space-y-6 pt-4">
+                {currentQuestion.testimonials.map((testimonial, index) => (
+                    <div key={index} className="flex flex-col items-center space-y-2">
+                        <h3 className="text-lg font-semibold">{testimonial.subtitle}</h3>
+                        <Image
+                            src={testimonial.imageSrc}
+                            alt={testimonial.imageAlt}
+                            width={400}
+                            height={250}
+                            className="rounded-lg shadow-md"
+                            data-ai-hint={testimonial.imageHint}
+                        />
+                    </div>
+                ))}
+                <p 
+                  className="text-lg text-gray-800"
+                  dangerouslySetInnerHTML={{ __html: currentQuestion.ctaText }}
+                />
+                <Button
+                    size="lg"
+                    className="w-full h-16 text-xl font-bold text-white bg-primary hover:bg-primary/90 shadow-lg"
+                    onClick={handleNextQuestion}
+                >
+                    Continuar ✅
+                </Button>
+            </div>
+        );
       default:
         return null;
     }
@@ -227,4 +277,5 @@ export default function QuizPage() {
       </main>
     </div>
   );
-}
+
+    
