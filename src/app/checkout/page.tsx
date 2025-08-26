@@ -71,6 +71,49 @@ export default function CheckoutPage() {
         <h2 className="text-2xl font-bold underline">
             <span style={{ color: '#E836D7' }}>Programa Pilates na Parede Light 3.0</span> está mudando vidas
         </h2>
+        
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
+            <Image
+                src="/DM_20250826152000_001.png"
+                alt="Depoimento 1"
+                width={300}
+                height={400}
+                className="rounded-lg shadow-lg w-full h-auto"
+                data-ai-hint="testimonial social media"
+            />
+            <Image
+                src="/DM_20250826152002_001.png"
+                alt="Depoimento 2"
+                width={300}
+                height={400}
+                className="rounded-lg shadow-lg w-full h-auto"
+                data-ai-hint="testimonial social media"
+            />
+            <Image
+                src="/DM_20250826152003_001.png"
+                alt="Depoimento 3"
+                width={300}
+                height={400}
+                className="rounded-lg shadow-lg w-full h-auto"
+                data-ai-hint="testimonial social media"
+            />
+            <Image
+                src="/DM_20250826152006_001.png"
+                alt="Depoimento 4"
+                width={300}
+                height={400}
+                className="rounded-lg shadow-lg w-full h-auto"
+                data-ai-hint="testimonial social media"
+            />
+            <Image
+                src="/DM_20250826152007_001.png"
+                alt="Depoimento 5"
+                width={300}
+                height={400}
+                className="rounded-lg shadow-lg w-full h-auto"
+                data-ai-hint="testimonial social media"
+            />
+        </div>
 
         <Image
           src="/DM_20250826151138_001.png"
