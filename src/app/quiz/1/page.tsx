@@ -36,7 +36,7 @@ export default function QuizQuestionOnePage() {
         />
 
         <div className="w-full px-4">
-          <Progress value={20} className="h-4 bg-gray-200" indicatorClassName="bg-[#52FF00]" />
+          <Progress value={8} className="h-4 bg-gray-200" indicatorClassName="bg-[#52FF00]" />
         </div>
 
         <h2 className="text-2xl font-bold">Perfeito!!</h2>
