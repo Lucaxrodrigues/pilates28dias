@@ -42,14 +42,14 @@ export default function CheckoutPage() {
         <h3 className="text-xl font-bold">
           Vídeos demonstrativos com profissionais
         </h3>
-
+        
         <Image
-          src="/DM_20250826151133_001.gif"
-          alt="Bônus"
+          src="/DM_20250826151134_001.png"
+          alt="Vídeos demonstrativos"
           width={600}
           height={400}
           className="rounded-lg shadow-lg"
-          data-ai-hint="bonus offer content"
+          data-ai-hint="video thumbnails pilates"
         />
 
         <h2 className="text-2xl font-bold">
@@ -58,14 +58,14 @@ export default function CheckoutPage() {
         </h2>
         
         <p className="text-lg">Confira os bônus que você ganhou!</p>
-
+        
         <Image
-          src="/DM_20250826151134_001.png"
-          alt="Vídeos demonstrativos"
+          src="/DM_20250826151133_001.gif"
+          alt="Bônus"
           width={600}
           height={400}
           className="rounded-lg shadow-lg"
-          data-ai-hint="video thumbnails pilates"
+          data-ai-hint="bonus offer content"
         />
         
         <Image
@@ -81,49 +81,48 @@ export default function CheckoutPage() {
             <span style={{ color: '#E836D7' }}>Programa Pilates na Parede Light 3.0</span> está mudando vidas
         </h2>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
+        <div className="flex flex-col items-center space-y-4 w-full">
             <Image
                 src="/DM_20250826152000_001.png"
                 alt="Depoimento 1"
-                width={300}
-                height={400}
-                className="rounded-lg shadow-lg w-full h-auto"
+                width={400}
+                height={533}
+                className="rounded-lg shadow-lg"
                 data-ai-hint="testimonial social media"
             />
             <Image
                 src="/DM_20250826152003_001.png"
                 alt="Depoimento 3"
-                width={300}
-                height={400}
-                className="rounded-lg shadow-lg w-full h-auto"
+                width={400}
+                height={533}
+                className="rounded-lg shadow-lg"
                 data-ai-hint="testimonial social media"
             />
             <Image
                 src="/DM_20250826152006_001.png"
                 alt="Depoimento 4"
-                width={300}
-                height={400}
-                className="rounded-lg shadow-lg w-full h-auto"
+                width={400}
+                height={533}
+                className="rounded-lg shadow-lg"
                 data-ai-hint="testimonial social media"
             />
             <Image
                 src="/DM_20250826152007_001.png"
                 alt="Depoimento 5"
-                width={300}
-                height={400}
-                className="rounded-lg shadow-lg w-full h-auto"
+                width={400}
+                height={533}
+                className="rounded-lg shadow-lg"
                 data-ai-hint="testimonial social media"
             />
+             <Image
+                src="/DM_20250826151138_001.png"
+                alt="Prova social - Antes e Depois"
+                width={400}
+                height={267}
+                className="rounded-lg shadow-lg"
+                data-ai-hint="before after results"
+            />
         </div>
-
-        <Image
-          src="/DM_20250826151138_001.png"
-          alt="Prova social - Antes e Depois"
-          width={600}
-          height={400}
-          className="rounded-lg shadow-lg"
-          data-ai-hint="before after results"
-        />
 
         <h2 className="text-2xl font-bold">
           🚀 Agora é com VOCÊ! O que vai ser?{' '}
