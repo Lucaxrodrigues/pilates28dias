@@ -91,14 +91,6 @@ export default function CheckoutPage() {
                 data-ai-hint="testimonial social media"
             />
             <Image
-                src="/DM_20250826152002_001.png"
-                alt="Depoimento 2"
-                width={300}
-                height={400}
-                className="rounded-lg shadow-lg w-full h-auto"
-                data-ai-hint="testimonial social media"
-            />
-            <Image
                 src="/DM_20250826152003_001.png"
                 alt="Depoimento 3"
                 width={300}
