@@ -31,7 +31,7 @@ export default function Home() {
         {/* Elemento 4: Imagem Ilustrativa Central */}
         <div className="my-6">
           <Image
-            src="https://picsum.photos/600/400"
+            src="/mulher-pilates.png"
             alt="Mulher praticando Pilates na Parede"
             width={600}
             height={400}
