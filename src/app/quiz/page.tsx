@@ -27,8 +27,8 @@ export default function QuizIntroPage() {
           <Image
             src="/DM_20250826134053_001.png"
             alt="Matéria sobre o programa de Pilates"
-            width={450}
-            height={300}
+            width={300}
+            height={200}
             className="rounded-lg shadow-lg"
             data-ai-hint="pilates social proof"
           />
