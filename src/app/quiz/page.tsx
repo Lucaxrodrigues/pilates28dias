@@ -88,18 +88,32 @@ const quizQuestions = [
     testimonials: [
         {
             subtitle: 'Texto Silvana - 47 anos',
-            imageSrc: '/DM_20250826140527_001.png',
+            imageSrc: 'https://picsum.photos/400/250',
             imageAlt: 'Depoimento da Silvana',
             imageHint: 'testimonial chat'
         },
         {
             subtitle: 'Texto Marcia - 62 anos',
-            imageSrc: '/DM_20250826140558_001.png',
+            imageSrc: 'https://picsum.photos/400/250',
             imageAlt: 'Depoimento da Marcia',
             imageHint: 'testimonial chat'
         }
     ],
     ctaText: 'Responda às últimas perguntas e receba um **plano personalizado do Programa Pilates na Parede feito exclusivamente pra você!** ✅👇',
+  },
+  {
+    id: 7,
+    type: 'multiple',
+    progress: 46,
+    title: 'Em relação a um **Programa de 15 dias de Pilates na Parede, personalizado para você**, o que mais te animaria?',
+    subtitle: '(Marque quantas opções quiser)',
+    options: [
+        { id: 'resultados_visiveis', emoji: '⏰', label: 'Saber que posso ver resultados visíveis em pouco tempo' },
+        { id: 'jovem_menos_dores', emoji: '💚', label: 'Me sentir mais jovem e com menos dores' },
+        { id: 'orientacoes_claras', emoji: '😬', label: 'Receber orientações claras e simples que posso seguir todos os dias' },
+        { id: 'exercitar_em_casa', emoji: '💪', label: 'A possibilidade de me exercitar em casa sem precisar de equipamentos' },
+        { id: 'motivada_comprometida', emoji: '😎', label: 'Ter um passo a passo que me mantenha motivada e comprometida' },
+    ],
   }
 ];
 
@@ -211,7 +225,7 @@ export default function QuizPage() {
                 <div className="w-full max-w-md pt-4">
                     <Button
                         size="lg"
-                        className="w-full h-16 text-xl font-bold text-white bg-primary hover:bg-primary/90 shadow-lg"
+                        className="w-full h-16 text-xl font-bold text-white bg-[#E836D7] hover:bg-[#E836D7]/90 shadow-lg"
                         onClick={handleMultipleSelectContinue}
                         disabled={selectedOptions.length === 0}
                     >
@@ -242,7 +256,7 @@ export default function QuizPage() {
                 />
                 <Button
                     size="lg"
-                    className="w-full h-16 text-xl font-bold text-white bg-primary hover:bg-primary/90 shadow-lg"
+                    className="w-full h-16 text-xl font-bold text-white bg-[#E836D7] hover:bg-[#E836D7]/90 shadow-lg"
                     onClick={handleNextQuestion}
                 >
                     Continuar ✅
@@ -258,7 +272,7 @@ export default function QuizPage() {
     <div className="flex flex-col items-center min-h-screen bg-white text-center px-4 sm:px-6 lg:px-8">
       <main className="flex flex-col items-center justify-center flex-grow w-full max-w-2xl space-y-5 py-8 animate-in fade-in duration-700">
         <Image
-          src="/DM_20250826133017_001.png"
+          src="https://picsum.photos/100/50"
           alt="Logo do Programa"
           width={100}
           height={50}
@@ -270,12 +284,13 @@ export default function QuizPage() {
             <Progress value={currentQuestion.progress} className="h-4 bg-gray-200" indicatorClassName="bg-[#52FF00]" />
         </div>
         
-        <h2 className="text-2xl font-bold">{currentQuestion.title}</h2>
+        <h2 className="text-2xl font-bold" dangerouslySetInnerHTML={{ __html: currentQuestion.title }}></h2>
         {currentQuestion.subtitle && <p className="text-md text-gray-600">{currentQuestion.subtitle}</p>}
         
         {renderQuestion()}
       </main>
     </div>
   );
+}
 
     
