@@ -9,7 +9,7 @@ export default function Home() {
         {/* Elemento 1: Logo */}
         <div className="mb-4">
           <Image
-            src="https://picsum.photos/150/75"
+            src="/DM_20250826133017_001.png"
             alt="Logo do Programa"
             width={150}
             height={75}
@@ -63,5 +63,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
