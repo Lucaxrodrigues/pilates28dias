@@ -67,6 +67,15 @@ export default function CheckoutPage() {
           className="rounded-lg shadow-lg"
           data-ai-hint="video thumbnails pilates"
         />
+        
+        <Image
+          src="/DM_20250826152758_001.png"
+          alt="Bônus adicional"
+          width={600}
+          height={400}
+          className="rounded-lg shadow-lg"
+          data-ai-hint="bonus offer content"
+        />
 
         <h2 className="text-2xl font-bold underline">
             <span style={{ color: '#E836D7' }}>Programa Pilates na Parede Light 3.0</span> está mudando vidas
