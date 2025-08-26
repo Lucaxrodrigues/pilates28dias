@@ -69,6 +69,16 @@ const quizQuestions = [
         { id: 'nao_sei_comecar', emoji: '❌', label: 'Não sei por onde começar' },
         { id: 'sem_resultados_rapidos', emoji: '😭', label: 'Nunca achei algo que me dê resultados rápidos' },
     ],
+  },
+  {
+    id: 5,
+    type: 'single-emoji',
+    progress: 38,
+    title: 'Você acredita que é possível ter um corpo melhor, mais jovem e sem dores através do pilates na parede?',
+    options: [
+        { id: 'acredito', label: '✅ Eu acredito!' },
+        { id: 'nao_acredito', label: '❌ Eu NÃO acredito.' },
+    ],
   }
 ];
 
@@ -125,7 +135,7 @@ export default function QuizPage() {
               >
                 <div className="flex items-center">
                   <div className="w-8 h-8 rounded-md bg-[#007BFF] flex items-center justify-center mr-4">
-                    <span className="text-white font-bold">{index + 1}</span>
+                    <span className="text-white font-bold">{String.fromCharCode(65 + index)}</span>
                   </div>
                   <span>{option.label}</span>
                 </div>
@@ -182,6 +192,7 @@ export default function QuizPage() {
                         size="lg"
                         className="w-full h-16 text-xl font-bold text-white bg-primary hover:bg-primary/90 shadow-lg"
                         onClick={handleMultipleSelectContinue}
+                        disabled={selectedOptions.length === 0}
                     >
                         Continuar ✅
                     </Button>
@@ -199,8 +210,8 @@ export default function QuizPage() {
         <Image
           src="/DM_20250826133017_001.png"
           alt="Logo do Programa"
-          width={150}
-          height={75}
+          width={100}
+          height={50}
           data-ai-hint="logo pilates"
           className="mb-4"
         />
