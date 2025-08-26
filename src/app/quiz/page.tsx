@@ -99,13 +99,13 @@ const quizQuestions = [
             imageHint: 'testimonial chat'
         }
     ],
-    ctaText: 'Responda às últimas perguntas e receba um **plano personalizado do Programa Pilates na Parede feito exclusivamente pra você!** ✅👇',
+    ctaText: 'Responda às últimas perguntas e receba um <b>plano personalizado do Programa Pilates na Parede feito exclusivamente pra você!</b> ✅👇',
   },
   {
     id: 7,
     type: 'multiple',
     progress: 46,
-    title: 'Em relação a um **Programa de 15 dias de Pilates na Parede, personalizado para você**, o que mais te animaria?',
+    title: 'Em relação a um <b>Programa de 15 dias de Pilates na Parede, personalizado para você</b>, o que mais te animaria?',
     subtitle: '(Marque quantas opções quiser)',
     options: [
         { id: 'resultados_visiveis', emoji: '⏰', label: 'Saber que posso ver resultados visíveis em pouco tempo' },
@@ -114,6 +114,21 @@ const quizQuestions = [
         { id: 'exercitar_em_casa', emoji: '💪', label: 'A possibilidade de me exercitar em casa sem precisar de equipamentos' },
         { id: 'motivada_comprometida', emoji: '😎', label: 'Ter um passo a passo que me mantenha motivada e comprometida' },
     ],
+  },
+  {
+    id: 8,
+    type: 'multiple',
+    progress: 62,
+    title: 'O que te faria começar o <strong><u>Programa Pilates na Parede</u></strong> hoje mesmo?',
+    subtitle: '(Marque quantas opções quiser)',
+    options: [
+        { id: 'resultados_15_dias', emoji: '🙏', label: 'Saber que posso ver resultados visíveis em 15 dias' },
+        { id: 'cuidar_saude', emoji: '💚', label: 'Saber que preciso cuidar da minha saúde e rejuvenescer meu corpo' },
+        { id: 'solucao_pratica', emoji: '✅', label: 'Ter uma solução prática que começa hoje mesmo' },
+        { id: 'plano_pratico', emoji: '😬', label: 'Receber um plano prático para seguir diariamente, com instruções claras' },
+    ],
+    conclusionText: 'Perfeito! Já podemos finalizar as perguntas por aqui! ❤️',
+    buttonText: 'Finalizar ✅',
   }
 ];
 
@@ -222,6 +237,9 @@ export default function QuizPage() {
                         </Card>
                     ))}
                 </div>
+                 {currentQuestion.conclusionText && (
+                  <p className="text-lg font-bold text-gray-800 mt-6">{currentQuestion.conclusionText}</p>
+                )}
                 <div className="w-full max-w-md pt-4">
                     <Button
                         size="lg"
@@ -229,7 +247,7 @@ export default function QuizPage() {
                         onClick={handleMultipleSelectContinue}
                         disabled={selectedOptions.length === 0}
                     >
-                        Continuar ✅
+                        {currentQuestion.buttonText || 'Continuar ✅'}
                     </Button>
                 </div>
             </>
@@ -292,3 +310,5 @@ export default function QuizPage() {
     </div>
   );
 }
+
+    
