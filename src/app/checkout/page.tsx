@@ -44,12 +44,12 @@ export default function CheckoutPage() {
         </h3>
 
         <Image
-          src="/DM_20250826151134_001.png"
-          alt="Vídeos demonstrativos"
+          src="/DM_20250826151133_001.gif"
+          alt="Bônus"
           width={600}
           height={400}
           className="rounded-lg shadow-lg"
-          data-ai-hint="video thumbnails pilates"
+          data-ai-hint="bonus offer content"
         />
 
         <h2 className="text-2xl font-bold">
@@ -60,12 +60,12 @@ export default function CheckoutPage() {
         <p className="text-lg">Confira os bônus que você ganhou!</p>
 
         <Image
-          src="/DM_20250826151133_001.gif"
-          alt="Bônus"
+          src="/DM_20250826151134_001.png"
+          alt="Vídeos demonstrativos"
           width={600}
           height={400}
           className="rounded-lg shadow-lg"
-          data-ai-hint="bonus offer content"
+          data-ai-hint="video thumbnails pilates"
         />
 
         <h2 className="text-2xl font-bold underline">
