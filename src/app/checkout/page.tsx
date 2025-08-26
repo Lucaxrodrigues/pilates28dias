@@ -60,7 +60,7 @@ export default function CheckoutPage() {
         <p className="text-lg">Confira os bônus que você ganhou!</p>
 
         <Image
-          src="/DM_20250826151133_001.png"
+          src="/DM_20250826151133_001.gif"
           alt="Bônus"
           width={600}
           height={400}
