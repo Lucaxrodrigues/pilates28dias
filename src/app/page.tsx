@@ -9,7 +9,7 @@ export default function Home() {
         {/* Elemento 1: Logo */}
         <div className="mb-4">
           <Image
-            src="https://picsum.photos/150/75"
+            src="/DM_20250826133017_001.png"
             alt="Logo do Programa"
             width={150}
             height={75}
@@ -19,7 +19,7 @@ export default function Home() {
         </div>
 
         {/* Elemento 2: Título Principal */}
-        <h1 className="text-3xl sm:text-4xl font-bold text-black">
+        <h1 className="text-3xl sm:text-4xl font-bold text-black font-headline">
           Você sabia que o Pilates na Parede pode rejuvenescer seu corpo, suas articulações, até mesmo sua pele e prevenir doenças?
         </h1>
 
@@ -31,7 +31,7 @@ export default function Home() {
         {/* Elemento 4: Imagem Ilustrativa Central */}
         <div className="my-6">
           <Image
-            src="https://picsum.photos/600/400"
+            src="/DM_20250826133020_001.png"
             alt="Mulher praticando Pilates na Parede"
             width={600}
             height={400}
