@@ -60,7 +60,7 @@ export default function ResultsPage() {
             <strong>Nosso sistema analisou suas respostas</strong> e, com base nelas, <strong>preparamos um guia personalizado para você seguir e chegar da maneira mais rápida e fácil aos seus objetivos!</strong>
         </p>
         
-        <Link href="#" passHref className="w-full max-w-md pt-4">
+        <Link href="/checkout" passHref className="w-full max-w-md pt-4">
             <Button
               size="lg"
               className="w-full h-16 text-xl font-bold text-white bg-[#E836D7] hover:bg-[#E836D7]/90 shadow-lg"
