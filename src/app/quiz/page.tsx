@@ -18,7 +18,7 @@ export default function QuizIntroPage() {
         </div>
 
         {/* Elemento 2: Título de Prova Social */}
-        <h2 className="text-3xl sm:text-4xl font-bold text-primary">
+        <h2 className="text-lg sm:text-xl font-bold text-primary">
           Já Somos + de 58 Mil mulheres pelo Brasil 🇧🇷🏆
         </h2>
 
