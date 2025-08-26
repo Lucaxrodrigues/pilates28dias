@@ -28,8 +28,7 @@ export default function LoadingPage() {
   useEffect(() => {
     if (progress === 100) {
       setTimeout(() => {
-        // Redirect to the final offer page. Using '/' as a placeholder for now.
-        router.push('/'); 
+        router.push('/results'); 
       }, 2000); // Wait 2 seconds after loading before redirecting
     }
   }, [progress, router]);
