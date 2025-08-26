@@ -88,13 +88,13 @@ const quizQuestions = [
     testimonials: [
         {
             subtitle: 'Texto Silvana - 47 anos',
-            imageSrc: 'https://picsum.photos/400/250',
+            imageSrc: '/DM_20250826140527_001.png',
             imageAlt: 'Depoimento da Silvana',
             imageHint: 'testimonial chat'
         },
         {
             subtitle: 'Texto Marcia - 62 anos',
-            imageSrc: 'https://picsum.photos/400/250',
+            imageSrc: '/DM_20250826140558_001.png',
             imageAlt: 'Depoimento da Marcia',
             imageHint: 'testimonial chat'
         }
@@ -272,10 +272,10 @@ export default function QuizPage() {
     <div className="flex flex-col items-center min-h-screen bg-white text-center px-4 sm:px-6 lg:px-8">
       <main className="flex flex-col items-center justify-center flex-grow w-full max-w-2xl space-y-5 py-8 animate-in fade-in duration-700">
         <Image
-          src="https://picsum.photos/100/50"
+          src="/DM_20250826133017_001.png"
           alt="Logo do Programa"
-          width={100}
-          height={50}
+          width={150}
+          height={75}
           data-ai-hint="logo pilates"
           className="mb-4"
         />
