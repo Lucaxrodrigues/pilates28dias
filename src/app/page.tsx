@@ -9,7 +9,7 @@ export default function Home() {
         {/* Elemento 1: Logo */}
         <div className="mb-4">
           <Image
-            src="/DM_20250826133017_001.png"
+            src="https://picsum.photos/150/75"
             alt="Logo do Programa"
             width={150}
             height={75}
@@ -31,7 +31,7 @@ export default function Home() {
         {/* Elemento 4: Imagem Ilustrativa Central */}
         <div className="my-6">
           <Image
-            src="/DM_20250826133020_001.png"
+            src="https://picsum.photos/600/400"
             alt="Mulher praticando Pilates na Parede"
             width={600}
             height={400}
@@ -63,3 +63,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
