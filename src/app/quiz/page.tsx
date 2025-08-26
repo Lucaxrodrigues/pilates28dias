@@ -11,6 +11,16 @@ import { useRouter } from 'next/navigation';
 
 const quizQuestions = [
   {
+    id: 0,
+    type: 'intro',
+    progress: 2,
+    title: 'Já Somos + de 58 Mil mulheres pelo Brasil 🇧🇷🏆',
+    imageSrc: '/DM_20250826133020_001.png',
+    imageAlt: 'Mulheres praticando Pilates na Parede',
+    imageHint: 'pilates wall exercise',
+    ctaText: 'Continuar ✅',
+  },
+  {
     id: 1,
     type: 'single',
     progress: 8,
@@ -170,6 +180,26 @@ export default function QuizPage() {
 
   const renderQuestion = () => {
     switch (currentQuestion.type) {
+      case 'intro':
+        return (
+            <div className="w-full max-w-md space-y-6 pt-4 flex flex-col items-center">
+                <Image
+                    src={currentQuestion.imageSrc}
+                    alt={currentQuestion.imageAlt}
+                    width={500}
+                    height={300}
+                    className="rounded-lg shadow-md"
+                    data-ai-hint={currentQuestion.imageHint}
+                />
+                <Button
+                    size="lg"
+                    className="w-full h-16 text-xl font-bold text-white bg-[#E836D7] hover:bg-[#E836D7]/90 shadow-lg"
+                    onClick={handleNextQuestion}
+                >
+                    {currentQuestion.ctaText}
+                </Button>
+            </div>
+        );
       case 'single':
         return (
           <div className="flex flex-col w-full max-w-md space-y-4 pt-4">
