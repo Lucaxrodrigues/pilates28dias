@@ -21,8 +21,8 @@ export default function StartPage() {
         <Image
           src="/DM_20250826134053_001.png"
           alt="Matéria sobre o programa"
-          width={600}
-          height={400}
+          width={225}
+          height={150}
           className="rounded-lg"
           data-ai-hint="social proof article"
         />
