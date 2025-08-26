@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -146,9 +145,8 @@ export default function QuizPage() {
       setCurrentQuestionIndex(nextIndex);
       setSelectedOptions([]); // Reset for next multi-select question
     } else {
-      // Handle quiz completion, e.g., navigate to results page
       console.log('Quiz completed!', answers);
-       router.push('/'); // Or a results page
+      router.push('/loading');
     }
   };
 
@@ -180,11 +178,11 @@ export default function QuizPage() {
                 key={option.id}
                 variant="outline"
                 size="lg"
-                className="w-full h-16 text-lg justify-start p-4 bg-white border border-gray-300 hover:border-blue-500 hover:bg-gray-50 text-gray-800"
+                className="w-full h-16 text-lg justify-start p-4 bg-white border border-gray-300 hover:border-primary hover:bg-gray-50 text-gray-800"
                 onClick={() => handleSingleSelect(option.id)}
               >
                 <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-md bg-[#007BFF] flex items-center justify-center mr-4">
+                  <div className="w-8 h-8 rounded-md bg-primary flex items-center justify-center mr-4">
                     <span className="text-white font-bold">{String.fromCharCode(65 + index)}</span>
                   </div>
                   <span>{option.label}</span>
@@ -201,7 +199,7 @@ export default function QuizPage() {
                 key={option.id}
                 variant="outline"
                 size="lg"
-                className="w-full h-auto min-h-[4rem] text-lg justify-start p-4 bg-white border border-gray-300 hover:border-blue-500 hover:bg-gray-50 text-gray-800 text-left whitespace-normal"
+                className="w-full h-auto min-h-[4rem] text-lg justify-start p-4 bg-white border border-gray-300 hover:border-primary hover:bg-gray-50 text-gray-800 text-left whitespace-normal"
                 onClick={() => handleSingleSelect(option.id)}
               >
                 <span className="text-2xl mr-4">{option.label.split(' ')[0]}</span>
@@ -245,7 +243,7 @@ export default function QuizPage() {
                         size="lg"
                         className="w-full h-16 text-xl font-bold text-white bg-[#E836D7] hover:bg-[#E836D7]/90 shadow-lg"
                         onClick={handleMultipleSelectContinue}
-                        disabled={selectedOptions.length === 0}
+                        disabled={selectedOptions.length === 0 && currentQuestion.id !== 7}
                     >
                         {currentQuestion.buttonText || 'Continuar ✅'}
                     </Button>
@@ -310,5 +308,3 @@ export default function QuizPage() {
     </div>
   );
 }
-
-    
