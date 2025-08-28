@@ -1,23 +1,10 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
+import { trackEvent } from '@/app/actions';
 
-declare global {
-  interface Window {
-    ttq: any;
-  }
-}
-
-type EventName = 'PageView' | 'InitiateCheckout';
-
-const N8N_WEBHOOK_URLS: Record<EventName, string> = {
-  PageView: 'https://redis-n8n.rzilkp.easypanel.host/webhook-test/pageviewttk',
-  InitiateCheckout: 'https://redis-n8n.rzilkp.easypanel.host/webhook-test/checkoutttk',
-};
-
-// --- FUNÇÕES AUXILIARES ---
-// 1. getCookie: A ferramenta para ler os cookies do navegador.
+// --- Funções Auxiliares ---
 function getCookie(name: string): string {
   if (typeof document === 'undefined') return '';
   const value = `; ${document.cookie}`;
@@ -26,7 +13,6 @@ function getCookie(name: string): string {
   return '';
 }
 
-// 2. setCookie: A ferramenta para criar ou atualizar um cookie.
 function setCookie(name: string, value: string, days: number): void {
   if (typeof document === 'undefined') return;
   let expires = '';
@@ -38,7 +24,6 @@ function setCookie(name: string, value: string, days: number): void {
   document.cookie = name + '=' + (value || '') + expires + '; path=/';
 }
 
-// 3. generateUUID: Cria um ID único para a sessão do usuário.
 function generateUUID(): string {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
     var r = (Math.random() * 16) | 0,
@@ -47,92 +32,67 @@ function generateUUID(): string {
   });
 }
 
-// --- FUNÇÃO PRINCIPAL DE ENVIO ---
-async function sendEvent(eventName: EventName) {
-  const ttpCookieValue = getCookie('_ttp');
-  // A. Cria ou recupera o ID da sessão para este visitante.
-  const sessionId = getCookie('my_session_id') || generateUUID();
-  setCookie('my_session_id', sessionId, 1); // O ID de sessão dura 1 dia.
-
-  // B. URL do seu webhook N8N.
-  const N8N_WEBHOOK_URL = N8N_WEBHOOK_URLS[eventName];
-
-  if (!N8N_WEBHOOK_URL) {
-    console.error(`N8N Webhook URL para o evento ${eventName} não está configurada.`);
-    return;
-  }
-
-  // C. Lê os parâmetros da URL atual (para UTMs, fbclid, ttclid).
-  const currentParams = new URLSearchParams(window.location.search);
-
-  // D. Montagem do Objeto de Dados (O "Payload").
-  // É aqui que toda a captura acontece.
-  const dadosParaN8N = {
-    event_name: eventName,
-    event_time: Math.floor(Date.now() / 1000),
-    user_data: {
-      // Captura os cookies do Facebook. O Pixel do FB os cria automaticamente.
-      fbc: getCookie('_fbc') || undefined,
-      fbp: getCookie('_fbp') || undefined,
-
-      // Captura o ttclid da URL e o cookie _ttp do TikTok.
-      ttclid: currentParams.get('ttclid') || undefined,
-      ttp: ttpCookieValue || undefined,
-
-      // Captura o "User-Agent" para saber o navegador e o sistema operacional.
-      client_user_agent: navigator.userAgent,
-
-      // Envia nosso ID de sessão como 'external_id'.
-      external_id: sessionId,
-    },
-    attribution_data: {
-      // Captura os parâmetros UTM da URL.
-      ad_id: currentParams.get('utm_term') || undefined,
-      adset_id: currentParams.get('utm_content') || undefined,
-      campaign_id: currentParams.get('utm_campaign') || undefined,
-    },
-    custom_data: {}, // Espaço para dados extras no futuro.
-    event_source_url: window.location.href, // A URL completa da página.
-    action_source: 'website',
-  };
-
-  // E. Envia os dados para o N8N.
-  try {
-    await fetch(N8N_WEBHOOK_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(dadosParaN8N),
-    });
-    console.log(`Evento ${eventName} enviado para o N8N com sucesso!`, dadosParaN8N);
-  } catch (error) {
-    console.error(`Erro de rede ao enviar evento ${eventName} para o N8N:`, error);
-  }
-}
-
-
-export function triggerServerEvent(eventName: EventName) {
-    sendEvent(eventName);
-}
-
-
 export function N8NTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  useEffect(() => {
-    // --- A ESTRATÉGIA DE EXECUÇÃO ---
-    // Dispara o ttq.page() para o TikTok começar a trabalhar.
-    if (typeof window.ttq !== 'undefined') {
-      window.ttq.page();
+  const handleHomePageView = useCallback(() => {
+    // Requisito 2: Captura e Armazenamento de Parâmetros de Campanha (UTMs)
+    const utm_source = searchParams.get('utm_source');
+    const utm_medium = searchParams.get('utm_medium');
+    const utm_campaign = searchParams.get('utm_campaign');
+
+    if (utm_source || utm_medium || utm_campaign) {
+      const campaignParams = {
+        utm_source,
+        utm_medium,
+        utm_campaign,
+      };
+      localStorage.setItem('campaign_params', JSON.stringify(campaignParams));
     }
 
-    // Aguarda 500ms para dar tempo do cookie _ttp ser criado.
-    const timer = setTimeout(() => {
-      sendEvent('PageView'); // Chama a função principal de envio.
-    }, 500);
+    // Requisito 3: Webhook de Visita na Página Inicial (HomePageView)
+    const storedCampaignParams = JSON.parse(
+      localStorage.getItem('campaign_params') || '{}'
+    );
+      
+    const external_id = getCookie('my_session_id');
 
-    return () => clearTimeout(timer); // Limpa o timer se o usuário sair da página.
-  }, [pathname, searchParams]);
+    trackEvent({
+      eventName: 'HomePageView',
+      eventTime: Math.floor(Date.now() / 1000),
+      userData: {
+        external_id: external_id,
+        fbc: getCookie('_fbc') || undefined,
+        fbp: getCookie('_fbp') || undefined,
+        client_user_agent: navigator.userAgent,
+      },
+      customData: {
+        quiz_step: 1, // Página de entrada é a etapa 1
+        quiz_question: 'Entrada no Funil',
+        quiz_answer: 'Visitou a página inicial',
+        ad_id: storedCampaignParams.utm_source || undefined,
+        adset_id: storedCampaignParams.utm_medium || undefined,
+        campaign_id: storedCampaignParams.utm_campaign || undefined,
+      },
+      event_source_url: window.location.href,
+      action_source: 'website',
+    });
+  }, [searchParams]);
+
+  useEffect(() => {
+    // Requisito 1: Identificação Única e Persistente do Usuário
+    let sessionId = getCookie('my_session_id');
+    if (!sessionId) {
+      sessionId = generateUUID();
+      setCookie('my_session_id', sessionId, 30); // Validade de 30 dias
+    }
+
+    // Dispara evento apenas na página inicial
+    if (pathname === '/') {
+      handleHomePageView();
+    }
+  }, [pathname, handleHomePageView]);
 
   return null; // O componente não renderiza nada visível na tela.
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Progress } from '@/components/ui/progress';
 import { Button } from '@/components/ui/button';
@@ -8,7 +8,16 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Card, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { useRouter } from 'next/navigation';
-import { triggerServerEvent } from '@/components/n8n-tracker';
+import { trackEvent } from '@/app/actions';
+
+// --- Funções Auxiliares do Tracker ---
+function getCookie(name: string): string {
+  if (typeof document === 'undefined') return '';
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop()?.split(';').shift() || '';
+  return '';
+}
 
 const quizQuestions = [
   {
@@ -141,17 +150,65 @@ export default function QuizPage() {
 
   const currentQuestion = quizQuestions[currentQuestionIndex];
 
+  // Requisito 4: Webhook para Cada Etapa do Quiz
+  const sendQuizStepEvent = (question: any, answer: any) => {
+    const external_id = getCookie('my_session_id');
+    const questionIndex = quizQuestions.findIndex(q => q.id === question.id);
+    const quizStep = questionIndex + 3; // Home é 1, Início do Quiz é 2
+
+    const answerLabel = Array.isArray(answer)
+      ? answer
+          .map(ansId => {
+            const opt = question.options.find((o: any) => o.id === ansId);
+            return opt ? opt.label : ansId;
+          })
+          .join(', ')
+      : question.options.find((o: any) => o.id === answer)?.label || answer;
+      
+    trackEvent({
+        eventName: 'QuizStep',
+        eventTime: Math.floor(Date.now() / 1000),
+        userData: {
+            external_id: external_id,
+            client_user_agent: navigator.userAgent
+        },
+        customData: {
+            quiz_step: quizStep,
+            quiz_question: question.title.replace(/<[^>]*>?/gm, ''), // Remove HTML tags
+            quiz_answer: answerLabel,
+        },
+        event_source_url: window.location.href,
+        action_source: 'website'
+    });
+  };
+
+  useEffect(() => {
+    // Evento para a "antiga página start" que agora é o início do quiz
+    if (quizStarted) {
+      trackEvent({
+        eventName: 'QuizStart',
+        eventTime: Math.floor(Date.now() / 1000),
+        userData: {
+          external_id: getCookie('my_session_id'),
+          client_user_agent: navigator.userAgent
+        },
+        customData: {
+            quiz_step: 2, // Início do quiz é a etapa 2
+            quiz_question: 'Início do Quiz',
+            quiz_answer: 'Usuário clicou para iniciar o quiz'
+        },
+        event_source_url: window.location.href,
+        action_source: 'website'
+      });
+    }
+  }, [quizStarted]);
+
+
   const handleNextQuestion = () => {
     const nextIndex = currentQuestionIndex + 1;
-    
-    // Dispara o evento InitiateCheckout na última questão
-    if (currentQuestion.id === 8) {
-        triggerServerEvent('InitiateCheckout');
-    }
-    
     if (nextIndex < quizQuestions.length) {
       setCurrentQuestionIndex(nextIndex);
-      setSelectedOptions([]); // Reset for next multi-select question
+      setSelectedOptions([]);
     } else {
       console.log('Quiz completed!', answers);
       router.push('/loading');
@@ -160,6 +217,7 @@ export default function QuizPage() {
 
   const handleSingleSelect = (optionId: string) => {
     setAnswers({ ...answers, [currentQuestion.id]: optionId });
+    sendQuizStepEvent(currentQuestion, optionId);
     handleNextQuestion();
   };
   
@@ -172,6 +230,7 @@ export default function QuizPage() {
 
   const handleMultipleSelectContinue = () => {
     setAnswers({ ...answers, [currentQuestion.id]: selectedOptions });
+    sendQuizStepEvent(currentQuestion, selectedOptions);
     handleNextQuestion();
   };
 
@@ -281,7 +340,10 @@ export default function QuizPage() {
                 <Button
                     size="lg"
                     className="w-full h-16 text-xl font-bold text-white bg-[#E836D7] hover:bg-[#E836D7]/90 shadow-lg"
-                    onClick={handleNextQuestion}
+                    onClick={() => {
+                        sendQuizStepEvent(currentQuestion, "Continuou após depoimentos");
+                        handleNextQuestion();
+                    }}
                 >
                     Continuar ✅
                 </Button>
