@@ -97,13 +97,13 @@ const quizQuestions = [
     testimonials: [
         {
             subtitle: 'Texto Silvana - 47 anos',
-            imageSrc: '/DM_20250826140527_001.png',
+            imageSrc: '/DM_20250826140527_001.jpg',
             imageAlt: 'Depoimento da Silvana',
             imageHint: 'testimonial chat'
         },
         {
             subtitle: 'Texto Marcia - 62 anos',
-            imageSrc: '/DM_20250826140558_001.png',
+            imageSrc: '/DM_20250826140558_001.jpg',
             imageAlt: 'Depoimento da Marcia',
             imageHint: 'testimonial chat'
         }
