@@ -163,7 +163,7 @@ export default function QuizPage() {
             return opt ? opt.label : ansId;
           })
           .join(', ')
-      : question.options.find((o: any) => o.id === answer)?.label || answer;
+      : (question.options && question.options.find((o: any) => o.id === answer)?.label) || answer;
       
     trackEvent({
         eventName: 'QuizStep',
@@ -310,7 +310,7 @@ export default function QuizPage() {
                         size="lg"
                         className="w-full h-16 text-xl font-bold text-white bg-[#E836D7] hover:bg-[#E836D7]/90 shadow-lg"
                         onClick={handleMultipleSelectContinue}
-                        disabled={selectedOptions.length === 0 && currentQuestion.id !== 7 && currentQuestion.id !== 8}
+                        disabled={selectedOptions.length === 0}
                     >
                         {currentQuestion.buttonText || 'Continuar ✅'}
                     </Button>
