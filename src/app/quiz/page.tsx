@@ -8,6 +8,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Card, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { useRouter } from 'next/navigation';
+import { triggerServerEvent } from '@/components/n8n-tracker';
 
 const quizQuestions = [
   {
@@ -141,6 +142,15 @@ export default function QuizPage() {
 
   const handleNextQuestion = () => {
     const nextIndex = currentQuestionIndex + 1;
+
+    // Se for a última questão, dispara o evento InitiateCheckout
+    if (currentQuestion.id === 8) {
+      if (typeof window.ttq !== 'undefined') {
+        window.ttq.track('InitiateCheckout');
+      }
+      triggerServerEvent('InitiateCheckout');
+    }
+    
     if (nextIndex < quizQuestions.length) {
       setCurrentQuestionIndex(nextIndex);
       setSelectedOptions([]); // Reset for next multi-select question
