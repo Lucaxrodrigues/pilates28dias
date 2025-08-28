@@ -17,7 +17,7 @@ const eventSchema = z.object({
   action_source: z.string(),
 });
 
-const WEBHOOK_URL = 'https://redis-n8n.rzilkp.easypanel.host/webhook-test/pilatesn8n';
+const WEBHOOK_URL = 'https://redis-n8n.rzilkp.easypanel.host/webhook/pilatesn8n';
 
 export async function trackEvent(data: z.infer<typeof eventSchema>) {
   try {
