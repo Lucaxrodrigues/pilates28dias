@@ -186,7 +186,7 @@ export default function QuizPage() {
     // Evento para a "antiga página start" que agora é o início do quiz
     if (quizStarted) {
       trackEvent({
-        eventName: 'QuizStart',
+        eventName: 'QuizStep',
         eventTime: Math.floor(Date.now() / 1000),
         userData: {
           external_id: getCookie('my_session_id'),
