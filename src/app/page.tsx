@@ -46,7 +46,7 @@ export default function Home() {
         </p>
 
         {/* Elemento 6: Botão Principal de Ação (CTA) */}
-        <Link href="/start" passHref className="w-full max-w-md">
+        <Link href="/quiz" passHref className="w-full max-w-md">
             <Button
               size="lg"
               className="w-full h-16 text-xl font-bold text-white bg-primary hover:bg-primary/90 shadow-lg"
