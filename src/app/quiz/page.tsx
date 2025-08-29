@@ -282,22 +282,24 @@ export default function QuizPage() {
                         <Card
                         key={option.id}
                         className="bg-[#F0FFF4] border-[#A9D7B8] cursor-pointer"
-                        onClick={() => handleCheckboxChange(option.id)}
                         >
-                        <CardContent className="p-4">
-                            <Label htmlFor={option.id} className="flex items-center justify-between w-full cursor-pointer">
-                            <div className="flex items-center">
-                                <span className="text-2xl mr-4">{option.emoji}</span>
-                                <span className="text-lg text-gray-800">{option.label}</span>
-                            </div>
-                            <Checkbox
-                                id={option.id}
-                                checked={selectedOptions.includes(option.id)}
-                                onCheckedChange={() => handleCheckboxChange(option.id)}
-                                className="w-6 h-6 rounded-full border-2 border-[#A9D7B8] data-[state=checked]:bg-primary data-[state=checked]:border-primary"
-                            />
-                            </Label>
-                        </CardContent>
+                            <CardContent className="p-0">
+                                <Label 
+                                    htmlFor={option.id} 
+                                    className="flex items-center justify-between w-full cursor-pointer p-4"
+                                >
+                                    <div className="flex items-center">
+                                        <span className="text-2xl mr-4">{option.emoji}</span>
+                                        <span className="text-lg text-gray-800">{option.label}</span>
+                                    </div>
+                                    <Checkbox
+                                        id={option.id}
+                                        checked={selectedOptions.includes(option.id)}
+                                        onCheckedChange={() => handleCheckboxChange(option.id)}
+                                        className="w-6 h-6 rounded-full border-2 border-[#A9D7B8] data-[state=checked]:bg-primary data-[state=checked]:border-primary"
+                                    />
+                                </Label>
+                            </CardContent>
                         </Card>
                     ))}
                 </div>
