@@ -150,7 +150,6 @@ export default function QuizPage() {
 
   const currentQuestion = quizQuestions[currentQuestionIndex];
 
-  // Requisito 4: Webhook para Cada Etapa do Quiz
   const sendQuizStepEvent = (question: any, answer: any) => {
     const external_id = getCookie('my_session_id');
     const questionIndex = quizQuestions.findIndex(q => q.id === question.id);
