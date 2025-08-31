@@ -25,7 +25,9 @@ export async function trackEvent(data: z.infer<typeof eventSchema>) {
   try {
     const parsedData = eventSchema.parse(data);
 
-    const webhookUrl = parsedData.eventName === 'HomePageView' 
+    // Roteamento do webhook baseado no nome do evento
+    // PageViewFB vai para o webhook de pageview, o resto (incluindo HomePageView do quiz) vai para o webhook do quiz.
+    const webhookUrl = parsedData.eventName === 'PageViewFB' 
       ? WEBHOOK_URL_PAGEVIEW 
       : WEBHOOK_URL_QUIZ;
 
