@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useCallback } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { trackEvent } from '@/app/actions';
 
 // --- Funções Auxiliares ---
@@ -29,14 +29,30 @@ async function getClientIp(): Promise<string> {
 
 export function CheckoutTracker() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   const handleCheckoutVisit = useCallback(async () => {
-    const clientIp = await getClientIp();
+    // 1. Tenta pegar os UTMs da URL atual
+    const utm_source = searchParams.get('utm_source');
+    const utm_medium = searchParams.get('utm_medium');
+    const utm_campaign = searchParams.get('utm_campaign');
 
+    // Se encontrar na URL, salva no localStorage para garantir consistência
+    if (utm_source || utm_medium || utm_campaign) {
+      const campaignParams = {
+        utm_source,
+        utm_medium,
+        utm_campaign,
+      };
+      localStorage.setItem('campaign_params', JSON.stringify(campaignParams));
+    }
+    
+    // 2. Lê os parâmetros do localStorage (que podem ter vindo da home ou da URL atual)
     const storedCampaignParams = JSON.parse(
       localStorage.getItem('campaign_params') || '{}'
     );
       
+    const clientIp = await getClientIp();
     const external_id = getCookie('my_session_id');
     const eventTime = Math.floor(Date.now() / 1000);
     const event_source_url = window.location.href;
@@ -62,7 +78,7 @@ export function CheckoutTracker() {
       event_source_url: event_source_url,
       action_source: 'website',
     });
-  }, []);
+  }, [searchParams]);
 
   useEffect(() => {
     if (pathname === '/checkout') {
