@@ -32,11 +32,25 @@ function generateUUID(): string {
   });
 }
 
+// Função para buscar o IP do cliente
+async function getClientIp(): Promise<string> {
+    try {
+        const response = await fetch('https://api.ipify.org?format=json');
+        if (!response.ok) return '';
+        const data = await response.json();
+        return data.ip || '';
+    } catch (error) {
+        console.error('Failed to fetch IP:', error);
+        return '';
+    }
+}
+
+
 export function N8NTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const handleHomePageVisit = useCallback(() => {
+  const handleHomePageVisit = useCallback(async () => {
     // Captura e Armazenamento de Parâmetros de Campanha (UTMs)
     const utm_source = searchParams.get('utm_source');
     const utm_medium = searchParams.get('utm_medium');
@@ -50,6 +64,8 @@ export function N8NTracker() {
       };
       localStorage.setItem('campaign_params', JSON.stringify(campaignParams));
     }
+    
+    const clientIp = await getClientIp();
 
     const storedCampaignParams = JSON.parse(
       localStorage.getItem('campaign_params') || '{}'
@@ -63,6 +79,7 @@ export function N8NTracker() {
       fbc: getCookie('_fbc') || undefined,
       fbp: getCookie('_fbp') || undefined,
       client_user_agent: navigator.userAgent,
+      ip: clientIp,
     };
 
     // Evento 1: Para o funil do Quiz (enviado para o webhook do quiz)
