@@ -17,9 +17,14 @@ const eventSchema = z.object({
   action_source: z.string(),
 });
 
-const WEBHOOK_URL = 'https://redis-n8n.rzilkp.easypanel.host/webhook/pilatesn8n';
+const WEBHOOK_URL = process.env.N8N_WEBHOOK_URL;
 
 export async function trackEvent(data: z.infer<typeof eventSchema>) {
+  if (!WEBHOOK_URL) {
+    console.error('N8N_WEBHOOK_URL is not defined in environment variables.');
+    return { success: false, error: 'Webhook URL not configured' };
+  }
+  
   try {
     const parsedData = eventSchema.parse(data);
 
