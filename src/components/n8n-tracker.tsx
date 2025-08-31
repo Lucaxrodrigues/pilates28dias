@@ -125,7 +125,11 @@ export function N8NTracker() {
 
     // Dispara eventos apenas na página inicial
     if (pathname === '/') {
-      handleHomePageVisit();
+      const timer = setTimeout(() => {
+        handleHomePageVisit();
+      }, 4000); // 4 segundos de atraso
+
+      return () => clearTimeout(timer); // Limpa o timer se o componente for desmontado
     }
   }, [pathname, handleHomePageVisit]);
 
