@@ -37,9 +37,19 @@ export async function trackEvent(data: z.infer<typeof eventSchema>) {
     }
 
     // Get IP from headers
-    const forwardedFor = headers().get('x-forwarded-for');
-    const realIp = headers().get('x-real-ip');
-    const ip = forwardedFor ? forwardedFor.split(',')[0] : realIp;
+    const getIp = () => {
+        const headerList = headers();
+        const forwardedFor = headerList.get('x-forwarded-for');
+        if (forwardedFor) {
+            return forwardedFor.split(',')[0].trim();
+        }
+        const realIp = headerList.get('x-real-ip');
+        if (realIp) {
+            return realIp.trim();
+        }
+        return null;
+    }
+    const ip = getIp();
 
     const payload = {
       ...parsedData,
