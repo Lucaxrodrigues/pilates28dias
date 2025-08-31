@@ -19,6 +19,8 @@ const eventSchema = z.object({
 
 const WEBHOOK_URL_PAGEVIEW = 'https://redis-n8n.rzilkp.easypanel.host/webhook-test/pageviewfb';
 const WEBHOOK_URL_QUIZ = 'https://redis-n8n.rzilkp.easypanel.host/webhook/pilatesn8n';
+const WEBHOOK_URL_CHECKOUT = 'https://redis-n8n.rzilkp.easypanel.host/webhook-test/checkoutfb';
+
 
 export async function trackEvent(data: z.infer<typeof eventSchema>) {
   
@@ -26,9 +28,18 @@ export async function trackEvent(data: z.infer<typeof eventSchema>) {
     const parsedData = eventSchema.parse(data);
 
     // Roteamento do webhook baseado no nome do evento
-    const webhookUrl = parsedData.eventName === 'PageViewFB' 
-      ? WEBHOOK_URL_PAGEVIEW 
-      : WEBHOOK_URL_QUIZ;
+    let webhookUrl;
+    switch (parsedData.eventName) {
+      case 'PageViewFB':
+        webhookUrl = WEBHOOK_URL_PAGEVIEW;
+        break;
+      case 'InitiateCheckout':
+        webhookUrl = WEBHOOK_URL_CHECKOUT;
+        break;
+      default: // QuizStep, HomePageView, etc.
+        webhookUrl = WEBHOOK_URL_QUIZ;
+        break;
+    }
 
     if (!webhookUrl) {
       console.error('Webhook URL not determined for event:', parsedData.eventName);
