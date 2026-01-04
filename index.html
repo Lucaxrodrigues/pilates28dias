@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo Natural</title>
+    
+    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+    <link rel="preload" href="https://scripts.converteai.net/d0d1a002-acf0-4f0f-8660-7e41487e7083/players/695a6111c9de5690088b20fe/v4/player.js" as="script">
+    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+    <link rel="preload" href="https://cdn.converteai.net/d0d1a002-acf0-4f0f-8660-7e41487e7083/695a5fa8667ebdae6555fac1/main.m3u8" as="fetch">
+    <link rel="dns-prefetch" href="https://cdn.converteai.net">
+    <link rel="dns-prefetch" href="https://scripts.converteai.net">
+    <link rel="dns-prefetch" href="https://images.converteai.net">
+    <link rel="dns-prefetch" href="https://api.vturb.com.br">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #FFFFFF;
+            color: rgb(26, 26, 26);
+            line-height: 1.6;
+        }
+
+        .top-bar {
+            background-color: rgb(196, 23, 12);
+            border: 0;
+            padding: 16px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .wrapper-top {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .live-stats {
+            font-size: 15px;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .live-stats .qty {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .info-alert {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .info-alert .limit-date {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .main-wrapper {
+            max-width: 800px;
+            margin: 24px auto;
+            padding: 0 20px;
+        }
+
+        .primary-img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px auto;
+        }
+
+        .media-wrapper {
+            margin: 24px 0;
+            display: block;
+        }
+
+        .audio-alert {
+            margin-top: 12px;
+            padding: 12px;
+            background-color: rgb(240, 242, 245);
+            border-radius: 8px;
+            font-size: 15px;
+            color: rgb(26, 26, 26);
+            text-align: center;
+        }
+
+        .ref-box {
+            margin: 32px auto;
+            max-width: 500px;
+        }
+
+        .ref-head {
+            background-color: rgb(59, 89, 152);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .ref-img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            display: block;
+            background-color: rgb(240, 242, 245);
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .feed-area {
+            margin-top: 48px;
+            background-color: rgb(240, 242, 245);
+            padding: 20px 0;
+        }
+
+        .social-proof-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .feed-head {
+            padding: 16px 16px 12px 16px;
+            border-bottom: 1px solid rgb(228, 230, 235);
+        }
+
+        .feed-total {
+            font-size: 17px;
+            font-weight: 600;
+            color: rgb(5, 5, 5);
+        }
+
+        .feed-sub {
+            font-size: 15px;
+            color: rgb(101, 103, 107);
+            font-weight: normal;
+        }
+
+        .feed-list {
+            padding: 16px;
+        }
+
+        .feedback-entry {
+            margin-bottom: 20px;
+        }
+
+        .fb-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .u-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+
+        .msg-wrap {
+            flex: 1;
+        }
+
+        .msg-content {
+            background-color: rgb(240, 242, 245);
+            padding: 8px 12px;
+            border-radius: 18px;
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        .u-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: rgb(56, 88, 152);
+            margin-bottom: 2px;
+            cursor: pointer;
+        }
+
+        .u-name:hover {
+            text-decoration: underline;
+        }
+
+        .u-text {
+            font-size: 15px;
+            line-height: 1.3333;
+            color: rgb(5, 5, 5);
+            word-wrap: break-word;
+        }
+
+        .interact-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 4px;
+            margin-left: 12px;
+            font-size: 12px;
+            color: rgb(101, 103, 107);
+        }
+
+        .interact-bar span {
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .interact-bar span:not(.time-ago):not(.reacts):hover {
+            text-decoration: underline;
+        }
+
+        .interact-bar .time-ago {
+            font-weight: normal;
+        }
+
+        .interact-bar .reacts {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-left: auto;
+            font-weight: normal;
+        }
+
+        .interact-bar .reacts::before {
+            content: "👍❤️";
+            font-size: 14px;
+            margin-right: 2px;
+        }
+
+        .sub-thread {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            margin-left: 48px;
+        }
+
+        .load-more {
+            padding: 12px 16px;
+            border-top: none;
+            text-align: left;
+        }
+
+        .load-more button {
+            background: transparent;
+            border: none;
+            color: rgb(56, 88, 152);
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .load-more button:hover {
+            text-decoration: underline;
+        }
+
+        .btm-bar {
+            background-color: rgb(26, 26, 26);
+            color: white;
+            padding: 48px 20px 24px;
+            margin-top: 64px;
+        }
+
+        .btm-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btm-legal {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .live-stats {
+                font-size: 14px;
+            }
+
+            .info-alert {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="wrapper-top">
+            <div class="live-stats">
+                <span class="qty" id="liveUserDisplay">...</span> Pessoas estão assistindo a esse vídeo.
+            </div>
+            <div class="info-alert">
+                Devido a alta demanda de acessos, garantimos a apresentação somente até: <span class="limit-date" id="limitDateDisplay">...</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-body">
+        <div class="main-wrapper">
+            <div class="content-box">
+                <img src="headline.png" alt="Headline" class="primary-img">
+                
+                <div class="media-wrapper">
+                    <vturb-smartplayer id="vid-695a6111c9de5690088b20fe" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer> 
+                    <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/d0d1a002-acf0-4f0f-8660-7e41487e7083/players/695a6111c9de5690088b20fe/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+                    
+                    <p class="audio-alert">
+                        🔊 Por favor, verifique se o som está ligado.
+                    </p>
+                </div>
+
+                <div class="ref-box">
+                    <div class="ref-head">Referências Científicas</div>
+                    <img src="referencias-cientificas.png" alt="Referências" class="ref-img">
+                </div>
+            </div>
+            
+            <section class="feed-area">
+                <div class="social-proof-box">
+                    <div class="feed-head">
+                        <div class="feed-total">
+                            448 COMENTÁRIOS <span class="feed-sub">- EXIBINDO OS 23 MAIS RELEVANTES</span>
+                        </div>
+                    </div>
+                    
+                    <div class="feed-list">
+                        
+                        <div class="feedback-entry">
+                            <div class="fb-row">
+                                <img src="EduardoCoelhor.png" alt="User" class="u-pic">
+                                <div class="msg-wrap">
+                                    <div class="msg-content">
+                                        <div class="u-name">Eduardo Coelhor</div>
+                                        <div class="u-text">Ainda bem que eu vi o vídeo até o final. Fico feliz demais Muito obrigado Dr. por ter descoberto, fiz o teste e em dois dias já recuperei minha disposição!</div>
+                                    </div>
+                                    <div class="interact-bar">
+                                        <span>Curtir</span>
+                                        <span>Responder</span>
+                                        <span class="time-ago">21 min</span>
+                                        <span class="reacts">38</span>
+                                    </div>
+                                    
+                                    <div class="sub-thread">
+                                        <img src="RobertoBelmonte.png" alt="User" class="u-pic">
+                                        <div class="msg-wrap">
+                                            <div class="msg-content">
+                                                <div class="u-name">Roberto Belmonte</div>
+                                                <div class="u-text">O método funciona moço</div>
+                                            </div>
+                                            <div class="interact-bar">
+                                                <span>Curtir</span>
+                                                <span>Responder</span>
+                                                <span class="time-ago">1 min</span>
+                                                <span class="reacts">7</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feedback-entry">
+                            <div class="fb-row">
+                                <img src="PedroPaulo.png" alt="User" class="u-pic">
+                                <div class="msg-wrap">
+                                    <div class="msg-content">
+                                        <div class="u-name">Pedro Paulo</div>
+                                        <div class="u-text">No início eu duvidava muito, até porque já tinha tentado de tudo antes Mas mesmo assim resolvi dar uma chance e fiquei impressionado!</div>
+                                    </div>
+                                    <div class="interact-bar">
+                                        <span>Curtir</span>
+                                        <span>Responder</span>
+                                        <span class="time-ago">3h</span>
+                                        <span class="reacts">219</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feedback-entry">
+                            <div class="fb-row">
+                                <img src="LucasAlmeida.png" alt="User" class="u-pic">
+                                <div class="msg-wrap">
+                                    <div class="msg-content">
+                                        <div class="u-name">Lucas Almeida</div>
+                                        <div class="u-text">Tava querendo saber se funcionava de verdade e agora vendo todos esses comentários positivos, já sei a resposta. Mto obg gente!!</div>
+                                    </div>
+                                    <div class="interact-bar">
+                                        <span>Curtir</span>
+                                        <span>Responder</span>
+                                        <span class="time-ago">51 min</span>
+                                        <span class="reacts">24</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feedback-entry">
+                            <div class="fb-row">
+                                <img src="MarceloSantosLima.png" alt="User" class="u-pic">
+                                <div class="msg-wrap">
+                                    <div class="msg-content">
+                                        <div class="u-name">Marcelo Santos Lima</div>
+                                        <div class="u-text">Estou surpreso como esse truque funciona mesmo! Duvidava que realmente ia funcionar, estou usando há 30 dias e a diferença na minha energia é enorme.</div>
+                                    </div>
+                                    <div class="interact-bar">
+                                        <span>Curtir</span>
+                                        <span>Responder</span>
+                                        <span class="time-ago">49 min</span>
+                                        <span class="reacts">14</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feedback-entry">
+                            <div class="fb-row">
+                                <img src="GuilhermeMotta.png" alt="User" class="u-pic">
+                                <div class="msg-wrap">
+                                    <div class="msg-content">
+                                        <div class="u-name">Guilherme Motta</div>
+                                        <div class="u-text">Eu realmente precisava desse truque para salvar meu casamento, nao sabia mais o que fazer. O video demora um pouco, mas depois que é revelado o truque eu fiquei surpreso pq funciona de verdade! obrigado Doutor!</div>
+                                    </div>
+                                    <div class="interact-bar">
+                                        <span>Curtir</span>
+                                        <span>Responder</span>
+                                        <span class="time-ago">45 min</span>
+                                        <span class="reacts">102</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feedback-entry">
+                            <div class="fb-row">
+                                <img src="RodrigoMenezes.png" alt="User" class="u-pic">
+                                <div class="msg-wrap">
+                                    <div class="msg-content">
+                                        <div class="u-name">Rodrigo Menezes</div>
+                                        <div class="u-text">Depois que completei 56 anos, comecei a sofrer com a falta de vitalidade, o que me fazia sempre ficar desanimado... Agora, depois de usar sua solução, tudo isso acabou! Minha autoestima voltou. Realmente funciona, eu recomendo mto</div>
+                                    </div>
+                                    <div class="interact-bar">
+                                        <span>Curtir</span>
+                                        <span>Responder</span>
+                                        <span class="time-ago">44 min</span>
+                                        <span class="reacts">23</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feedback-entry">
+                            <div class="fb-row">
+                                <img src="BrunoMartins.png" alt="User" class="u-pic">
+                                <div class="msg-wrap">
+                                    <div class="msg-content">
+                                        <div class="u-name">Bruno Martins</div>
+                                        <div class="u-text">Você devia mostrar esse truque para todo mundo! Ele funciona mesmo!</div>
+                                    </div>
+                                    <div class="interact-bar">
+                                        <span>Curtir</span>
+                                        <span>Responder</span>
+                                        <span class="time-ago">2 min</span>
+                                        <span class="reacts">5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feedback-entry">
+                            <div class="fb-row">
+                                <img src="EmanuelSilva.png" alt="User" class="u-pic">
+                                <div class="msg-wrap">
+                                    <div class="msg-content">
+                                        <div class="u-name">Emanuel Silva</div>
+                                        <div class="u-text">Eu sofria com a falta de ânimo, mas minha esposa notava que tinha algo errado. Mas agora não tem quem me segure, me sinto jovem de novo!</div>
+                                    </div>
+                                    <div class="interact-bar">
+                                        <span>Curtir</span>
+                                        <span>Responder</span>
+                                        <span class="time-ago">6h</span>
+                                        <span class="reacts">28</span>
+                                    </div>
+                                    
+                                    <div class="sub-thread">
+                                        <img src="WagnerMoura.png" alt="User" class="u-pic">
+                                        <div class="msg-wrap">
+                                            <div class="msg-content">
+                                                <div class="u-name">Wagner Moura</div>
+                                                <div class="u-text">Não consigo ter resultados faz mais de 8 anos, sera que funciona?</div>
+                                            </div>
+                                            <div class="interact-bar">
+                                                <span>Curtir</span>
+                                                <span>Responder</span>
+                                                <span class="time-ago">22 min</span>
+                                                <span class="reacts">16</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="sub-thread">
+                                        <img src="CeliaIvano.png" alt="User" class="u-pic">
+                                        <div class="msg-wrap">
+                                            <div class="msg-content">
+                                                <div class="u-name">Celia Ivano</div>
+                                                <div class="u-text">Wagner o resultado é sólido rsrs Esse metodo foi a única tentativa que deu certo pra mim. Pode testar, vc vai ver como funciona!</div>
+                                            </div>
+                                            <div class="interact-bar">
+                                                <span>Curtir</span>
+                                                <span>Responder</span>
+                                                <span class="time-ago">19 min</span>
+                                                <span class="reacts">11</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feedback-entry">
+                            <div class="fb-row">
+                                <img src="OtavioNeto.png" alt="User" class="u-pic">
+                                <div class="msg-wrap">
+                                    <div class="msg-content">
+                                        <div class="u-name">Otavio Neto</div>
+                                        <div class="u-text">Fazia tempo que estava procurando isso, sorte que achei de novo</div>
+                                    </div>
+                                    <div class="interact-bar">
+                                        <span>Curtir</span>
+                                        <span>Responder</span>
+                                        <span class="time-ago">8 min</span>
+                                        <span class="reacts">5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feedback-entry">
+                            <div class="fb-row">
+                                <img src="JoseCarvalho.png" alt="User" class="u-pic">
+                                <div class="msg-wrap">
+                                    <div class="msg-content">
+                                        <div class="u-name">José Carvalho</div>
+                                        <div class="u-text">eu sofria com a mesma coisa que vocês. Esse truque do bicarbonato foi minha única tentativa que deu certo, você vai ver como funciona.</div>
+                                    </div>
+                                    <div class="interact-bar">
+                                        <span>Curtir</span>
+                                        <span>Responder</span>
+                                        <span class="time-ago">59 min</span>
+                                        <span class="reacts">152</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="load-more">
+                        <button>Ver mais comentários</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="btm-bar">
+        <div class="btm-container">
+            <div class="btm-legal">
+                <div>© 2026 Todos os direitos reservados.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function genRandomStats() {
+            return Math.floor(Math.random() * (920 - 700 + 1)) + 700;
+        }
+
+        function getCurrentFormattedDate() {
+            const d = new Date();
+            const day = String(d.getDate()).padStart(2, '0');
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const year = d.getFullYear();
+            return `${day}/${month}/${year}`;
+        }
+
+        const elUserCount = document.getElementById('liveUserDisplay');
+        const elDateLimit = document.getElementById('limitDateDisplay');
+
+        if(elUserCount) elUserCount.textContent = genRandomStats();
+        if(elDateLimit) elDateLimit.textContent = getCurrentFormattedDate();
+
+        setInterval(function() {
+            if(elUserCount) elUserCount.textContent = genRandomStats();
+        }, Math.random() * 5000 + 5000);
+    </script>
+</body>
+</html>
