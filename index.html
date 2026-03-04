@@ -23,13 +23,13 @@
     }
 
     html {
-      background: #0f0f0f;
+      background: #fff;
     }
 
     body {
       font-family: "Roboto", Arial, sans-serif;
-      background: #0f0f0f;
-      color: #f1f1f1;
+      background: #fff;
+      color: #0f0f0f;
       max-width: 480px;
       margin: 0 auto;
     }
@@ -40,10 +40,11 @@
     #topbar {
       flex-shrink: 0;
       height: 52px;
-      background: #0f0f0f;
+      background: #fff;
       display: flex;
       align-items: center;
       padding: 0 12px 0 14px;
+      border-bottom: 1px solid #e5e5e5;
     }
 
     .yt-brand {
@@ -56,7 +57,7 @@
     .yt-brand-name {
       font-size: 19px;
       font-weight: 700;
-      color: #f1f1f1;
+      color: #0f0f0f;
       letter-spacing: -0.3px;
     }
 
@@ -70,7 +71,7 @@
       background: none;
       border: none;
       cursor: pointer;
-      color: #f1f1f1;
+      color: #0f0f0f;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -99,8 +100,8 @@
       align-items: center;
       gap: 8px;
       padding: 6px 12px;
-      background: #0f0f0f;
-      border-bottom: 1px solid #1a1a1a;
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
     }
     .live-badge {
       background: #ff0000;
@@ -123,7 +124,7 @@
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
     .viewer-text {
       font-size: 12px;
-      color: #aaa;
+      color: #606060;
     }
 
     /* ───────────────────────────────────────
@@ -135,8 +136,8 @@
       align-items: center;
       gap: 9px;
       padding: 8px 12px;
-      background: #0f0f0f;
-      border-bottom: 1px solid #1a1a1a;
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
     }
     .ch-avatar {
       width: 32px;
@@ -167,11 +168,11 @@
     }
     .ch-subs {
       font-size: 11px;
-      color: #aaa;
+      color: #606060;
     }
     .btn-sub {
-      background: #f1f1f1;
-      color: #0f0f0f;
+      background: #0f0f0f;
+      color: #fff;
       border: none;
       border-radius: 20px;
       padding: 7px 13px;
@@ -187,7 +188,7 @@
     #chat-section {
       display: flex;
       flex-direction: column;
-      background: #0f0f0f;
+      background: #fff;
     }
 
     /* Chat header */
@@ -197,7 +198,7 @@
       align-items: center;
       gap: 8px;
       padding: 9px 12px 8px;
-      border-bottom: 1px solid #1a1a1a;
+      border-bottom: 1px solid #e5e5e5;
     }
     #chat-header-info {
       flex: 1;
@@ -206,14 +207,14 @@
     .chat-title {
       font-size: 14px;
       font-weight: 600;
-      color: #f1f1f1;
+      color: #0f0f0f;
       display: flex;
       align-items: center;
       gap: 6px;
     }
     .chat-subtitle {
       font-size: 11px;
-      color: #909090;
+      color: #606060;
       margin-top: 1px;
     }
     #chat-header-actions {
@@ -226,10 +227,10 @@
       display: flex;
       align-items: center;
       gap: 4px;
-      background: #272727;
+      background: #f2f2f2;
       border: none;
       border-radius: 20px;
-      color: #f1f1f1;
+      color: #0f0f0f;
       font-size: 11px;
       padding: 4px 9px;
       cursor: pointer;
@@ -240,7 +241,7 @@
       height: 32px;
       background: none;
       border: none;
-      color: #aaa;
+      color: #606060;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -281,10 +282,10 @@
     .msg-name {
       font-size: 12px;
       font-weight: 600;
-      color: #f1f1f1;
+      color: #0f0f0f;
     }
-    .msg-name.mod { color: #5b9bd5; }
-    .msg-name.mbr { color: #4caf50; }
+    .msg-name.mod { color: #065fd4; }
+    .msg-name.mbr { color: #1e8a1e; }
     .mbr-tag {
       display: inline-block;
       background: #4caf50;
@@ -297,7 +298,7 @@
     }
     .msg-text {
       font-size: 12px;
-      color: #d0d0d0;
+      color: #333;
       margin-top: 1px;
       line-height: 1.4;
       word-break: break-word;
@@ -308,8 +309,8 @@
     ─────────────────────────────────────── */
     #chat-input-bar {
       flex-shrink: 0;
-      border-top: 1px solid #1a1a1a;
-      background: #0f0f0f;
+      border-top: 1px solid #e5e5e5;
+      background: #fff;
     }
     .excl-row {
       display: flex;
@@ -328,14 +329,14 @@
     }
     .excl-label {
       font-size: 11px;
-      color: #717171;
+      color: #606060;
       display: flex;
       align-items: center;
       gap: 4px;
     }
     .excl-hint {
       font-size: 12px;
-      color: #505050;
+      color: #909090;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -346,7 +347,7 @@
       height: 36px;
       background: none;
       border: none;
-      color: #717171;
+      color: #606060;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -425,7 +426,7 @@
     <div class="ch-name">
       Doutor Carlos
       <!-- verificado -->
-      <svg viewBox="0 0 24 24" fill="#aaa" width="13" height="13"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      <svg viewBox="0 0 24 24" fill="#606060" width="13" height="13"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
     </div>
     <div class="ch-subs">143 mil inscritos</div>
   </div>
