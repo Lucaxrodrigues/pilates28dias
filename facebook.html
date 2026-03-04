@@ -459,6 +459,76 @@
       }
     }
 
+    /* FAQ Section */
+    .faq-section {
+      background: #111;
+      padding: 50px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-section h2 {
+      text-align: center;
+      color: #fff;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    .faq-item {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 18px 50px 18px 20px;
+      text-align: left;
+      cursor: pointer;
+      position: relative;
+      display: block;
+    }
+
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      color: #D4AF37;
+      transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-question::after {
+      content: '−';
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-answer p {
+      color: #ccc;
+      font-size: 14px;
+      line-height: 1.7;
+      padding: 0 20px 18px;
+      margin: 0;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+    }
+
     /* Disclaimer / Footer */
     .disclaimer-footer {
       background: #1a1a1a;
@@ -639,6 +709,60 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="faq-section">
+    <h2>D&uacute;vidas Frequentes</h2>
+
+    <div class="faq-item">
+      <button class="faq-question">O que &eacute; o LordVigor?</button>
+      <div class="faq-answer">
+        <p>O LordVigor &eacute; um composto 100% natural, com f&oacute;rmula premium com ingredientes aprovados pela ANVISA e n&atilde;o possui nenhum efeito colateral.<br>Al&eacute;m disso, o LordVigor n&atilde;o tem contra indica&ccedil;&otilde;es, sendo consumido por milhares de pessoas todos os dias.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Quantos frascos devo pedir?</button>
+      <div class="faq-answer">
+        <p>Os melhores resultados surgem quando voc&ecirc; toma o LordVigor por 3 meses ou mais. Dessa forma, ele tem tempo suficiente para agir em todo o seu corpo.<br>Por isso, recomendamos fortemente que voc&ecirc; aproveite os pacotes de desconto de 3 ou 5 frascos.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Como devo tomar o LordVigor?</button>
+      <div class="faq-answer">
+        <p>Basta pingar uma gota embaixo da l&iacute;ngua todos os dias, ap&oacute;s o caf&eacute; da manh&atilde; ou almo&ccedil;o e voc&ecirc; vai adorar os resultados.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Em quanto tempo posso ver resultados?</button>
+      <div class="faq-answer">
+        <p>Os resultados variam de acordo com o organismo de cada pessoa.<br>Mas os clientes do LordVigor afirmam terem notado sinais de melhora j&aacute; nos primeiros dias de uso.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">O LordVigor &eacute; vendido em farm&aacute;cia ou em lojas f&iacute;sicas?</button>
+      <div class="faq-answer">
+        <p>Devido &agrave; alta demanda e a qualidade da f&oacute;rmula, a venda &eacute; feita exclusivamente neste site oficial. Se voc&ecirc; ver o LordVigor em farm&aacute;cia ou mercado livre, n&atilde;o compre pois &eacute; uma falsifica&ccedil;&atilde;o que pode colocar a sua sa&uacute;de em risco.<br>&Eacute; totalmente proibida a revenda de terceiros em outros sites.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">E se n&atilde;o funcionar para mim?</button>
+      <div class="faq-answer">
+        <p>Cada frasco do LordVigor vem com nossa garantia blindada de 60 dias.<br>Se, por algum motivo, voc&ecirc; n&atilde;o estiver satisfeito com os resultados, basta devolver os frascos (mesmo que vazios), e n&oacute;s reembolsaremos 100% do seu dinheiro, sem perguntas.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">O que eu fa&ccedil;o agora?</button>
+      <div class="faq-answer">
+        <p>Escolha o seu kit acima e clique no bot&atilde;o escrito &quot;Comprar&quot;.<br>Na pr&oacute;xima p&aacute;gina, basta preencher as suas informa&ccedil;&otilde;es e dizer para onde devemos enviar o seu pedido do LordVigor.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta-section">
     <a href="#kits" class="btn-cta">ESCOLHER MEU KIT</a>
@@ -679,6 +803,20 @@
       var yyyy = hoje.getFullYear();
       document.getElementById('deadline-date').textContent = dia + ', ' + dd + '/' + mm + '/' + yyyy;
     })();
+  </script>
+
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.parentElement;
+        var wasActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(function(el) {
+          el.classList.remove('active');
+        });
+        if (!wasActive) item.classList.add('active');
+      });
+    });
   </script>
 
   <script>
