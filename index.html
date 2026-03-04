@@ -15,171 +15,142 @@
   <link rel="icon" href="https://www.youtube.com/favicon.ico" />
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-    html, body {
-      height: 100%;
+    html {
       background: #0f0f0f;
-      font-family: "Roboto", Arial, sans-serif;
-      color: #f1f1f1;
-      overscroll-behavior: none;
     }
 
     body {
-      display: flex;
-      flex-direction: column;
-      /* full viewport height */
-      height: 100dvh;
+      font-family: "Roboto", Arial, sans-serif;
+      background: #0f0f0f;
+      color: #f1f1f1;
       max-width: 480px;
       margin: 0 auto;
+      /* stack everything vertically, fill the viewport */
+      display: flex;
+      flex-direction: column;
+      height: 100svh;
       overflow: hidden;
     }
 
-    /* ══════════════════════════════
-       TOPBAR
-    ══════════════════════════════ */
+    /* ───────────────────────────────────────
+       TOPBAR  (YouTube mobile style)
+    ─────────────────────────────────────── */
     #topbar {
       flex-shrink: 0;
       height: 52px;
       background: #0f0f0f;
       display: flex;
       align-items: center;
-      padding: 0 14px;
-      gap: 0;
-      z-index: 100;
+      padding: 0 12px 0 14px;
     }
 
     .yt-brand {
+      flex: 1;
       display: flex;
       align-items: center;
       gap: 5px;
-      flex: 1;
       text-decoration: none;
     }
-    /* red play button */
-    .yt-brand-icon {
-      display: flex;
-      align-items: center;
-    }
     .yt-brand-name {
-      font-size: 18px;
+      font-size: 19px;
       font-weight: 700;
       color: #f1f1f1;
       letter-spacing: -0.3px;
-      line-height: 1;
     }
 
-    .topbar-actions {
+    .topbar-icons {
       display: flex;
       align-items: center;
-      gap: 2px;
     }
-    .tb-btn {
+    .icon-btn {
+      width: 40px;
+      height: 40px;
       background: none;
       border: none;
       cursor: pointer;
       color: #f1f1f1;
-      width: 40px;
-      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
     }
 
-    /* ══════════════════════════════
+    /* ───────────────────────────────────────
        VIDEO AREA
-    ══════════════════════════════ */
+       max-height keeps vturb from pushing layout
+    ─────────────────────────────────────── */
     #video-area {
       flex-shrink: 0;
       width: 100%;
       background: #000;
-      position: relative;
-      /* 16:9 */
-      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      /* 16:9 cap: 480 * 9/16 = 270px */
+      max-height: 270px;
     }
 
-    /* YouTube overlay icon on video — top left */
-    .yt-video-overlay {
-      position: absolute;
-      top: 8px;
-      left: 10px;
-      z-index: 20;
-      pointer-events: none;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.7));
+    #video-area vturb-smartplayer {
+      display: block;
+      width: 100%;
     }
 
-    /* AO VIVO badge */
-    .live-pill-overlay {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      z-index: 20;
-      pointer-events: none;
+    /* ───────────────────────────────────────
+       LIVE INFO ROW  (below video)
+    ─────────────────────────────────────── */
+    #live-row {
+      flex-shrink: 0;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 8px;
+      padding: 6px 12px;
+      background: #0f0f0f;
+      border-bottom: 1px solid #1a1a1a;
     }
-    .live-pill {
+    .live-badge {
       background: #ff0000;
       color: #fff;
       font-size: 11px;
       font-weight: 700;
       padding: 2px 7px;
       border-radius: 3px;
-      letter-spacing: 0.4px;
-    }
-    .viewer-pill {
-      background: rgba(0,0,0,0.72);
-      color: #fff;
-      font-size: 11px;
-      padding: 2px 6px;
-      border-radius: 3px;
-    }
-
-    /* smartplayer fills the area */
-    #video-area vturb-smartplayer {
-      display: block;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0; left: 0;
-    }
-
-    /* ══════════════════════════════
-       VIDEO INFO (compact)
-    ══════════════════════════════ */
-    #video-info {
+      letter-spacing: 0.3px;
       flex-shrink: 0;
-      padding: 10px 14px 10px;
-      background: #0f0f0f;
-      border-bottom: 1px solid #1e1e1e;
+    }
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #ff0000;
+      flex-shrink: 0;
+      animation: blink 1.3s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+    .viewer-text {
+      font-size: 12px;
+      color: #aaa;
     }
 
-    .video-title {
-      font-size: 13.5px;
-      font-weight: 500;
-      line-height: 1.35;
-      color: #f1f1f1;
-      margin-bottom: 8px;
-      /* 2 lines max */
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .channel-row {
+    /* ───────────────────────────────────────
+       CHANNEL ROW
+    ─────────────────────────────────────── */
+    #channel-row {
+      flex-shrink: 0;
       display: flex;
       align-items: center;
       gap: 9px;
+      padding: 8px 12px;
+      background: #0f0f0f;
+      border-bottom: 1px solid #1a1a1a;
     }
     .ch-avatar {
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       background: #065fd4;
       display: flex;
@@ -190,7 +161,7 @@
       color: #fff;
       flex-shrink: 0;
     }
-    .ch-info {
+    .ch-details {
       flex: 1;
       min-width: 0;
     }
@@ -200,79 +171,67 @@
       display: flex;
       align-items: center;
       gap: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .ch-subs {
       font-size: 11px;
       color: #aaa;
     }
-    .btn-subscribe {
+    .btn-sub {
       background: #f1f1f1;
       color: #0f0f0f;
       border: none;
       border-radius: 20px;
       padding: 7px 13px;
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
       flex-shrink: 0;
     }
 
-    /* ══════════════════════════════
-       CHAT SECTION
-    ══════════════════════════════ */
+    /* ───────────────────────────────────────
+       CHAT SECTION  (fills remaining height)
+    ─────────────────────────────────────── */
     #chat-section {
       flex: 1;
+      min-height: 0;
       display: flex;
       flex-direction: column;
-      overflow: hidden;
       background: #0f0f0f;
     }
 
     /* Chat header */
-    .chat-header {
+    #chat-header {
       flex-shrink: 0;
-      padding: 9px 12px 8px;
-      border-bottom: 1px solid #1e1e1e;
       display: flex;
       align-items: center;
       gap: 8px;
+      padding: 9px 12px 8px;
+      border-bottom: 1px solid #1a1a1a;
     }
-    .chat-header-info {
+    #chat-header-info {
       flex: 1;
       min-width: 0;
     }
-    .chat-title-row {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .live-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #ff0000;
-      flex-shrink: 0;
-      animation: blink 1.3s infinite;
-    }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
     .chat-title {
       font-size: 14px;
       font-weight: 600;
       color: #f1f1f1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
     .chat-subtitle {
       font-size: 11px;
       color: #909090;
       margin-top: 1px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
-
-    .chat-header-actions {
+    #chat-header-actions {
       display: flex;
       align-items: center;
-      gap: 3px;
+      gap: 2px;
       flex-shrink: 0;
     }
     .xp-pill {
@@ -288,37 +247,37 @@
       cursor: pointer;
       white-space: nowrap;
     }
-    .hdr-icon-btn {
+    .hdr-btn {
+      width: 32px;
+      height: 32px;
       background: none;
       border: none;
       color: #aaa;
       cursor: pointer;
-      width: 32px;
-      height: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
     }
 
-    /* Messages scroll area */
+    /* Messages */
     #chat-messages {
       flex: 1;
+      min-height: 0;
       overflow-y: auto;
       overflow-x: hidden;
-      padding: 3px 0;
+      padding: 4px 0;
       -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
     }
     #chat-messages::-webkit-scrollbar { display: none; }
 
-    .chat-msg {
+    .msg {
       display: flex;
       align-items: flex-start;
       gap: 8px;
       padding: 4px 12px;
     }
-    .msg-avatar {
+    .msg-av {
       width: 20px;
       height: 20px;
       border-radius: 50%;
@@ -331,17 +290,24 @@
       flex-shrink: 0;
       margin-top: 1px;
     }
-    .msg-body {
-      flex: 1;
-      min-width: 0;
-    }
-    .msg-author {
+    .msg-bd { flex: 1; min-width: 0; }
+    .msg-name {
       font-size: 12px;
       font-weight: 600;
       color: #f1f1f1;
     }
-    .msg-author.mod { color: #5865f2; }
-    .msg-author.mbr { color: #4caf50; }
+    .msg-name.mod { color: #5b9bd5; }
+    .msg-name.mbr { color: #4caf50; }
+    .mbr-tag {
+      display: inline-block;
+      background: #4caf50;
+      color: #fff;
+      font-size: 9px;
+      padding: 1px 5px;
+      border-radius: 10px;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
     .msg-text {
       font-size: 12px;
       color: #d0d0d0;
@@ -350,104 +316,96 @@
       word-break: break-word;
     }
 
-    /* ══════════════════════════════
+    /* ───────────────────────────────────────
        BOTTOM INPUT BAR
-    ══════════════════════════════ */
+    ─────────────────────────────────────── */
     #chat-input-bar {
       flex-shrink: 0;
+      border-top: 1px solid #1a1a1a;
       background: #0f0f0f;
-      border-top: 1px solid #1e1e1e;
     }
-    .exclusive-row {
+    .excl-row {
       display: flex;
       align-items: center;
-      gap: 9px;
-      padding: 10px 14px 10px;
+      gap: 8px;
+      padding: 10px 12px;
     }
-    .excl-left {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex: 1;
-      min-width: 0;
-    }
-    .excl-yt-icon {
+    .excl-yt {
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
     }
-    .excl-info {
+    .excl-body {
       flex: 1;
       min-width: 0;
     }
     .excl-label {
       font-size: 11px;
-      color: #909090;
+      color: #717171;
       display: flex;
       align-items: center;
-      gap: 3px;
+      gap: 4px;
     }
-    .excl-label svg { vertical-align: middle; }
     .excl-hint {
-      font-size: 11.5px;
-      color: #717171;
+      font-size: 12px;
+      color: #505050;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      margin-top: 1px;
     }
     .coin-btn {
+      width: 36px;
+      height: 36px;
       background: none;
       border: none;
       color: #717171;
       cursor: pointer;
-      width: 34px;
-      height: 34px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
 
-    /* ══════════════════════════════
+    /* ───────────────────────────────────────
        AVATAR COLORS
-    ══════════════════════════════ */
-    .av-red    { background: #c0392b; }
-    .av-blue   { background: #2980b9; }
-    .av-green  { background: #27ae60; }
-    .av-purple { background: #8e44ad; }
-    .av-orange { background: #e67e22; }
-    .av-teal   { background: #16a085; }
-    .av-indigo { background: #3498db; }
-    .av-lime   { background: #2ecc71; }
-    .av-brown  { background: #795548; }
-    .av-gray   { background: #607d8b; }
-    .av-rose   { background: #ad1457; }
-    .av-deep   { background: #1565c0; }
-    .av-yellow { background: #f39c12; }
+    ─────────────────────────────────────── */
+    .c-red    { background: #c0392b; }
+    .c-blue   { background: #2980b9; }
+    .c-green  { background: #27ae60; }
+    .c-purple { background: #8e44ad; }
+    .c-orange { background: #e67e22; }
+    .c-teal   { background: #16a085; }
+    .c-indigo { background: #3498db; }
+    .c-lime   { background: #2ecc71; }
+    .c-brown  { background: #795548; }
+    .c-gray   { background: #607d8b; }
+    .c-rose   { background: #ad1457; }
+    .c-navy   { background: #1565c0; }
+    .c-gold   { background: #f39c12; }
   </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════ TOPBAR ══════════════════════════════ -->
+<!-- ═══════════════ TOPBAR ═══════════════ -->
 <header id="topbar">
   <a class="yt-brand" href="#">
-    <div class="yt-brand-icon">
-      <!-- YouTube play button (red rect + white triangle) -->
-      <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="32" height="22" rx="5" fill="#FF0000"/>
-        <path d="M13 7L21 11L13 15V7Z" fill="white"/>
-      </svg>
-    </div>
+    <!-- YouTube red play button icon -->
+    <svg width="34" height="24" viewBox="0 0 34 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="34" height="24" rx="5.5" fill="#FF0000"/>
+      <path d="M14 8L22 12L14 16V8Z" fill="white"/>
+    </svg>
     <span class="yt-brand-name">YouTube</span>
   </a>
-
-  <div class="topbar-actions">
+  <div class="topbar-icons">
     <!-- Search -->
-    <button class="tb-btn" aria-label="Pesquisar">
+    <button class="icon-btn" aria-label="Pesquisar">
       <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
         <path d="M20.87 20.17l-5.59-5.59A7.99 7.99 0 0018 9a8 8 0 10-8 8 7.99 7.99 0 004.58-1.72l5.59 5.59.7-.7zM4 9a7 7 0 1114 0A7 7 0 014 9z"/>
       </svg>
     </button>
-    <!-- 3 dots vertical -->
-    <button class="tb-btn" aria-label="Mais opções">
+    <!-- 3 dots -->
+    <button class="icon-btn" aria-label="Mais opções">
       <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
         <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
       </svg>
@@ -455,28 +413,9 @@
   </div>
 </header>
 
-<!-- ══════════════════════════════ VIDEO AREA ══════════════════════════════ -->
+<!-- ═══════════════ VIDEO ═══════════════ -->
 <div id="video-area">
-
-  <!-- YouTube icon overlay (top-left sobre o vídeo) -->
-  <div class="yt-video-overlay">
-    <svg width="28" height="20" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="32" height="22" rx="5" fill="#FF0000" fill-opacity="0.92"/>
-      <path d="M13 7L21 11L13 15V7Z" fill="white"/>
-    </svg>
-    <svg width="52" height="11" viewBox="0 0 90 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <text y="14" font-family="Arial" font-weight="bold" font-size="16" fill="white">YouTube</text>
-    </svg>
-  </div>
-
-  <!-- AO VIVO badge -->
-  <div class="live-pill-overlay">
-    <span class="live-pill">● AO VIVO</span>
-    <span class="viewer-pill">🔴 <span id="vc-num">947</span> assistindo</span>
-  </div>
-
-  <!-- Video player -->
-  <vturb-smartplayer id="vid-69a35d0a39c8b3b88468d00c" style="display:block;width:100%;height:100%;position:absolute;top:0;left:0;"></vturb-smartplayer>
+  <vturb-smartplayer id="vid-69a35d0a39c8b3b88468d00c" style="display:block;width:100%;"></vturb-smartplayer>
   <script type="text/javascript">
     var s = document.createElement("script");
     s.src = "https://scripts.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/players/69a35d0a39c8b3b88468d00c/v4/player.js";
@@ -485,171 +424,170 @@
   </script>
 </div>
 
-<!-- ══════════════════════════════ VIDEO INFO ══════════════════════════════ -->
-<div id="video-info">
-  <div class="video-title">Revelando o truque caseiro utilizado pelos atores de filmes para manter a ferramenta firme</div>
-  <div class="channel-row">
-    <div class="ch-avatar">D</div>
-    <div class="ch-info">
-      <div class="ch-name">
-        Doutor Carlos
-        <svg viewBox="0 0 24 24" fill="#aaa" width="13" height="13"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-      </div>
-      <div class="ch-subs">143 mil inscritos</div>
-    </div>
-    <button class="btn-subscribe">Inscrever-se</button>
-  </div>
+<!-- ═══════════════ LIVE ROW ═══════════════ -->
+<div id="live-row">
+  <span class="live-badge">AO VIVO</span>
+  <div class="live-dot"></div>
+  <span class="viewer-text"><span id="vc-num">947</span> assistindo agora</span>
 </div>
 
-<!-- ══════════════════════════════ CHAT ══════════════════════════════ -->
-<div id="chat-section">
-
-  <!-- Chat header -->
-  <div class="chat-header">
-    <div class="chat-header-info">
-      <div class="chat-title-row">
-        <div class="live-dot"></div>
-        <span class="chat-title">Chat ao vivo</span>
-      </div>
-      <div class="chat-subtitle">Mensagens principais • <span id="chat-count">3,1 mil</span></div>
+<!-- ═══════════════ CHANNEL ROW ═══════════════ -->
+<div id="channel-row">
+  <div class="ch-avatar">D</div>
+  <div class="ch-details">
+    <div class="ch-name">
+      Doutor Carlos
+      <!-- verificado -->
+      <svg viewBox="0 0 24 24" fill="#aaa" width="13" height="13"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
     </div>
-    <div class="chat-header-actions">
-      <!-- XP / crown -->
+    <div class="ch-subs">143 mil inscritos</div>
+  </div>
+  <button class="btn-sub">Inscrever-se</button>
+</div>
+
+<!-- ═══════════════ CHAT ═══════════════ -->
+<section id="chat-section">
+
+  <!-- Header -->
+  <div id="chat-header">
+    <div id="chat-header-info">
+      <div class="chat-title">
+        <div class="live-dot"></div>
+        Chat ao vivo
+      </div>
+      <div class="chat-subtitle">Mensagens principais · <span id="chat-count">3,1 mil</span></div>
+    </div>
+    <div id="chat-header-actions">
+      <!-- XP -->
       <button class="xp-pill">
-        <svg viewBox="0 0 24 24" fill="#ffd700" width="13" height="13"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm2 3a1 1 0 000 2h10a1 1 0 000-2H7z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#ffd700" width="13" height="13">
+          <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm2 3a1 1 0 000 2h10a1 1 0 000-2H7z"/>
+        </svg>
         0 XP
       </button>
-      <!-- Settings -->
-      <button class="hdr-icon-btn" aria-label="Configurações">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+      <!-- Gear -->
+      <button class="hdr-btn" aria-label="Configurações">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+          <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+        </svg>
       </button>
-      <!-- X / fechar -->
-      <button class="hdr-icon-btn" aria-label="Fechar chat">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      <!-- X -->
+      <button class="hdr-btn" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        </svg>
       </button>
     </div>
   </div>
 
-  <!-- Messages -->
+  <!-- Messages list -->
   <div id="chat-messages"></div>
 
-  <!-- Bottom bar -->
+  <!-- Bottom input bar -->
   <div id="chat-input-bar">
-    <div class="exclusive-row">
-      <div class="excl-left">
-        <!-- YouTube icon pequeno -->
-        <div class="excl-yt-icon">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
-            <rect width="24" height="24" rx="5" fill="#FF0000"/>
-            <path d="M10 8L17 12L10 16V8Z" fill="white"/>
+    <div class="excl-row">
+      <div class="excl-yt">
+        <!-- small YouTube icon -->
+        <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
+          <rect width="20" height="14" rx="3" fill="#FF0000"/>
+          <path d="M8 4.5L14 7L8 9.5V4.5Z" fill="white"/>
+        </svg>
+      </div>
+      <div class="excl-body">
+        <div class="excl-label">
+          <svg viewBox="0 0 24 24" fill="#717171" width="12" height="12">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
           </svg>
-        </div>
-        <div class="excl-info">
-          <div class="excl-label">
-            <svg viewBox="0 0 24 24" fill="#aaa" width="12" height="12"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-            Modo exclusivo para inscritos
-          </div>
+          Modo exclusivo para inscritos
         </div>
       </div>
-      <!-- Super chat / coin -->
       <button class="coin-btn" aria-label="Super Chat">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/>
+        </svg>
       </button>
     </div>
   </div>
 
-</div><!-- /chat-section -->
+</section>
 
 <script>
-// ═══════════════════════════════════════════════════════
-// CHAT DATA
-// ═══════════════════════════════════════════════════════
-const chatMessages = [
-  { name: "Carlos R.",      av: "av-red",    mod: false, mbr: false, text: "Isso é real? nunca vi nada assim" },
-  { name: "Moderador",      av: "av-blue",   mod: true,  mbr: false, text: "Bem-vindos a todos! 👋" },
-  { name: "Marcos P.",      av: "av-green",  mod: false, mbr: false, text: "Assistindo do Rio, boa noite!" },
-  { name: "Fábio A.",       av: "av-purple", mod: false, mbr: true,  text: "Membro há 6 meses" },
-  { name: "José N.",        av: "av-orange", mod: false, mbr: false, text: "Doutor, pode repetir a dosagem?" },
-  { name: "Eron M.",        av: "av-teal",   mod: false, mbr: false, text: "Minha vida mudou com isso 🙏" },
-  { name: "Luís G.",        av: "av-indigo", mod: false, mbr: false, text: "Já comprei, aguardando chegar!" },
-  { name: "Renato F.",      av: "av-lime",   mod: false, mbr: false, text: "🔥🔥🔥 incrível" },
-  { name: "Paulo S.",       av: "av-brown",  mod: false, mbr: false, text: "Assisti tudo, valeu demais" },
-  { name: "Ricardo T.",     av: "av-gray",   mod: false, mbr: false, text: "Existe frete grátis?" },
-  { name: "Moderador",      av: "av-blue",   mod: true,  mbr: false, text: "Ricardo, sim! Frete grátis em todo Brasil." },
-  { name: "André B.",       av: "av-rose",   mod: false, mbr: false, text: "Compartilhei com meu irmão" },
-  { name: "Celso M.",       av: "av-deep",   mod: false, mbr: false, text: "Que vídeo incrível 🙏" },
-  { name: "Edson L.",       av: "av-red",    mod: false, mbr: false, text: "Funciona pra quem tem diabetes?" },
-  { name: "Victor H.",      av: "av-green",  mod: false, mbr: false, text: "Eu tô chocado com os resultados" },
-  { name: "Omar F.",        av: "av-purple", mod: false, mbr: false, text: "Compartilha com quem precisa!" },
-  { name: "Sérgio D.",      av: "av-orange", mod: false, mbr: false, text: "Melhor live que já assisti" },
-  { name: "Cláudio V.",     av: "av-teal",   mod: false, mbr: false, text: "Já tô comprando 😂" },
-  { name: "Nilton K.",      av: "av-indigo", mod: false, mbr: false, text: "Deus abençoe todos aqui" },
-  { name: "Heitor M.",      av: "av-lime",   mod: false, mbr: false, text: "Conteúdo de ouro 🥇" },
-  { name: "Márcio B.",      av: "av-brown",  mod: false, mbr: false, text: "Alguém de SP assistindo?" },
-  { name: "Jonas A.",       av: "av-gray",   mod: false, mbr: false, text: "Tenho 62 anos, funciona?" },
-  { name: "Moderador",      av: "av-blue",   mod: true,  mbr: false, text: "Jonas, sim! Especialmente desenvolvido para homens acima dos 40." },
-  { name: "Laerte O.",      av: "av-rose",   mod: false, mbr: false, text: "Minha esposa vai me amar 🤣" },
-  { name: "Cesar W.",       av: "av-deep",   mod: false, mbr: false, text: "Nota 10 pro Doutor Carlos!" },
-  { name: "Fernando Q.",    av: "av-red",    mod: false, mbr: false, text: "Melhor investimento da minha vida" },
-  { name: "Gilberto H.",    av: "av-green",  mod: false, mbr: false, text: "Isso deveria ser ensinado nas escolas" },
-  { name: "Mauro E.",       av: "av-purple", mod: false, mbr: false, text: "Ainda dá tempo de comprar?" },
-  { name: "Moderador",      av: "av-blue",   mod: true,  mbr: false, text: "Mauro, sim! O link está ativo por tempo limitado." },
-  { name: "Toninho R.",     av: "av-orange", mod: false, mbr: false, text: "Que presente esse vídeo 🙏" },
-  { name: "Eduardo C.",     av: "av-teal",   mod: false, mbr: false, text: "Em menos de um mês minha disposição voltou!" },
-  { name: "Roberto B.",     av: "av-indigo", mod: false, mbr: false, text: "Pode comprar sem medo, funciona mesmo." },
-  { name: "Pedro P.",       av: "av-lime",   mod: false, mbr: false, text: "Minha confiança voltou 100% 💪" },
-  { name: "Wagner M.",      av: "av-gray",   mod: false, mbr: false, text: "Já luto contra isso há anos, funciona?" },
-  { name: "Celia I.",       av: "av-rose",   mod: false, mbr: false, text: "Wagner, meu marido usou e funcionou! Pode testar 😊" },
+// ── CHAT DATA ──────────────────────────────────────────
+const MSGS = [
+  { n:"Carlos R.",      c:"c-red",    mod:0, mbr:0, t:"Isso é real? nunca vi nada assim" },
+  { n:"Moderador",      c:"c-blue",   mod:1, mbr:0, t:"Bem-vindos a todos! 👋" },
+  { n:"Marcos P.",      c:"c-green",  mod:0, mbr:0, t:"Assistindo do Rio, boa noite!" },
+  { n:"Fábio A.",       c:"c-purple", mod:0, mbr:1, t:"Membro há 6 meses" },
+  { n:"José N.",        c:"c-orange", mod:0, mbr:0, t:"Doutor, pode repetir a dosagem?" },
+  { n:"Eron M.",        c:"c-teal",   mod:0, mbr:0, t:"Minha vida mudou com isso 🙏" },
+  { n:"Luís G.",        c:"c-indigo", mod:0, mbr:0, t:"Já comprei, aguardando chegar!" },
+  { n:"Renato F.",      c:"c-lime",   mod:0, mbr:0, t:"🔥🔥🔥 incrível" },
+  { n:"Paulo S.",       c:"c-brown",  mod:0, mbr:0, t:"Assisti tudo, valeu demais" },
+  { n:"Ricardo T.",     c:"c-gray",   mod:0, mbr:0, t:"Existe frete grátis?" },
+  { n:"Moderador",      c:"c-blue",   mod:1, mbr:0, t:"Ricardo, sim! Frete grátis em todo Brasil." },
+  { n:"André B.",       c:"c-rose",   mod:0, mbr:0, t:"Compartilhei com meu irmão" },
+  { n:"Celso M.",       c:"c-navy",   mod:0, mbr:0, t:"Que vídeo incrível 🙏" },
+  { n:"Edson L.",       c:"c-red",    mod:0, mbr:0, t:"Funciona pra quem tem diabetes?" },
+  { n:"Victor H.",      c:"c-green",  mod:0, mbr:0, t:"Eu tô chocado com os resultados" },
+  { n:"Sérgio D.",      c:"c-orange", mod:0, mbr:0, t:"Melhor live que já assisti" },
+  { n:"Cláudio V.",     c:"c-teal",   mod:0, mbr:0, t:"Já tô comprando 😂" },
+  { n:"Nilton K.",      c:"c-indigo", mod:0, mbr:0, t:"Deus abençoe todos aqui" },
+  { n:"Heitor M.",      c:"c-lime",   mod:0, mbr:0, t:"Conteúdo de ouro 🥇" },
+  { n:"Jonas A.",       c:"c-gray",   mod:0, mbr:0, t:"Tenho 62 anos, funciona?" },
+  { n:"Moderador",      c:"c-blue",   mod:1, mbr:0, t:"Jonas, sim! Especialmente desenvolvido para homens acima dos 40." },
+  { n:"Laerte O.",      c:"c-rose",   mod:0, mbr:0, t:"Minha esposa vai me amar 🤣" },
+  { n:"Cesar W.",       c:"c-navy",   mod:0, mbr:0, t:"Nota 10 pro Doutor Carlos!" },
+  { n:"Fernando Q.",    c:"c-red",    mod:0, mbr:0, t:"Melhor investimento da minha vida" },
+  { n:"Gilberto H.",    c:"c-green",  mod:0, mbr:0, t:"Isso deveria ser ensinado nas escolas" },
+  { n:"Mauro E.",       c:"c-purple", mod:0, mbr:0, t:"Ainda dá tempo de comprar?" },
+  { n:"Moderador",      c:"c-blue",   mod:1, mbr:0, t:"Mauro, sim! O link está ativo por tempo limitado." },
+  { n:"Toninho R.",     c:"c-orange", mod:0, mbr:0, t:"Que presente esse vídeo 🙏" },
+  { n:"Eduardo C.",     c:"c-teal",   mod:0, mbr:0, t:"Em menos de um mês minha disposição voltou!" },
+  { n:"Roberto B.",     c:"c-indigo", mod:0, mbr:0, t:"Pode comprar sem medo, funciona mesmo." },
+  { n:"Pedro P.",       c:"c-lime",   mod:0, mbr:0, t:"Minha confiança voltou 100% 💪" },
+  { n:"Wagner M.",      c:"c-gray",   mod:0, mbr:0, t:"Já luto contra isso há anos, funciona?" },
+  { n:"Celia I.",       c:"c-rose",   mod:0, mbr:0, t:"Wagner, meu marido usou e funcionou! Pode testar 😊" },
+  { n:"Diego S.",       c:"c-navy",   mod:0, mbr:0, t:"Hoje tenho o melhor desempenho da minha vida" },
+  { n:"João P.",        c:"c-green",  mod:0, mbr:0, t:"Obrigado pelos relatos, vou testar!" },
 ];
 
-// ═══════════════════════════════════════════════════════
-// CHAT RENDER
-// ═══════════════════════════════════════════════════════
-let chatIdx = 0;
-const chatBox = document.getElementById('chat-messages');
+const box = document.getElementById('chat-messages');
+let idx = 0;
 
-function appendMsg(m) {
+function addMsg(m) {
   const el = document.createElement('div');
-  el.className = 'chat-msg';
-  const mbrBadge = m.mbr ? '<span style="background:#4caf50;color:#fff;font-size:9px;padding:1px 5px;border-radius:10px;margin-right:4px;">Membro</span>' : '';
+  el.className = 'msg';
+  const mbrTag = m.mbr ? '<span class="mbr-tag">Membro</span>' : '';
   el.innerHTML = `
-    <div class="msg-avatar ${m.av}">${m.name[0]}</div>
-    <div class="msg-body">
-      <div>${mbrBadge}<span class="msg-author${m.mod ? ' mod' : ''}">${m.name}</span></div>
-      <div class="msg-text">${m.text}</div>
+    <div class="msg-av ${m.c}">${m.n[0]}</div>
+    <div class="msg-bd">
+      <div>${mbrTag}<span class="msg-name${m.mod ? ' mod' : ''}">${m.n}</span></div>
+      <div class="msg-text">${m.t}</div>
     </div>`;
-  chatBox.appendChild(el);
-  chatBox.scrollTop = chatBox.scrollHeight;
-  // limitar DOM
-  while (chatBox.children.length > 60) {
-    chatBox.removeChild(chatBox.firstChild);
-  }
+  box.appendChild(el);
+  box.scrollTop = box.scrollHeight;
+  while (box.children.length > 60) box.removeChild(box.firstChild);
 }
 
-// seed inicial
-(function seed() {
-  chatMessages.slice(0, 10).forEach(m => appendMsg(m));
-  chatIdx = 10;
+// seed
+MSGS.slice(0, 10).forEach(m => addMsg(m));
+idx = 10;
+
+// rolling messages
+(function roll() {
+  addMsg(MSGS[idx % MSGS.length]);
+  idx++;
+  setTimeout(roll, 1500 + Math.random() * 3000);
 })();
 
-// rolling
-function nextMsg() {
-  appendMsg(chatMessages[chatIdx % chatMessages.length]);
-  chatIdx++;
-  setTimeout(nextMsg, 1600 + Math.random() * 3000);
-}
-setTimeout(nextMsg, 1800);
-
-// ═══════════════════════════════════════════════════════
-// VIEWER COUNT
-// ═══════════════════════════════════════════════════════
-let viewers = 947;
-function tickViewers() {
-  viewers = Math.max(880, Math.min(1120, viewers + Math.floor(Math.random() * 13) - 5));
-  document.getElementById('vc-num').textContent = viewers.toLocaleString('pt-BR');
-  setTimeout(tickViewers, 4000 + Math.random() * 3000);
-}
-setTimeout(tickViewers, 3000);
+// viewer count fluctuation
+let vc = 947;
+const vcEl = document.getElementById('vc-num');
+(function tickVc() {
+  vc = Math.max(880, Math.min(1150, vc + Math.floor(Math.random() * 13) - 5));
+  vcEl.textContent = vc.toLocaleString('pt-BR');
+  setTimeout(tickVc, 4000 + Math.random() * 3000);
+})();
 </script>
 </body>
 </html>
