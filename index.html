@@ -32,11 +32,6 @@
       color: #f1f1f1;
       max-width: 480px;
       margin: 0 auto;
-      /* stack everything vertically, fill the viewport */
-      display: flex;
-      flex-direction: column;
-      height: 100svh;
-      overflow: hidden;
     }
 
     /* ───────────────────────────────────────
@@ -83,16 +78,11 @@
     }
 
     /* ───────────────────────────────────────
-       VIDEO AREA
-       max-height keeps vturb from pushing layout
+       VIDEO AREA — sem restrição de altura
     ─────────────────────────────────────── */
     #video-area {
-      flex-shrink: 0;
       width: 100%;
       background: #000;
-      overflow: hidden;
-      /* 16:9 cap: 480 * 9/16 = 270px */
-      max-height: 270px;
     }
 
     #video-area vturb-smartplayer {
@@ -192,11 +182,9 @@
     }
 
     /* ───────────────────────────────────────
-       CHAT SECTION  (fills remaining height)
+       CHAT SECTION
     ─────────────────────────────────────── */
     #chat-section {
-      flex: 1;
-      min-height: 0;
       display: flex;
       flex-direction: column;
       background: #0f0f0f;
@@ -262,8 +250,7 @@
 
     /* Messages */
     #chat-messages {
-      flex: 1;
-      min-height: 0;
+      height: 52vh;
       overflow-y: auto;
       overflow-x: hidden;
       padding: 4px 0;
