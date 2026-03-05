@@ -459,6 +459,164 @@
       }
     }
 
+    /* Seção de Comentários estilo Facebook */
+    .fb-comments-wrapper {
+      background: #f0f2f5;
+      padding: 20px 0;
+    }
+
+    .fb-comments-section {
+      background: #fff;
+      padding: 16px 16px 8px;
+      max-width: 700px;
+      margin: 0 auto;
+      border-radius: 8px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .fb-comments-header {
+      font-size: 14px;
+      font-weight: 700;
+      color: #65676b;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .fb-comments-header span {
+      font-weight: 400;
+      margin-left: 4px;
+    }
+
+    .fb-comment {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 16px;
+      position: relative;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .fb-comment-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .fb-comment-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .fb-comment-bubble {
+      background: #fff;
+      border-radius: 18px;
+      padding: 8px 12px;
+      position: relative;
+    }
+
+    .fb-comment-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #050505;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .fb-comment-name:hover {
+      text-decoration: underline;
+    }
+
+    .fb-comment-text {
+      font-size: 15px;
+      color: #050505;
+      line-height: 1.34;
+      word-wrap: break-word;
+    }
+
+    .fb-comment-actions {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-top: 4px;
+      padding-left: 12px;
+      font-size: 12px;
+      color: #65676b;
+      font-weight: 700;
+    }
+
+    .fb-comment-actions a {
+      color: #65676b;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .fb-comment-actions a:hover {
+      text-decoration: underline;
+    }
+
+    .fb-comment-actions .fb-separator {
+      margin: 0 6px;
+      color: #65676b;
+    }
+
+    .fb-comment-actions .fb-time {
+      font-weight: 400;
+    }
+
+    .fb-comment-reactions {
+      position: absolute;
+      right: 0;
+      bottom: -4px;
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+      padding: 2px 6px 2px 2px;
+      gap: 0;
+    }
+
+    .fb-reaction-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      margin-left: -2px;
+    }
+
+    .fb-reaction-icon:first-child {
+      margin-left: 0;
+    }
+
+    .fb-reaction-like {
+      background: #1877f2;
+      color: #fff;
+    }
+
+    .fb-reaction-heart {
+      background: #f33e58;
+      color: #fff;
+    }
+
+    .fb-reaction-count {
+      font-size: 12px;
+      color: #65676b;
+      margin-left: 4px;
+    }
+
+    .fb-bubble-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
     /* Disclaimer / Footer */
     .disclaimer-footer {
       background: #1a1a1a;
@@ -649,6 +807,114 @@
     <div class="references-badge">Refer&ecirc;ncias Cient&iacute;ficas</div>
     <img src="referencias-cientificas.png" alt="Refer&ecirc;ncias Cient&iacute;ficas" style="max-width: 100%; height: auto;">
   </section>
+
+  <!-- Comentários estilo Facebook -->
+  <div class="fb-comments-wrapper">
+  <section class="fb-comments-section">
+    <div class="fb-comments-header">448 COMENTÁRIOS <span>– EXIBINDO OS 23 MAIS RELEVANTES</span></div>
+
+    <!-- Comentário 1 -->
+    <div class="fb-comment">
+      <img class="fb-comment-avatar" src="HOMEM 1.jpg" alt="Eduardo Coelhor">
+      <div class="fb-comment-body">
+        <div class="fb-bubble-wrapper">
+          <div class="fb-comment-bubble">
+            <a class="fb-comment-name" href="#">Eduardo Coelhor</a>
+            <div class="fb-comment-text">Ainda bem que eu vi o vídeo até o final. Fico feliz demais Muito obrigado Dra. por ter descoberto, fiz o teste e em dois dias já voltei duro, azulzinho nunca mais!.</div>
+          </div>
+          <div class="fb-comment-reactions">
+            <span class="fb-reaction-icon fb-reaction-like"><svg width="12" height="12" viewBox="0 0 16 16" fill="white"><path d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.5 12.5h3c.3 0 .5-.2.6-.5l1.4-3.3V5h-4.4l.7-3.2v-.2c0-.2-.1-.4-.2-.5L7.1 .5 3.3 4.3c-.2.2-.3.4-.3.7v6c0 .8.7 1.5 1.5 1.5z"/></svg></span>
+            <span class="fb-reaction-icon fb-reaction-heart"><svg width="12" height="12" viewBox="0 0 16 16" fill="white"><path d="M8 15s-6.8-5.5-6.8-9.2C1.2 3.1 3.3 1 5.8 1 7 1 8 1.6 8 1.6S9 1 10.2 1c2.5 0 4.6 2.1 4.6 4.8C14.8 9.5 8 15 8 15z"/></svg></span>
+            <span class="fb-reaction-count">38</span>
+          </div>
+        </div>
+        <div class="fb-comment-actions">
+          <a href="#">Curtir</a>
+          <span class="fb-separator">·</span>
+          <a href="#">Responder</a>
+          <span class="fb-separator">·</span>
+          <span class="fb-time">21 min</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comentário 2 -->
+    <div class="fb-comment">
+      <img class="fb-comment-avatar" src="HOMEM 2.jpg" alt="Roberto Belmonte">
+      <div class="fb-comment-body">
+        <div class="fb-bubble-wrapper">
+          <div class="fb-comment-bubble">
+            <a class="fb-comment-name" href="#">Roberto Belmonte</a>
+            <div class="fb-comment-text">O negócio funciona moço</div>
+          </div>
+          <div class="fb-comment-reactions">
+            <span class="fb-reaction-icon fb-reaction-like"><svg width="12" height="12" viewBox="0 0 16 16" fill="white"><path d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.5 12.5h3c.3 0 .5-.2.6-.5l1.4-3.3V5h-4.4l.7-3.2v-.2c0-.2-.1-.4-.2-.5L7.1 .5 3.3 4.3c-.2.2-.3.4-.3.7v6c0 .8.7 1.5 1.5 1.5z"/></svg></span>
+            <span class="fb-reaction-icon fb-reaction-heart"><svg width="12" height="12" viewBox="0 0 16 16" fill="white"><path d="M8 15s-6.8-5.5-6.8-9.2C1.2 3.1 3.3 1 5.8 1 7 1 8 1.6 8 1.6S9 1 10.2 1c2.5 0 4.6 2.1 4.6 4.8C14.8 9.5 8 15 8 15z"/></svg></span>
+            <span class="fb-reaction-count">7</span>
+          </div>
+        </div>
+        <div class="fb-comment-actions">
+          <a href="#">Curtir</a>
+          <span class="fb-separator">·</span>
+          <a href="#">Responder</a>
+          <span class="fb-separator">·</span>
+          <span class="fb-time">1 min</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comentário 3 -->
+    <div class="fb-comment">
+      <img class="fb-comment-avatar" src="HOMEM 3.jpg" alt="Pedro Paulo">
+      <div class="fb-comment-body">
+        <div class="fb-bubble-wrapper">
+          <div class="fb-comment-bubble">
+            <a class="fb-comment-name" href="#">Pedro Paulo</a>
+            <div class="fb-comment-text">No início eu duvidava muito, até porque já tinha tentado de tudo antes Mas mesmo assim resolvi dar uma chance e fiquei impressionado!</div>
+          </div>
+          <div class="fb-comment-reactions">
+            <span class="fb-reaction-icon fb-reaction-like"><svg width="12" height="12" viewBox="0 0 16 16" fill="white"><path d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.5 12.5h3c.3 0 .5-.2.6-.5l1.4-3.3V5h-4.4l.7-3.2v-.2c0-.2-.1-.4-.2-.5L7.1 .5 3.3 4.3c-.2.2-.3.4-.3.7v6c0 .8.7 1.5 1.5 1.5z"/></svg></span>
+            <span class="fb-reaction-icon fb-reaction-heart"><svg width="12" height="12" viewBox="0 0 16 16" fill="white"><path d="M8 15s-6.8-5.5-6.8-9.2C1.2 3.1 3.3 1 5.8 1 7 1 8 1.6 8 1.6S9 1 10.2 1c2.5 0 4.6 2.1 4.6 4.8C14.8 9.5 8 15 8 15z"/></svg></span>
+            <span class="fb-reaction-count">219</span>
+          </div>
+        </div>
+        <div class="fb-comment-actions">
+          <a href="#">Curtir</a>
+          <span class="fb-separator">·</span>
+          <a href="#">Responder</a>
+          <span class="fb-separator">·</span>
+          <span class="fb-time">3 hr</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comentário 4 -->
+    <div class="fb-comment">
+      <img class="fb-comment-avatar" src="homem 44.jpg" alt="Lucas Almeida">
+      <div class="fb-comment-body">
+        <div class="fb-bubble-wrapper">
+          <div class="fb-comment-bubble">
+            <a class="fb-comment-name" href="#">Lucas Almeida</a>
+            <div class="fb-comment-text">Tava querendo saber se funcionava de verdade e agora vendo todos esses comentários positivos, já sei a resposta. Mto obg gente!!</div>
+          </div>
+          <div class="fb-comment-reactions">
+            <span class="fb-reaction-icon fb-reaction-like"><svg width="12" height="12" viewBox="0 0 16 16" fill="white"><path d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.5 12.5h3c.3 0 .5-.2.6-.5l1.4-3.3V5h-4.4l.7-3.2v-.2c0-.2-.1-.4-.2-.5L7.1 .5 3.3 4.3c-.2.2-.3.4-.3.7v6c0 .8.7 1.5 1.5 1.5z"/></svg></span>
+            <span class="fb-reaction-icon fb-reaction-heart"><svg width="12" height="12" viewBox="0 0 16 16" fill="white"><path d="M8 15s-6.8-5.5-6.8-9.2C1.2 3.1 3.3 1 5.8 1 7 1 8 1.6 8 1.6S9 1 10.2 1c2.5 0 4.6 2.1 4.6 4.8C14.8 9.5 8 15 8 15z"/></svg></span>
+            <span class="fb-reaction-count">24</span>
+          </div>
+        </div>
+        <div class="fb-comment-actions">
+          <a href="#">Curtir</a>
+          <span class="fb-separator">·</span>
+          <a href="#">Responder</a>
+          <span class="fb-separator">·</span>
+          <span class="fb-time">51 min</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  </div>
 
   <!-- Disclaimer -->
   <footer class="disclaimer-footer">
