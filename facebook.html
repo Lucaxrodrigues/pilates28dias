@@ -536,6 +536,124 @@
       max-height: 500px;
     }
 
+    /* Facebook Comments Section */
+    .fb-comments-section {
+      background: #f0f2f5;
+      padding: 30px 15px 40px;
+    }
+
+    .fb-comments-container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .fb-comments-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .fb-comments-header svg {
+      width: 20px;
+      height: 20px;
+      fill: #1877f2;
+    }
+
+    .fb-comments-header span {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1c1e21;
+    }
+
+    .fb-comment {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .fb-comment-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .fb-comment-body {
+      flex: 1;
+    }
+
+    .fb-comment-bubble {
+      background: #fff;
+      border-radius: 18px;
+      padding: 10px 14px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    .fb-comment-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #050505;
+      margin-bottom: 2px;
+    }
+
+    .fb-comment-text {
+      font-size: 14px;
+      color: #1c1e21;
+      line-height: 1.4;
+    }
+
+    .fb-comment-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 4px;
+      padding-left: 4px;
+    }
+
+    .fb-comment-actions span {
+      font-size: 12px;
+      color: #65676b;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .fb-comment-actions span:hover {
+      text-decoration: underline;
+    }
+
+    .fb-comment-actions .fb-like-count {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      font-weight: 400;
+      cursor: default;
+    }
+
+    .fb-comment-actions .fb-like-count:hover {
+      text-decoration: none;
+    }
+
+    .fb-like-icon {
+      width: 16px;
+      height: 16px;
+      background: #1877f2;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .fb-like-icon svg {
+      width: 10px;
+      height: 10px;
+      fill: #fff;
+    }
+
     /* Disclaimer / Footer */
     .disclaimer-footer {
       background: #1a1a1a;
@@ -590,6 +708,7 @@
   <!-- Vídeo -->
   <section class="video-section">
     <div class="video-wrapper">
+      <img src="headline.png" alt="Headline" style="width: 100%; max-width: 400px; display: block; margin: 0 auto 15px;">
       <vturb-smartplayer id="vid-69a35d0a39c8b3b88468d00c" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
       <script type="text/javascript">
         var s=document.createElement("script");
@@ -603,6 +722,302 @@
         <path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.08"/>
       </svg>
       Por favor, verifique se o som est&aacute; ligado.
+    </div>
+  </section>
+
+  <!-- Comentários estilo Facebook -->
+  <section class="fb-comments-section">
+    <div class="fb-comments-container">
+      <div class="fb-comments-header">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <span>Coment&aacute;rios</span>
+      </div>
+
+      <div class="fb-comment">
+        <img class="fb-comment-avatar" src="EduardoCoelho.png" alt="Eduardo Coelho">
+        <div class="fb-comment-body">
+          <div class="fb-comment-bubble">
+            <div class="fb-comment-name">Eduardo Coelho</div>
+            <div class="fb-comment-text">Ainda bem que eu vi o v&iacute;deo at&eacute; o final. Fico feliz demais Muito obrigado Dra. por ter descoberto, fiz o teste e em dois dias j&aacute; voltei duro, azulzinho nunca mais!</div>
+          </div>
+          <div class="fb-comment-actions">
+            <span>Curtir</span>
+            <span>Responder</span>
+            <span class="fb-like-count"><span class="fb-like-icon"><svg viewBox="0 0 16 16"><path d="M1 7.66c0 .56.45 1.01 1.01 1.01h3.05l-.8 3.6c-.18.79.53 1.48 1.29 1.23l.09-.03c.36-.14.63-.42.77-.78l1.05-2.67c.12-.3.41-.5.73-.5h3.78c.56 0 1.01-.45 1.01-1.01V3.01C12.98 2.45 12.53 2 11.97 2H6.83c-.41 0-.77.25-.93.62L3.3 8.53c-.06.13-.18.14-.24.14H2.01C1.45 8.67 1 8.22 1 7.66z"/></svg></span> 38</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-comment">
+        <img class="fb-comment-avatar" src="RobertoBelmonte.png" alt="Roberto Belmonte">
+        <div class="fb-comment-body">
+          <div class="fb-comment-bubble">
+            <div class="fb-comment-name">Roberto Belmonte</div>
+            <div class="fb-comment-text">O neg&oacute;cio funciona mo&ccedil;o</div>
+          </div>
+          <div class="fb-comment-actions">
+            <span>Curtir</span>
+            <span>Responder</span>
+            <span class="fb-like-count"><span class="fb-like-icon"><svg viewBox="0 0 16 16"><path d="M1 7.66c0 .56.45 1.01 1.01 1.01h3.05l-.8 3.6c-.18.79.53 1.48 1.29 1.23l.09-.03c.36-.14.63-.42.77-.78l1.05-2.67c.12-.3.41-.5.73-.5h3.78c.56 0 1.01-.45 1.01-1.01V3.01C12.98 2.45 12.53 2 11.97 2H6.83c-.41 0-.77.25-.93.62L3.3 8.53c-.06.13-.18.14-.24.14H2.01C1.45 8.67 1 8.22 1 7.66z"/></svg></span> 7</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-comment">
+        <img class="fb-comment-avatar" src="PedroPaulo.png" alt="Pedro Paulo">
+        <div class="fb-comment-body">
+          <div class="fb-comment-bubble">
+            <div class="fb-comment-name">Pedro Paulo</div>
+            <div class="fb-comment-text">No in&iacute;cio eu duvidava muito, at&eacute; porque j&aacute; tinha tentado de tudo antes Mas mesmo assim resolvi dar uma chance e fiquei impressionado!</div>
+          </div>
+          <div class="fb-comment-actions">
+            <span>Curtir</span>
+            <span>Responder</span>
+            <span class="fb-like-count"><span class="fb-like-icon"><svg viewBox="0 0 16 16"><path d="M1 7.66c0 .56.45 1.01 1.01 1.01h3.05l-.8 3.6c-.18.79.53 1.48 1.29 1.23l.09-.03c.36-.14.63-.42.77-.78l1.05-2.67c.12-.3.41-.5.73-.5h3.78c.56 0 1.01-.45 1.01-1.01V3.01C12.98 2.45 12.53 2 11.97 2H6.83c-.41 0-.77.25-.93.62L3.3 8.53c-.06.13-.18.14-.24.14H2.01C1.45 8.67 1 8.22 1 7.66z"/></svg></span> 219</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-comment">
+        <img class="fb-comment-avatar" src="LucasAlmeida.png" alt="Lucas Almeida">
+        <div class="fb-comment-body">
+          <div class="fb-comment-bubble">
+            <div class="fb-comment-name">Lucas Almeida</div>
+            <div class="fb-comment-text">Tava querendo saber se funcionava de verdade e agora vendo todos esses coment&aacute;rios positivos, j&aacute; sei a resposta. Mto obg gente!!</div>
+          </div>
+          <div class="fb-comment-actions">
+            <span>Curtir</span>
+            <span>Responder</span>
+            <span class="fb-like-count"><span class="fb-like-icon"><svg viewBox="0 0 16 16"><path d="M1 7.66c0 .56.45 1.01 1.01 1.01h3.05l-.8 3.6c-.18.79.53 1.48 1.29 1.23l.09-.03c.36-.14.63-.42.77-.78l1.05-2.67c.12-.3.41-.5.73-.5h3.78c.56 0 1.01-.45 1.01-1.01V3.01C12.98 2.45 12.53 2 11.97 2H6.83c-.41 0-.77.25-.93.62L3.3 8.53c-.06.13-.18.14-.24.14H2.01C1.45 8.67 1 8.22 1 7.66z"/></svg></span> 24</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-comment">
+        <img class="fb-comment-avatar" src="MarceloSantosLima.png" alt="Marcelo Santos Lima">
+        <div class="fb-comment-body">
+          <div class="fb-comment-bubble">
+            <div class="fb-comment-name">Marcelo Santos Lima</div>
+            <div class="fb-comment-text">Estou surpreso como esse truque funciona mesmo! Duvidava que realmente ia funcionar, estou usando h&aacute; 30 dias e voltei a fazer 2 vezes por dia, imagina quando fizer 3 meses de uso, minha mulher que me espere</div>
+          </div>
+          <div class="fb-comment-actions">
+            <span>Curtir</span>
+            <span>Responder</span>
+            <span class="fb-like-count"><span class="fb-like-icon"><svg viewBox="0 0 16 16"><path d="M1 7.66c0 .56.45 1.01 1.01 1.01h3.05l-.8 3.6c-.18.79.53 1.48 1.29 1.23l.09-.03c.36-.14.63-.42.77-.78l1.05-2.67c.12-.3.41-.5.73-.5h3.78c.56 0 1.01-.45 1.01-1.01V3.01C12.98 2.45 12.53 2 11.97 2H6.83c-.41 0-.77.25-.93.62L3.3 8.53c-.06.13-.18.14-.24.14H2.01C1.45 8.67 1 8.22 1 7.66z"/></svg></span> 14</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-comment">
+        <img class="fb-comment-avatar" src="GuilhermeMotta.png" alt="Guilherme Motta">
+        <div class="fb-comment-body">
+          <div class="fb-comment-bubble">
+            <div class="fb-comment-name">Guilherme Motta</div>
+            <div class="fb-comment-text">Eu realmente precisava desse truque para salvar meu casamento, nao sabia mais o que fazer. O v&iacute;deo demora um pouco, mas depois que &eacute; revelado o truque eu fiquei surpreso pq funciona de verdade!obrigado Doutora!</div>
+          </div>
+          <div class="fb-comment-actions">
+            <span>Curtir</span>
+            <span>Responder</span>
+            <span class="fb-like-count"><span class="fb-like-icon"><svg viewBox="0 0 16 16"><path d="M1 7.66c0 .56.45 1.01 1.01 1.01h3.05l-.8 3.6c-.18.79.53 1.48 1.29 1.23l.09-.03c.36-.14.63-.42.77-.78l1.05-2.67c.12-.3.41-.5.73-.5h3.78c.56 0 1.01-.45 1.01-1.01V3.01C12.98 2.45 12.53 2 11.97 2H6.83c-.41 0-.77.25-.93.62L3.3 8.53c-.06.13-.18.14-.24.14H2.01C1.45 8.67 1 8.22 1 7.66z"/></svg></span> 102</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-comment">
+        <img class="fb-comment-avatar" src="RodrigoMenezes.png" alt="Rodrigo Menezes">
+        <div class="fb-comment-body">
+          <div class="fb-comment-bubble">
+            <div class="fb-comment-name">Rodrigo Menezes</div>
+            <div class="fb-comment-text">Depois que completei 56 anos, comecei a sofrer com a disfun&ccedil;&atilde;o, o que me fazia sempre ficar meia bomba, sem falar na minha libido que tava l&aacute; no ch&atilde;o&hellip; Agora, depois de usar sua solu&ccedil;&atilde;o, tudo isso acabou! Eu parei de passar vergonha. Realmente funciona, eu recomendo mto</div>
+          </div>
+          <div class="fb-comment-actions">
+            <span>Curtir</span>
+            <span>Responder</span>
+            <span class="fb-like-count"><span class="fb-like-icon"><svg viewBox="0 0 16 16"><path d="M1 7.66c0 .56.45 1.01 1.01 1.01h3.05l-.8 3.6c-.18.79.53 1.48 1.29 1.23l.09-.03c.36-.14.63-.42.77-.78l1.05-2.67c.12-.3.41-.5.73-.5h3.78c.56 0 1.01-.45 1.01-1.01V3.01C12.98 2.45 12.53 2 11.97 2H6.83c-.41 0-.77.25-.93.62L3.3 8.53c-.06.13-.18.14-.24.14H2.01C1.45 8.67 1 8.22 1 7.66z"/></svg></span> 23</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-comment">
+        <img class="fb-comment-avatar" src="BrunoMartins.png" alt="Bruno Martins">
+        <div class="fb-comment-body">
+          <div class="fb-comment-bubble">
+            <div class="fb-comment-name">Bruno Martins</div>
+            <div class="fb-comment-text">Voc&ecirc; devia mostrar esse truque para todo mundo! Ele funciona mesmo!</div>
+          </div>
+          <div class="fb-comment-actions">
+            <span>Curtir</span>
+            <span>Responder</span>
+            <span class="fb-like-count"><span class="fb-like-icon"><svg viewBox="0 0 16 16"><path d="M1 7.66c0 .56.45 1.01 1.01 1.01h3.05l-.8 3.6c-.18.79.53 1.48 1.29 1.23l.09-.03c.36-.14.63-.42.77-.78l1.05-2.67c.12-.3.41-.5.73-.5h3.78c.56 0 1.01-.45 1.01-1.01V3.01C12.98 2.45 12.53 2 11.97 2H6.83c-.41 0-.77.25-.93.62L3.3 8.53c-.06.13-.18.14-.24.14H2.01C1.45 8.67 1 8.22 1 7.66z"/></svg></span> 5</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-comment">
+        <img class="fb-comment-avatar" src="EmanuelSilva.png" alt="Emanuel Silva">
+        <div class="fb-comment-body">
+          <div class="fb-comment-bubble">
+            <div class="fb-comment-name">Emanuel Silva</div>
+            <div class="fb-comment-text">Eu sofria com ele ficando apenas meia bomba, n&atilde;o chegava a falhar, mas minha esposa notava que tinha algo errado, ela chegou a brigar comigo achando que eu tava traindo ela Mas era s&oacute; que o menino n&atilde;o subia mesmo. Mas agora n&atilde;o tem quem me segure, virei adolescente de novo!</div>
+          </div>
+          <div class="fb-comment-actions">
+            <span>Curtir</span>
+            <span>Responder</span>
+            <span class="fb-like-count"><span class="fb-like-icon"><svg viewBox="0 0 16 16"><path d="M1 7.66c0 .56.45 1.01 1.01 1.01h3.05l-.8 3.6c-.18.79.53 1.48 1.29 1.23l.09-.03c.36-.14.63-.42.77-.78l1.05-2.67c.12-.3.41-.5.73-.5h3.78c.56 0 1.01-.45 1.01-1.01V3.01C12.98 2.45 12.53 2 11.97 2H6.83c-.41 0-.77.25-.93.62L3.3 8.53c-.06.13-.18.14-.24.14H2.01C1.45 8.67 1 8.22 1 7.66z"/></svg></span> 28</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-comment">
+        <img class="fb-comment-avatar" src="WagnerMoura.png" alt="Wagner Moura">
+        <div class="fb-comment-body">
+          <div class="fb-comment-bubble">
+            <div class="fb-comment-name">Wagner Moura</div>
+            <div class="fb-comment-text">N&atilde;o consigo deixar ele rigido faz mais de 8 anos, ser&aacute; que funciona?</div>
+          </div>
+          <div class="fb-comment-actions">
+            <span>Curtir</span>
+            <span>Responder</span>
+            <span class="fb-like-count"><span class="fb-like-icon"><svg viewBox="0 0 16 16"><path d="M1 7.66c0 .56.45 1.01 1.01 1.01h3.05l-.8 3.6c-.18.79.53 1.48 1.29 1.23l.09-.03c.36-.14.63-.42.77-.78l1.05-2.67c.12-.3.41-.5.73-.5h3.78c.56 0 1.01-.45 1.01-1.01V3.01C12.98 2.45 12.53 2 11.97 2H6.83c-.41 0-.77.25-.93.62L3.3 8.53c-.06.13-.18.14-.24.14H2.01C1.45 8.67 1 8.22 1 7.66z"/></svg></span> 16</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-comment">
+        <img class="fb-comment-avatar" src="Celialvano.png" alt="Celia Ivano">
+        <div class="fb-comment-body">
+          <div class="fb-comment-bubble">
+            <div class="fb-comment-name">Celia Ivano</div>
+            <div class="fb-comment-text">Wagner o neg&oacute;cio fica igual concreto rsrs Esse metodo foi a &uacute;nica tentativa que deu certo pra mim. Pode testar, vc vai ver como funciona!</div>
+          </div>
+          <div class="fb-comment-actions">
+            <span>Curtir</span>
+            <span>Responder</span>
+            <span class="fb-like-count"><span class="fb-like-icon"><svg viewBox="0 0 16 16"><path d="M1 7.66c0 .56.45 1.01 1.01 1.01h3.05l-.8 3.6c-.18.79.53 1.48 1.29 1.23l.09-.03c.36-.14.63-.42.77-.78l1.05-2.67c.12-.3.41-.5.73-.5h3.78c.56 0 1.01-.45 1.01-1.01V3.01C12.98 2.45 12.53 2 11.97 2H6.83c-.41 0-.77.25-.93.62L3.3 8.53c-.06.13-.18.14-.24.14H2.01C1.45 8.67 1 8.22 1 7.66z"/></svg></span> 11</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-comment">
+        <img class="fb-comment-avatar" src="DiegoSilva.png" alt="Diego Silva">
+        <div class="fb-comment-body">
+          <div class="fb-comment-bubble">
+            <div class="fb-comment-name">Diego Silva</div>
+            <div class="fb-comment-text">J&aacute; fazia tr&ecirc;s anos que eu n&atilde;o conseguia levantar o mastro tentei de tudo gel massagem e nada funcionava. So esse metodo que conseguiu me salva s&oacute; n&atilde;o use muito sen&atilde;o n&atilde;o tem quem fa&ccedil;a descer o mein&atilde;o!!</div>
+          </div>
+          <div class="fb-comment-actions">
+            <span>Curtir</span>
+            <span>Responder</span>
+            <span class="fb-like-count"><span class="fb-like-icon"><svg viewBox="0 0 16 16"><path d="M1 7.66c0 .56.45 1.01 1.01 1.01h3.05l-.8 3.6c-.18.79.53 1.48 1.29 1.23l.09-.03c.36-.14.63-.42.77-.78l1.05-2.67c.12-.3.41-.5.73-.5h3.78c.56 0 1.01-.45 1.01-1.01V3.01C12.98 2.45 12.53 2 11.97 2H6.83c-.41 0-.77.25-.93.62L3.3 8.53c-.06.13-.18.14-.24.14H2.01C1.45 8.67 1 8.22 1 7.66z"/></svg></span> 18</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-comment">
+        <img class="fb-comment-avatar" src="Joaopaulo.png" alt="Jo&atilde;o Paulo">
+        <div class="fb-comment-body">
+          <div class="fb-comment-bubble">
+            <div class="fb-comment-name">Jo&atilde;o Paulo</div>
+            <div class="fb-comment-text">Valeu, vou testar tamb&eacute;m!</div>
+          </div>
+          <div class="fb-comment-actions">
+            <span>Curtir</span>
+            <span>Responder</span>
+            <span class="fb-like-count"><span class="fb-like-icon"><svg viewBox="0 0 16 16"><path d="M1 7.66c0 .56.45 1.01 1.01 1.01h3.05l-.8 3.6c-.18.79.53 1.48 1.29 1.23l.09-.03c.36-.14.63-.42.77-.78l1.05-2.67c.12-.3.41-.5.73-.5h3.78c.56 0 1.01-.45 1.01-1.01V3.01C12.98 2.45 12.53 2 11.97 2H6.83c-.41 0-.77.25-.93.62L3.3 8.53c-.06.13-.18.14-.24.14H2.01C1.45 8.67 1 8.22 1 7.66z"/></svg></span> 14</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-comment">
+        <img class="fb-comment-avatar" src="OtavioNeto.png" alt="Otavio Neto">
+        <div class="fb-comment-body">
+          <div class="fb-comment-bubble">
+            <div class="fb-comment-name">Otavio Neto</div>
+            <div class="fb-comment-text">Fazia tempo que estava procurando isso, sorte que achei de novo</div>
+          </div>
+          <div class="fb-comment-actions">
+            <span>Curtir</span>
+            <span>Responder</span>
+            <span class="fb-like-count"><span class="fb-like-icon"><svg viewBox="0 0 16 16"><path d="M1 7.66c0 .56.45 1.01 1.01 1.01h3.05l-.8 3.6c-.18.79.53 1.48 1.29 1.23l.09-.03c.36-.14.63-.42.77-.78l1.05-2.67c.12-.3.41-.5.73-.5h3.78c.56 0 1.01-.45 1.01-1.01V3.01C12.98 2.45 12.53 2 11.97 2H6.83c-.41 0-.77.25-.93.62L3.3 8.53c-.06.13-.18.14-.24.14H2.01C1.45 8.67 1 8.22 1 7.66z"/></svg></span> 5</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-comment">
+        <img class="fb-comment-avatar" src="EduardoMachado.png" alt="Eduardo Machado">
+        <div class="fb-comment-body">
+          <div class="fb-comment-bubble">
+            <div class="fb-comment-name">Eduardo Machado</div>
+            <div class="fb-comment-text">Quero agradecer a Rog&eacute;rio, que me mostrou esse m&eacute;todo e me deixou duro de um jeito que nunca fiquei na vida, me sinto at&eacute; um adolescente novamente!</div>
+          </div>
+          <div class="fb-comment-actions">
+            <span>Curtir</span>
+            <span>Responder</span>
+            <span class="fb-like-count"><span class="fb-like-icon"><svg viewBox="0 0 16 16"><path d="M1 7.66c0 .56.45 1.01 1.01 1.01h3.05l-.8 3.6c-.18.79.53 1.48 1.29 1.23l.09-.03c.36-.14.63-.42.77-.78l1.05-2.67c.12-.3.41-.5.73-.5h3.78c.56 0 1.01-.45 1.01-1.01V3.01C12.98 2.45 12.53 2 11.97 2H6.83c-.41 0-.77.25-.93.62L3.3 8.53c-.06.13-.18.14-.24.14H2.01C1.45 8.67 1 8.22 1 7.66z"/></svg></span> 1</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-comment">
+        <img class="fb-comment-avatar" src="JoseCarvalho.png" alt="Jos&eacute; Carvalho">
+        <div class="fb-comment-body">
+          <div class="fb-comment-bubble">
+            <div class="fb-comment-name">Jos&eacute; Carvalho</div>
+            <div class="fb-comment-text">eu sofria com a mesma coisa que voc&ecirc;s Minha esposa j&aacute; tava pra me deixar Esse truque da semente verde foi minha &uacute;nica tentativa que deu certo, voc&ecirc; vai ver como funciona.</div>
+          </div>
+          <div class="fb-comment-actions">
+            <span>Curtir</span>
+            <span>Responder</span>
+            <span class="fb-like-count"><span class="fb-like-icon"><svg viewBox="0 0 16 16"><path d="M1 7.66c0 .56.45 1.01 1.01 1.01h3.05l-.8 3.6c-.18.79.53 1.48 1.29 1.23l.09-.03c.36-.14.63-.42.77-.78l1.05-2.67c.12-.3.41-.5.73-.5h3.78c.56 0 1.01-.45 1.01-1.01V3.01C12.98 2.45 12.53 2 11.97 2H6.83c-.41 0-.77.25-.93.62L3.3 8.53c-.06.13-.18.14-.24.14H2.01C1.45 8.67 1 8.22 1 7.66z"/></svg></span> 152</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-comment">
+        <img class="fb-comment-avatar" src="JoseAntonio.png" alt="Jos&eacute; Ant&ocirc;nio">
+        <div class="fb-comment-body">
+          <div class="fb-comment-bubble">
+            <div class="fb-comment-name">Jos&eacute; Ant&ocirc;nio</div>
+            <div class="fb-comment-text">No in&iacute;cio eu n&atilde;o acreditei, mas os resultados falam por si. Lutando com a disfun&ccedil;&atilde;o e noites mal sucedidas, o tratamento foi o &uacute;nico que me deu al&iacute;vio</div>
+          </div>
+          <div class="fb-comment-actions">
+            <span>Curtir</span>
+            <span>Responder</span>
+            <span class="fb-like-count"><span class="fb-like-icon"><svg viewBox="0 0 16 16"><path d="M1 7.66c0 .56.45 1.01 1.01 1.01h3.05l-.8 3.6c-.18.79.53 1.48 1.29 1.23l.09-.03c.36-.14.63-.42.77-.78l1.05-2.67c.12-.3.41-.5.73-.5h3.78c.56 0 1.01-.45 1.01-1.01V3.01C12.98 2.45 12.53 2 11.97 2H6.83c-.41 0-.77.25-.93.62L3.3 8.53c-.06.13-.18.14-.24.14H2.01C1.45 8.67 1 8.22 1 7.66z"/></svg></span> 2</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-comment">
+        <img class="fb-comment-avatar" src="FernandoLuizAlmeida.png" alt="Fernando Luiz Almeida">
+        <div class="fb-comment-body">
+          <div class="fb-comment-bubble">
+            <div class="fb-comment-name">Fernando Luiz Almeida</div>
+            <div class="fb-comment-text">Pagaria at&eacute; um milh&atilde;o por esse tratamento se soubesse que ia me fazer t&atilde;o bem assim</div>
+          </div>
+          <div class="fb-comment-actions">
+            <span>Curtir</span>
+            <span>Responder</span>
+            <span class="fb-like-count"><span class="fb-like-icon"><svg viewBox="0 0 16 16"><path d="M1 7.66c0 .56.45 1.01 1.01 1.01h3.05l-.8 3.6c-.18.79.53 1.48 1.29 1.23l.09-.03c.36-.14.63-.42.77-.78l1.05-2.67c.12-.3.41-.5.73-.5h3.78c.56 0 1.01-.45 1.01-1.01V3.01C12.98 2.45 12.53 2 11.97 2H6.83c-.41 0-.77.25-.93.62L3.3 8.53c-.06.13-.18.14-.24.14H2.01C1.45 8.67 1 8.22 1 7.66z"/></svg></span> 1</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-comment">
+        <img class="fb-comment-avatar" src="BentoSilva.png" alt="Bento Silva">
+        <div class="fb-comment-body">
+          <div class="fb-comment-bubble">
+            <div class="fb-comment-name">Bento Silva</div>
+            <div class="fb-comment-text">Hoje eu finalmente parei de sofrer com aquela meia bomba e agora, eu n&atilde;o acordo mais envergonhado, mas sim com minha mulher querendo fogo!</div>
+          </div>
+          <div class="fb-comment-actions">
+            <span>Curtir</span>
+            <span>Responder</span>
+            <span class="fb-like-count"><span class="fb-like-icon"><svg viewBox="0 0 16 16"><path d="M1 7.66c0 .56.45 1.01 1.01 1.01h3.05l-.8 3.6c-.18.79.53 1.48 1.29 1.23l.09-.03c.36-.14.63-.42.77-.78l1.05-2.67c.12-.3.41-.5.73-.5h3.78c.56 0 1.01-.45 1.01-1.01V3.01C12.98 2.45 12.53 2 11.97 2H6.83c-.41 0-.77.25-.93.62L3.3 8.53c-.06.13-.18.14-.24.14H2.01C1.45 8.67 1 8.22 1 7.66z"/></svg></span> </span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
