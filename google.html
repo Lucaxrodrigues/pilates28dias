@@ -40,32 +40,12 @@
 
     .header h1 {
       color: #fff;
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: 3px;
-      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0px;
     }
 
-    .header .menu-icon {
-      position: absolute;
-      right: 20px;
-      color: #fff;
-      font-size: 28px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .header .menu-icon span {
-      display: block;
-      width: 28px;
-      height: 3px;
-      background: #fff;
-      border-radius: 2px;
-    }
-
-    /* Banner de urgência */
+/* Banner de urgência */
     .urgency-banner {
       background: #990000;
       color: #fff;
@@ -513,11 +493,6 @@
   <!-- Header -->
   <header class="header">
     <h1 id="viewer-count"></h1>
-    <div class="menu-icon">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
   </header>
 
   <!-- Banner de urgência -->
@@ -671,9 +646,13 @@
   </footer>
 
   <script>
-    // Número aleatório de pessoas assistindo (800-1000)
-    var viewers = Math.floor(Math.random() * (1000 - 800 + 1)) + 800;
-    document.getElementById('viewer-count').textContent = viewers + ' Pessoas estão vendo esse vídeo';
+    // Número aleatório de pessoas assistindo (800-1000), atualiza a cada 5s
+    function updateViewers() {
+      var viewers = Math.floor(Math.random() * (1000 - 800 + 1)) + 800;
+      document.getElementById('viewer-count').textContent = viewers + ' Pessoas estão vendo esse vídeo';
+    }
+    updateViewers();
+    setInterval(updateViewers, 5000);
   </script>
 
   <script>
