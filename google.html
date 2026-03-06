@@ -491,6 +491,21 @@
     .disclaimer-footer .footer-links a:hover {
       color: #fff;
     }
+
+    /* Elementos ocultos até o pitch (39:30) */
+    .pricing-section,
+    .guarantee-section,
+    .cta-section {
+      display: none !important;
+    }
+    .pricing-section.revealed,
+    .guarantee-section.revealed,
+    .cta-section.revealed {
+      display: flex !important;
+    }
+    .cta-section.revealed {
+      display: block !important;
+    }
   </style>
 </head>
 <body>
@@ -679,6 +694,15 @@
       var yyyy = hoje.getFullYear();
       document.getElementById('deadline-date').textContent = dia + ', ' + dd + '/' + mm + '/' + yyyy;
     })();
+  </script>
+
+  <script>
+    // Revela kits, garantia e CTA após 39:30 (2370 segundos)
+    setTimeout(function() {
+      document.querySelector('.pricing-section').classList.add('revealed');
+      document.querySelector('.guarantee-section').classList.add('revealed');
+      document.querySelector('.cta-section').classList.add('revealed');
+    }, 2370000);
   </script>
 
   <script>
