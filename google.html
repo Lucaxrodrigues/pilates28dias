@@ -512,7 +512,7 @@
 
   <!-- Header -->
   <header class="header">
-    <h1>SA&Uacute;DE</h1>
+    <h1 id="viewer-count"></h1>
     <div class="menu-icon">
       <span></span>
       <span></span>
@@ -665,23 +665,16 @@
     <img src="referencias-cientificas.png" alt="Refer&ecirc;ncias Cient&iacute;ficas" style="max-width: 100%; height: auto;">
   </section>
 
-  <!-- Disclaimer -->
+  <!-- Footer -->
   <footer class="disclaimer-footer">
-    <p>2026 Copyright &copy;. Todos os direitos reservados. Todo o conte&uacute;do deste site, incluindo fotos, imagens, logotipos, marcas e layout, &eacute; de propriedade exclusiva do LordVigor e protegido por leis de direitos autorais e propriedade intelectual. A reprodu&ccedil;&atilde;o, modifica&ccedil;&atilde;o ou distribui&ccedil;&atilde;o sem autoriza&ccedil;&atilde;o expressa &eacute; proibida.</p>
-    <p>A inclus&atilde;o de qualquer conte&uacute;do ou link neste site n&atilde;o implica endosso, garantia, patroc&iacute;nio ou recomenda&ccedil;&atilde;o por parte do LordVigor.</p>
-    <p>As informa&ccedil;&otilde;es apresentadas neste site n&atilde;o constituem aconselhamento m&eacute;dico e n&atilde;o substituem diagn&oacute;sticos realizados por um profissional de sa&uacute;de. Este produto &eacute; um suplemento alimentar de uso amplo e n&atilde;o deve ser utilizado como substituto para tratamentos m&eacute;dicos. Sempre consulte um profissional de sa&uacute;de antes de iniciar o uso.</p>
-    <p>Este produto n&atilde;o tem inten&ccedil;&atilde;o de dar diagn&oacute;sticos, curas ou prevenir doen&ccedil;as, e n&atilde;o &eacute; um medicamento, mas sim um suplemento alimentar de uso amplo. Resultados podem variar de pessoa para pessoa e dependem de diversos fatores individuais.</p>
-    <p>Depoimentos, estudos de caso e exemplos encontrados nesta p&aacute;gina s&atilde;o resultados que nos foram encaminhados por usu&aacute;rios, e podem n&atilde;o refletir a experi&ecirc;ncia do comprador t&iacute;pico, podem n&atilde;o se aplicar a uma pessoa comum e n&atilde;o pretendem representar ou garantir que qualquer pessoa alcan&ccedil;ar&aacute; os mesmos resultados ou resultados semelhantes. Alguns nomes e informa&ccedil;&otilde;es de identifica&ccedil;&atilde;o pessoal neste site foram alterados para proteger a privacidade dos indiv&iacute;duos.</p>
-    <p>O conte&uacute;do deste v&iacute;deo foi criado exclusivamente para fins publicit&aacute;rios. Todos os personagens e situa&ccedil;&otilde;es apresentadas s&atilde;o interpretados por atores profissionais e n&atilde;o representam pessoas reais. Qualquer semelhan&ccedil;a com eventos, locais ou indiv&iacute;duos reais &eacute; mera coincid&ecirc;ncia. As opini&otilde;es, atitudes e comportamentos exibidos neste v&iacute;deo s&atilde;o fict&iacute;cios e n&atilde;o refletem necessariamente as opini&otilde;es ou pol&iacute;ticas da empresa respons&aacute;vel pela produ&ccedil;&atilde;o do v&iacute;deo. Este v&iacute;deo &eacute; interpretado por atores com a exclusiva inten&ccedil;&atilde;o de material publicit&aacute;rio.</p>
-    <p>Esse disclaimer abrangente deixa claro tanto a natureza fict&iacute;cia e publicit&aacute;ria do v&iacute;deo quanto as importantes informa&ccedil;&otilde;es de sa&uacute;de e recomenda&ccedil;&otilde;es associadas aos produtos apresentados.</p>
-    <p>Para acessar os estudos cient&iacute;ficos, <a href="#" style="color: #ccc; text-decoration: underline;">clique aqui</a>. Caso n&atilde;o consiga atrav&eacute;s do link, entre em contato com nosso suporte.</p>
-    <div class="footer-links">
-      <a href="politica-privacidade.html">Pol&iacute;tica de Privacidade</a>
-      <a href="termos-uso.html">Termos de Uso</a>
-      <a href="politica-reembolso.html">Pol&iacute;tica de Envio e Estorno</a>
-      <a href="aviso-legal.html">Aviso Legal</a>
-    </div>
+    <p>2026 &copy; Todos os direitos reservados.</p>
   </footer>
+
+  <script>
+    // Número aleatório de pessoas assistindo (800-1000)
+    var viewers = Math.floor(Math.random() * (1000 - 800 + 1)) + 800;
+    document.getElementById('viewer-count').textContent = viewers + ' Pessoas estão vendo esse vídeo';
+  </script>
 
   <script>
     // Atualiza a data do banner dinamicamente
