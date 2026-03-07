@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seção de Comentários</title>
+    <style>
+        /* Fonte Roboto */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Fundo preto da página */
+        .pagina-fundo-preto {
+            background-color: #000;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Caixa principal que imita o plugin do Facebook */
+        .fb-comments-box {
+            background-color: #fff;
+            border-radius: 15px;
+            max-width: 680px;
+            width: 100%;
+            padding: 20px 20px 10px 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Cabeçalho */
+        .comments-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+        }
+        .comments-header h3 {
+            font-size: 14px;
+            font-weight: 500;
+            color: #606770;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Lista de comentários */
+        .comment-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        /* Cada comentário */
+        .comment-item {
+            display: flex;
+            gap: 12px;
+        }
+
+        /* Avatar redondo com iniciais */
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+            color: #fff;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+        /* Conteúdo do comentário */
+        .comment-content {
+            flex: 1;
+        }
+
+        .comment-author {
+            font-weight: 700;
+            color: #365899;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+        .comment-author span {
+            font-weight: 400;
+            color: #1c1e21;
+        }
+        .comment-text {
+            color: #5c5c5c;
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 6px;
+            word-break: break-word;
+        }
+        .comment-meta {
+            font-size: 12px;
+            color: #7a7a7a;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .comment-meta a {
+            color: #7a7a7a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .comment-meta a:hover {
+            text-decoration: underline;
+        }
+        .comment-meta .dot-separator {
+            color: #7a7a7a;
+        }
+
+        /* Rodapé */
+        .comments-footer {
+            border-top: 1px solid #e0e0e0;
+            margin-top: 20px;
+            padding-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #7a7a7a;
+        }
+        .fb-icon {
+            background-color: #4267B2;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .footer-text {
+            font-size: 12px;
+            color: #7a7a7a;
+        }
+
+        /* Ajustes responsivos */
+        @media (max-width: 480px) {
+            .fb-comments-box {
+                padding: 15px;
+            }
+            .comment-item {
+                gap: 8px;
+            }
+            .avatar {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+            .comment-author, .comment-text {
+                font-size: 13px;
+            }
+            .comment-meta {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pagina-fundo-preto">
+        <div class="fb-comments-box">
+            <!-- Header -->
+            <div class="comments-header">
+                <h3>24 Comentários</h3>
+            </div>
+
+            <!-- Lista de comentários -->
+            <div class="comment-list">
+                <!-- Eduardo Coelho -->
+                <div class="comment-item">
+                    <div class="avatar" style="background-color: #E76F51;">EC</div>
+                    <div class="comment-content">
+                        <div class="comment-author">Eduardo Coelho <span>disse:</span></div>
+                        <div class="comment-text">"Ainda bem que eu vi o vídeo até o final. Fico feliz demais Muito obrigado Dra. por ter descoberto, fiz o teste e em dois dias já voltei duro, azulzinho nunca mais!"</div>
+                        <div class="comment-meta">
+                            <a href="#">Responder</a> · <span>38 Curtir</span> · <a href="#">Seguir</a> · <span>37 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Roberto Belmonte -->
+                <div class="comment-item">
+                    <div class="avatar" style="background-color: #2A9D8F;">RB</div>
+                    <div class="comment-content">
+                        <div class="comment-author">Roberto Belmonte <span>disse:</span></div>
+                        <div class="comment-text">"O negócio funciona moço"</div>
+                        <div class="comment-meta">
+                            <a href="#">Responder</a> · <span>7 Curtir</span> · <a href="#">Seguir</a> · <span>12 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pedro Paulo -->
+                <div class="comment-item">
+                    <div class="avatar" style="background-color: #E9C46A;">PP</div>
+                    <div class="comment-content">
+                        <div class="comment-author">Pedro Paulo <span>disse:</span></div>
+                        <div class="comment-text">"No início eu duvidava muito, até porque já tinha tentado de tudo antes Mas mesmo assim resolvi dar uma chance e fiquei impressionado!"</div>
+                        <div class="comment-meta">
+                            <a href="#">Responder</a> · <span>219 Curtir</span> · <a href="#">Seguir</a> · <span>7 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lucas Almeida -->
+                <div class="comment-item">
+                    <div class="avatar" style="background-color: #F4A261;">LA</div>
+                    <div class="comment-content">
+                        <div class="comment-author">Lucas Almeida <span>disse:</span></div>
+                        <div class="comment-text">"Tava querendo saber se funcionava de verdade e agora vendo todos esses comentários positivos, já sei a resposta. Mto obg gente!!"</div>
+                        <div class="comment-meta">
+                            <a href="#">Responder</a> · <span>24 Curtir</span> · <a href="#">Seguir</a> · <span>6 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marcelo Santos Lima -->
+                <div class="comment-item">
+                    <div class="avatar" style="background-color: #E63946;">MS</div>
+                    <div class="comment-content">
+                        <div class="comment-author">Marcelo Santos Lima <span>disse:</span></div>
+                        <div class="comment-text">"Estou surpreso como esse truque funciona mesmo! Duvidava que realmente ia funcionar, estou usando há 30 dias e voltei a fazer 2 vezes por dia, imagina quando fizer 3 meses de uso, minha mulher que me espere"</div>
+                        <div class="comment-meta">
+                            <a href="#">Responder</a> · <span>14 Curtir</span> · <a href="#">Seguir</a> · <span>27 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Guilherme Motta -->
+                <div class="comment-item">
+                    <div class="avatar" style="background-color: #8ECAE6;">GM</div>
+                    <div class="comment-content">
+                        <div class="comment-author">Guilherme Motta <span>disse:</span></div>
+                        <div class="comment-text">"Eu realmente precisava desse truque para salvar meu casamento, nao sabia mais o que fazer. O vídeo demora um pouco, mas depois que é revelado o truque eu fiquei surpreso pq funciona de verdade! obrigado Doutora!"</div>
+                        <div class="comment-meta">
+                            <a href="#">Responder</a> · <span>102 Curtir</span> · <a href="#">Seguir</a> · <span>1d</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rodrigo Menezes -->
+                <div class="comment-item">
+                    <div class="avatar" style="background-color: #FFB703;">RM</div>
+                    <div class="comment-content">
+                        <div class="comment-author">Rodrigo Menezes <span>disse:</span></div>
+                        <div class="comment-text">"Depois que completei 56 anos, comecei a sofrer com a disfunção, o que me fazia sempre ficar meia bomba, sem falar na minha libido que tava lá no chão… Agora, depois de usar sua solução, tudo isso acabou! Eu parei de passar vergonha. Realmente funciona, eu recomendo mto"</div>
+                        <div class="comment-meta">
+                            <a href="#">Responder</a> · <span>23 Curtir</span> · <a href="#">Seguir</a> · <span>38 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bruno Martins -->
+                <div class="comment-item">
+                    <div class="avatar" style="background-color: #6D6875;">BM</div>
+                    <div class="comment-content">
+                        <div class="comment-author">Bruno Martins <span>disse:</span></div>
+                        <div class="comment-text">"Você devia mostrar esse truque para todo mundo! Ele funciona mesmo!"</div>
+                        <div class="comment-meta">
+                            <a href="#">Responder</a> · <span>5 Curtir</span> · <a href="#">Seguir</a> · <span>4 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Emanuel Silva -->
+                <div class="comment-item">
+                    <div class="avatar" style="background-color: #B5838D;">ES</div>
+                    <div class="comment-content">
+                        <div class="comment-author">Emanuel Silva <span>disse:</span></div>
+                        <div class="comment-text">"Eu sofria com ele ficando apenas meia bomba, não chegava a falhar, mas minha esposa notava que tinha algo errado, ela chegou a brigar comigo achando que eu tava traindo ela Mas era só que o menino não subia mesmo. Mas agora não tem quem me segure, virei adolescente de novo!"</div>
+                        <div class="comment-meta">
+                            <a href="#">Responder</a> · <span>28 Curtir</span> · <a href="#">Seguir</a> · <span>3 h</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wagner Moura -->
+                <div class="comment-item">
+                    <div class="avatar" style="background-color: #FFCDB2;">WM</div>
+                    <div class="comment-content">
+                        <div class="comment-author">Wagner Moura <span>disse:</span></div>
+                        <div class="comment-text">"Não consigo deixar ele rigido faz mais de 8 anos, será que funciona?"</div>
+                        <div class="comment-meta">
+                            <a href="#">Responder</a> · <span>16 Curtir</span> · <a href="#">Seguir</a> · <span>9 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celia Ivano -->
+                <div class="comment-item">
+                    <div class="avatar" style="background-color: #A2D9CE;">CI</div>
+                    <div class="comment-content">
+                        <div class="comment-author">Celia Ivano <span>disse:</span></div>
+                        <div class="comment-text">"Wagner o negócio fica igual concreto rsrs Esse metodo foi a única tentativa que deu certo pra mim. Pode testar, vc vai ver como funciona!"</div>
+                        <div class="comment-meta">
+                            <a href="#">Responder</a> · <span>11 Curtir</span> · <a href="#">Seguir</a> · <span>8 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diego Silva -->
+                <div class="comment-item">
+                    <div class="avatar" style="background-color: #E5989B;">DS</div>
+                    <div class="comment-content">
+                        <div class="comment-author">Diego Silva <span>disse:</span></div>
+                        <div class="comment-text">"Já fazia três anos que eu não conseguia levantar o mastro tentei de tudo gel massagem e nada funcionava. So esse metodo que conseguiu me salva só não use muito senão não tem quem faça descer o meinão!!"</div>
+                        <div class="comment-meta">
+                            <a href="#">Responder</a> · <span>18 Curtir</span> · <a href="#">Seguir</a> · <span>17 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- João Paulo -->
+                <div class="comment-item">
+                    <div class="avatar" style="background-color: #FFB4A2;">JP</div>
+                    <div class="comment-content">
+                        <div class="comment-author">João Paulo <span>disse:</span></div>
+                        <div class="comment-text">"Valeu, vou testar também!"</div>
+                        <div class="comment-meta">
+                            <a href="#">Responder</a> · <span>14 Curtir</span> · <a href="#">Seguir</a> · <span>2 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Otavio Neto -->
+                <div class="comment-item">
+                    <div class="avatar" style="background-color: #6D597A;">ON</div>
+                    <div class="comment-content">
+                        <div class="comment-author">Otavio Neto <span>disse:</span></div>
+                        <div class="comment-text">"Fazia tempo que estava procurando isso, sorte que achei de novo"</div>
+                        <div class="comment-meta">
+                            <a href="#">Responder</a> · <span>5 Curtir</span> · <a href="#">Seguir</a> · <span>1 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eduardo Machado -->
+                <div class="comment-item">
+                    <div class="avatar" style="background-color: #B56576;">EM</div>
+                    <div class="comment-content">
+                        <div class="comment-author">Eduardo Machado <span>disse:</span></div>
+                        <div class="comment-text">"Quero agradecer a Rogério, que me mostrou esse método e me deixou duro de um jeito que nunca fiquei na vida, me sinto até um adolescente novamente!"</div>
+                        <div class="comment-meta">
+                            <a href="#">Responder</a> · <span>1 Curtir</span> · <a href="#">Seguir</a> · <span>41 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- José Carvalho -->
+                <div class="comment-item">
+                    <div class="avatar" style="background-color: #9C89B8;">JC</div>
+                    <div class="comment-content">
+                        <div class="comment-author">José Carvalho <span>disse:</span></div>
+                        <div class="comment-text">"eu sofria com a mesma coisa que vocês Minha esposa já tava pra me deixar Esse truque da semente verde foi minha única tentativa que deu certo, você vai ver como funciona."</div>
+                        <div class="comment-meta">
+                            <a href="#">Responder</a> · <span>152 Curtir</span> · <a href="#">Seguir</a> · <span>6 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- José Antônio -->
+                <div class="comment-item">
+                    <div class="avatar" style="background-color: #F0A6CA;">JA</div>
+                    <div class="comment-content">
+                        <div class="comment-author">José Antônio <span>disse:</span></div>
+                        <div class="comment-text">"No início eu não acreditei, mas os resultados falam por si. Lutando com a disfunção e noites mal sucedidas, o tratamento foi o único que me deu alívio"</div>
+                        <div class="comment-meta">
+                            <a href="#">Responder</a> · <span>2 Curtir</span> · <a href="#">Seguir</a> · <span>12 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fernando Luiz Almeida -->
+                <div class="comment-item">
+                    <div class="avatar" style="background-color: #B0C4B1;">FA</div>
+                    <div class="comment-content">
+                        <div class="comment-author">Fernando Luiz Almeida <span>disse:</span></div>
+                        <div class="comment-text">"Pagaria até um milhão por esse tratamento se soubesse que ia me fazer tão bem assim"</div>
+                        <div class="comment-meta">
+                            <a href="#">Responder</a> · <span>1 Curtir</span> · <a href="#">Seguir</a> · <span>7 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bento Silva -->
+                <div class="comment-item">
+                    <div class="avatar" style="background-color: #D9BF77;">BS</div>
+                    <div class="comment-content">
+                        <div class="comment-author">Bento Silva <span>disse:</span></div>
+                        <div class="comment-text">"Hoje eu finalmente parei de sofrer com aquela meia bomba e agora, eu não acordo mais envergonhado, mas sim com minha mulher querendo fogo!"</div>
+                        <div class="comment-meta">
+                            <a href="#">Responder</a> · <span>0 Curtir</span> · <a href="#">Seguir</a> · <span>4 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rodapé -->
+            <div class="comments-footer">
+                <span class="fb-icon">f</span>
+                <span class="footer-text">Plug-in social do Facebook</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
