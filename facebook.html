@@ -671,6 +671,26 @@
     .disclaimer-footer .footer-links a:hover {
       color: #fff;
     }
+
+    /* Elementos ocultos até 40 minutos */
+    .faq-section,
+    .guarantee-section,
+    .pricing-section,
+    .cta-section {
+      display: none !important;
+    }
+    .faq-section.revealed,
+    .guarantee-section.revealed,
+    .pricing-section.revealed,
+    .cta-section.revealed {
+      display: flex !important;
+    }
+    .cta-section.revealed {
+      display: block !important;
+    }
+    .faq-section.revealed {
+      display: block !important;
+    }
   </style>
 </head>
 <body>
@@ -1106,6 +1126,16 @@
       var yyyy = hoje.getFullYear();
       document.getElementById('deadline-date').textContent = dia + ', ' + dd + '/' + mm + '/' + yyyy;
     })();
+  </script>
+
+  <script>
+    // Revela FAQ, garantia, kits e CTA após 40 minutos (2400 segundos)
+    setTimeout(function() {
+      document.querySelector('.faq-section').classList.add('revealed');
+      document.querySelector('.guarantee-section').classList.add('revealed');
+      document.querySelector('.pricing-section').classList.add('revealed');
+      document.querySelector('.cta-section').classList.add('revealed');
+    }, 2400000);
   </script>
 
   <script>
