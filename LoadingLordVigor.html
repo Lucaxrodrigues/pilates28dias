@@ -1,0 +1,97 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import ProgressHeaderLordVigor from "@/components/ProgressHeaderLordVigor";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { toast } from "@/hooks/use-toast";
+
+const QuizLordVigor = () => {
+  const navigate = useNavigate();
+  const [weight, setWeight] = useState("");
+  const [age, setAge] = useState("");
+  const [height, setHeight] = useState("");
+  const [penisSize, setPenisSize] = useState("");
+  const [duration, setDuration] = useState("");
+  const [multipleTimes, setMultipleTimes] = useState("");
+  const [healthProblems, setHealthProblems] = useState("");
+  const [medications, setMedications] = useState("");
+  const [prostateSurgery, setProstateSurgery] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!weight || !age || !height) {
+      toast({
+        title: "Campos obrigatórios",
+        description: "Por favor, preencha todos os campos.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    navigate("/lordvigor/loading");
+  };
+
+  const fields = [
+    { id: "weight", label: "Qual seu peso? (kg)", type: "number", placeholder: "Ex: 75", value: weight, onChange: setWeight, min: "30", max: "300" },
+    { id: "age", label: "Qual sua idade?", type: "number", placeholder: "Ex: 35", value: age, onChange: setAge, min: "18", max: "120" },
+    { id: "height", label: "Qual a sua altura? (cm)", type: "number", placeholder: "Ex: 175", value: height, onChange: setHeight, min: "100", max: "250" },
+    { id: "penisSize", label: "Você deseja aumentar o tamanho e engrossar o seu pênis? Se sim, em quantos centímetros?", type: "text", placeholder: "", value: penisSize, onChange: setPenisSize },
+    { id: "duration", label: "Quanto tempo você gostaria de durar no sexo sem ejacular?", type: "text", placeholder: "", value: duration, onChange: setDuration },
+    { id: "multipleTimes", label: "Gostaria de fazer sexo mais de uma vez seguida?", type: "text", placeholder: "Ex: Sim, 2 vezes", value: multipleTimes, onChange: setMultipleTimes },
+    { id: "healthProblems", label: "Você tem algum problema de saúde que gostaria de nos informar?", type: "text", placeholder: "Ex: Não tenho / Diabetes", value: healthProblems, onChange: setHealthProblems },
+    { id: "medications", label: "Faz uso de algum medicamento contínuo?", type: "text", placeholder: "Ex: Não / Nome do medicamento", value: medications, onChange: setMedications },
+    { id: "prostateSurgery", label: "Realizou alguma cirurgia na próstata?", type: "text", placeholder: "Ex: Não / Sim", value: prostateSurgery, onChange: setProstateSurgery },
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-dark">
+      <ProgressHeaderLordVigor step={1} progress={35} />
+
+      <div className="container max-w-2xl mx-auto px-4 py-8 sm:py-12">
+        <form onSubmit={handleSubmit} className="space-y-6 animate-fade-in">
+          <div className="bg-card rounded-2xl p-6 sm:p-8 border border-border shadow-gold">
+            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-primary">
+              Informações Pessoais
+            </h2>
+
+            <div className="space-y-6">
+              {fields.map((field) => (
+                <div key={field.id} className="space-y-2">
+                  <Label htmlFor={field.id} className="text-base sm:text-lg font-semibold text-foreground">
+                    {field.label}
+                  </Label>
+                  <Input
+                    id={field.id}
+                    type={field.type}
+                    placeholder={field.placeholder}
+                    value={field.value}
+                    onChange={(e) => field.onChange(e.target.value)}
+                    className="h-12 sm:h-14 text-base sm:text-lg bg-secondary border-border focus:border-primary focus:ring-primary"
+                    {...(field.min ? { min: field.min } : {})}
+                    {...(field.max ? { max: field.max } : {})}
+                  />
+                </div>
+              ))}
+            </div>
+
+            <Button
+              type="submit"
+              className="w-full mt-8 h-12 sm:h-14 text-base sm:text-lg font-bold bg-gradient-primary hover:opacity-90 transition-all shadow-gold hover:shadow-glow"
+            >
+              Continuar
+            </Button>
+          </div>
+
+          <div className="text-center space-y-2 text-muted-foreground text-xs sm:text-sm">
+            <p>🔒 Suas informações estão seguras</p>
+            <p>✓ Dados criptografados e protegidos</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default QuizLordVigor;
