@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LordVigor - Saúde</title>
+  <title>M&eacute;dico Brasileiro Choca a Ind&uacute;stria Farmac&ecirc;utica | CNN Brasil</title>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -21,7 +21,7 @@
 <link rel="dns-prefetch" href="https://api.vturb.com.br">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -30,45 +30,241 @@
     }
 
     body {
-      font-family: 'Montserrat', Arial, sans-serif;
-      background: #fff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f5f5;
       color: #333;
     }
 
-    /* Header */
-    .header {
-      background: #cc0000;
-      padding: 16px 20px;
+    /* ===== CNN HEADER ===== */
+    .cnn-header {
+      background: #222;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
+      padding: 0 20px;
+      height: 50px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    .header h1 {
+    .cnn-header-inner {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .cnn-menu-icon {
       color: #fff;
-      font-size: 14px;
-      font-weight: 400;
-      letter-spacing: 0px;
+      font-size: 20px;
+      cursor: pointer;
+      margin-right: 12px;
+      display: flex;
+      align-items: center;
     }
 
-/* Banner de urgência */
-    .urgency-banner {
-      background: #990000;
+    .cnn-menu-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: #fff;
+    }
+
+    .cnn-logo {
+      display: flex;
+      align-items: center;
+      margin-right: 30px;
+    }
+
+    .cnn-logo-box {
+      background: #cc0000;
       color: #fff;
-      text-align: center;
-      padding: 10px 15px;
-      font-size: 14px;
+      font-weight: 800;
+      font-size: 16px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      letter-spacing: 2px;
+      line-height: 1;
     }
 
-    .urgency-banner strong {
-      font-weight: 700;
+    .cnn-logo-brasil {
+      color: #fff;
+      font-size: 10px;
+      font-weight: 600;
+      margin-left: 4px;
+      letter-spacing: 1px;
     }
 
-    /* Seção do vídeo */
-    .video-section {
+    .cnn-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex: 1;
+    }
+
+    .cnn-nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+
+    .cnn-nav a:hover {
+      color: #fff;
+    }
+
+    .cnn-nav .ao-vivo {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .cnn-nav .ao-vivo::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #cc0000;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+
+    .cnn-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-left: auto;
+    }
+
+    .cnn-header-actions svg {
+      width: 20px;
+      height: 20px;
+      stroke: #ccc;
+      fill: none;
+      cursor: pointer;
+    }
+
+    .cnn-header-actions svg:hover {
+      stroke: #fff;
+    }
+
+    /* ===== ARTICLE CONTAINER ===== */
+    .article-container {
+      max-width: 780px;
+      margin: 0 auto;
       background: #fff;
-      padding: 30px 15px 10px;
+      padding: 40px 60px;
+      min-height: 60vh;
+    }
+
+    /* Category tag */
+    .article-category {
+      display: inline-block;
+      color: #cc0000;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    /* Headline */
+    .article-headline {
+      font-size: 38px;
+      font-weight: 800;
+      color: #111;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    /* Subtitle */
+    .article-subtitle {
+      font-size: 18px;
+      font-weight: 400;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    /* Author & date */
+    .article-meta {
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    .article-author {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    .article-author a {
+      color: #111;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    .article-date {
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* Share bar */
+    .article-share {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .article-share-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #888;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .share-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .share-icon:hover {
+      border-color: #666;
+    }
+
+    .share-icon svg {
+      width: 16px;
+      height: 16px;
+      fill: #555;
+    }
+
+    /* Article body text */
+    .article-body p {
+      font-size: 17px;
+      color: #333;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .article-body strong {
+      color: #111;
+    }
+
+    /* ===== VIDEO WRAPPER ===== */
+    .video-section {
+      margin: 30px 0;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -76,26 +272,26 @@
 
     .video-wrapper {
       width: 100%;
-      max-width: 400px;
+      max-width: 660px;
     }
 
     .sound-notice {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      margin-top: 16px;
-      font-size: 14px;
-      font-weight: 700;
-      color: #333;
+      gap: 8px;
+      margin-top: 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #555;
     }
 
     .sound-icon {
-      width: 22px;
-      height: 22px;
+      width: 18px;
+      height: 18px;
     }
 
-    /* Seção de preços */
+    /* ===== PRICING SECTION ===== */
     .pricing-section {
       background: #1a3a5c;
       padding: 40px 15px;
@@ -163,30 +359,10 @@
       object-fit: contain;
     }
 
-    .product-placeholder {
-      width: 180px;
-      height: 160px;
-      margin: 10px auto;
-      background: #e8f4f8;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #2980b9;
-      font-weight: 700;
-      font-size: 14px;
-      text-align: center;
-      padding: 10px;
-    }
-
     .installments {
       font-size: 14px;
       color: #555;
       margin-top: 10px;
-    }
-
-    .installments span {
-      display: inline;
     }
 
     .price {
@@ -274,20 +450,6 @@
       height: 28px;
     }
 
-    .flag {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 4px;
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    .flag-visa { background: #1a1f71; }
-    .flag-master { background: #eb001b; }
-    .flag-discover { background: #ff6000; }
-    .flag-amex { background: #006fcf; }
-
     /* Garantia */
     .guarantee-section {
       background: #fdf8e8;
@@ -315,21 +477,6 @@
       justify-content: center;
     }
 
-    .guarantee-img-placeholder {
-      width: 200px;
-      height: 200px;
-      background: #f0e6cc;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #8b7a50;
-      font-weight: 700;
-      font-size: 13px;
-      padding: 10px;
-    }
-
     .guarantee-content h2 {
       font-size: 26px;
       font-weight: 900;
@@ -349,7 +496,7 @@
       color: #333;
     }
 
-    /* CTA final */
+    /* CTA */
     .cta-section {
       padding: 40px 20px;
       text-align: center;
@@ -376,7 +523,7 @@
       background: #f1c40f;
     }
 
-    /* Referências */
+    /* Refer&ecirc;ncias */
     .references-section {
       padding: 30px 20px 50px;
       text-align: center;
@@ -394,41 +541,81 @@
       margin-bottom: 25px;
     }
 
-    .references-logos {
+    /* ===== CNN FOOTER ===== */
+    .cnn-footer {
+      background: #222;
+      padding: 20px 20px 24px;
+      text-align: center;
+    }
+
+    .cnn-footer-links {
       display: flex;
-      align-items: center;
       justify-content: center;
-      gap: 30px;
+      gap: 24px;
       flex-wrap: wrap;
+      margin-bottom: 14px;
     }
 
-    .references-logos span {
-      font-size: 22px;
-      font-weight: 800;
-      color: #555;
+    .cnn-footer-links a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      transition: color 0.2s;
     }
 
-    .ref-globo { color: #e31e24; }
-    .ref-terra { color: #e35d22; }
-    .ref-cnn { color: #cc0000; background: #cc0000; color: #fff; padding: 4px 12px; border-radius: 4px; font-size: 16px; }
-    .ref-uol { color: #f5a623; }
+    .cnn-footer-links a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
 
-    /* Responsivo */
+    .cnn-footer-copy {
+      color: #888;
+      font-size: 12px;
+    }
+
+    /* ===== HIDDEN SECTIONS (reveal after pitch) ===== */
+    .pricing-section,
+    .guarantee-section,
+    .cta-section {
+      display: none !important;
+    }
+    .pricing-section.revealed,
+    .guarantee-section.revealed,
+    .cta-section.revealed {
+      display: flex !important;
+    }
+    .cta-section.revealed {
+      display: block !important;
+    }
+
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 960px) {
       .pricing-section {
         flex-direction: column;
         align-items: center;
       }
-
       .price-card.featured {
         transform: none;
         order: -1;
       }
     }
 
-    @media (max-width: 600px) {
-      .header h1 {
-        font-size: 14px;
+    @media (max-width: 768px) {
+      .cnn-nav {
+        display: none;
+      }
+
+      .article-container {
+        padding: 24px 20px;
+      }
+
+      .article-headline {
+        font-size: 26px;
+      }
+
+      .article-subtitle {
+        font-size: 16px;
       }
 
       .guarantee-box {
@@ -445,54 +632,6 @@
         font-size: 20px;
       }
     }
-
-    /* Disclaimer / Footer */
-    .disclaimer-footer {
-      background: #1a1a1a;
-      color: #999;
-      padding: 40px 20px;
-      font-size: 12px;
-      line-height: 1.8;
-      text-align: center;
-    }
-
-    .disclaimer-footer p {
-      max-width: 900px;
-      margin: 0 auto 15px;
-    }
-
-    .disclaimer-footer .footer-links {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .disclaimer-footer .footer-links a {
-      color: #ccc;
-      text-decoration: underline;
-      font-size: 12px;
-    }
-
-    .disclaimer-footer .footer-links a:hover {
-      color: #fff;
-    }
-
-    /* Elementos ocultos até o pitch (39:30) */
-    .pricing-section,
-    .guarantee-section,
-    .cta-section {
-      display: none !important;
-    }
-    .pricing-section.revealed,
-    .guarantee-section.revealed,
-    .cta-section.revealed {
-      display: flex !important;
-    }
-    .cta-section.revealed {
-      display: block !important;
-    }
   </style>
 </head>
 <body>
@@ -501,38 +640,87 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <!-- Header -->
-  <header class="header">
-    <h1 id="viewer-count"></h1>
+  <!-- ===== CNN HEADER ===== -->
+  <header class="cnn-header">
+    <div class="cnn-header-inner">
+      <div class="cnn-menu-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      </div>
+      <div class="cnn-logo">
+        <span class="cnn-logo-box">CNN</span>
+        <span class="cnn-logo-brasil">BRASIL</span>
+      </div>
+      <nav class="cnn-nav">
+        <a href="#" class="ao-vivo">Ao vivo</a>
+        <a href="#">Pol&iacute;tica</a>
+        <a href="#">WW</a>
+        <a href="#">Money</a>
+        <a href="#">Agro</a>
+        <a href="#">Esportes</a>
+        <a href="#">Viagem &amp; Gastronomia</a>
+      </nav>
+      <div class="cnn-header-actions">
+        <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <svg viewBox="0 0 24 24" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+    </div>
   </header>
 
-  <!-- Banner de urgência -->
-  <div class="urgency-banner">
-    Apresenta&ccedil;&atilde;o dispon&iacute;vel somente at&eacute;: <strong id="deadline-date">quarta, 04/03/2026</strong>
-  </div>
+  <!-- ===== ARTICLE ===== -->
+  <main class="article-container">
+    <span class="article-category">Sa&uacute;de</span>
 
-  <!-- Vídeo -->
-  <section class="video-section">
-    <div class="video-wrapper">
-      <vturb-smartplayer id="vid-69af1c8aa61fe7c3c1e2e9d6" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
-      <script type="text/javascript">
-        var s=document.createElement("script");
-        s.src="https://scripts.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/players/69af1c8aa61fe7c3c1e2e9d6/v4/player.js",
-        s.async=!0,document.head.appendChild(s);
-      </script>
-    </div>
-    <div class="sound-notice">
-      <svg class="sound-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
-        <path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.08"/>
-      </svg>
-      Por favor, verifique se o som est&aacute; ligado.
-    </div>
-  </section>
+    <h1 class="article-headline">M&eacute;dico Brasileiro Choca a Ind&uacute;stria Farmac&ecirc;utica: &ldquo;Este m&eacute;todo natural devolve a ere&ccedil;&atilde;o de homens com mais de 40 anos, sem p&iacute;lulas azuis...&rdquo;</h1>
 
-  <!-- Preços -->
+    <p class="article-subtitle">Descoberta de pesquisador brasileiro promete revolucionar o tratamento da disfun&ccedil;&atilde;o er&eacute;til sem efeitos colaterais</p>
+
+    <div class="article-meta">
+      <p class="article-author">Por <a href="#">Reda&ccedil;&atilde;o CNN Brasil</a></p>
+      <p class="article-date" id="article-date">05/03/2026 &agrave;s 14:32 | Atualizado 05/03/2026 &agrave;s 16:45</p>
+    </div>
+
+    <div class="article-share">
+      <span class="article-share-label">Compartilhar</span>
+      <!-- Twitter/X -->
+      <div class="share-icon">
+        <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0012 7.5v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+      </div>
+      <!-- Facebook -->
+      <div class="share-icon">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </div>
+      <!-- WhatsApp -->
+      <div class="share-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+      </div>
+    </div>
+
+    <!-- V&iacute;deo -->
+    <section class="video-section">
+      <div class="video-wrapper">
+        <vturb-smartplayer id="vid-69af1c8aa61fe7c3c1e2e9d6" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+        <script type="text/javascript">
+          var s=document.createElement("script");
+          s.src="https://scripts.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/players/69af1c8aa61fe7c3c1e2e9d6/v4/player.js",
+          s.async=!0,document.head.appendChild(s);
+        </script>
+      </div>
+      <div class="sound-notice">
+        <svg class="sound-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+          <path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.08"/>
+        </svg>
+        Por favor, verifique se o som est&aacute; ligado.
+      </div>
+    </section>
+
+    <div class="article-body">
+      <p>Assista ao v&iacute;deo acima para entender como funciona o m&eacute;todo que est&aacute; transformando a vida de milhares de homens em todo o Brasil.</p>
+    </div>
+  </main>
+
+  <!-- Pre&ccedil;os -->
   <section class="pricing-section" id="kits">
-
     <!-- 10 Frascos -->
     <div class="price-card featured">
       <div class="badge">Mais vendido</div>
@@ -621,7 +809,6 @@
         <img src="bandeiras-cartao.webp" alt="Bandeiras de cart&atilde;o">
       </div>
     </div>
-
   </section>
 
   <!-- Garantia -->
@@ -645,42 +832,38 @@
     <a href="#kits" class="btn-cta">ESCOLHER MEU KIT</a>
   </section>
 
-  <!-- Referências Científicas -->
+  <!-- Refer&ecirc;ncias -->
   <section class="references-section">
     <div class="references-badge">Refer&ecirc;ncias Cient&iacute;ficas</div>
     <img src="referencias-cientificas.png" alt="Refer&ecirc;ncias Cient&iacute;ficas" style="max-width: 100%; height: auto;">
   </section>
 
-  <!-- Footer -->
-  <footer class="disclaimer-footer">
-    <p>2026 &copy; Todos os direitos reservados.</p>
+  <!-- ===== CNN FOOTER ===== -->
+  <footer class="cnn-footer">
+    <div class="cnn-footer-links">
+      <a href="#">Sobre a CNN Brasil</a>
+      <a href="#">Aviso Legal e Pol&iacute;tica de Privacidade</a>
+      <a href="#">Termos de Uso</a>
+      <a href="#">Fale com a CNN</a>
+      <a href="#">Fa&ccedil;a parte da Equipe CNN</a>
+    </div>
+    <p class="cnn-footer-copy">&copy; Cable News Network Brasil. Uma empresa NOVUS M&Iacute;DIA. Todos os direitos reservados.</p>
   </footer>
 
   <script>
-    // Número aleatório de pessoas assistindo (800-1000), atualiza a cada 5s
-    function updateViewers() {
-      var viewers = Math.floor(Math.random() * (1000 - 800 + 1)) + 800;
-      document.getElementById('viewer-count').textContent = viewers + ' Pessoas estão vendo esse vídeo';
-    }
-    updateViewers();
-    setInterval(updateViewers, 5000);
-  </script>
-
-  <script>
-    // Atualiza a data do banner dinamicamente
+    // Atualiza a data do artigo dinamicamente
     (function() {
-      var dias = ['domingo','segunda','ter\u00e7a','quarta','quinta','sexta','s\u00e1bado'];
       var hoje = new Date();
-      var dia = dias[hoje.getDay()];
       var dd = String(hoje.getDate()).padStart(2, '0');
       var mm = String(hoje.getMonth() + 1).padStart(2, '0');
       var yyyy = hoje.getFullYear();
-      document.getElementById('deadline-date').textContent = dia + ', ' + dd + '/' + mm + '/' + yyyy;
+      var dataStr = dd + '/' + mm + '/' + yyyy;
+      document.getElementById('article-date').textContent = dataStr + ' \u00e0s 14:32 | Atualizado ' + dataStr + ' \u00e0s 16:45';
     })();
   </script>
 
   <script>
-    // Revela kits, garantia e CTA após 39:30 (2370 segundos)
+    // Revela kits, garantia e CTA ap&oacute;s 39:30 (2370 segundos)
     setTimeout(function() {
       document.querySelector('.pricing-section').classList.add('revealed');
       document.querySelector('.guarantee-section').classList.add('revealed');
@@ -689,7 +872,7 @@
   </script>
 
   <script>
-    // Repassa parâmetros da URL (UTM, gclid, etc.) para os links de checkout
+    // Repassa par&acirc;metros da URL (UTM, gclid, etc.) para os links de checkout
     (function() {
       var params = window.location.search;
       if (!params) return;
