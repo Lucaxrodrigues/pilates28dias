@@ -582,19 +582,11 @@
       font-size: 12px;
     }
 
-    /* ===== HIDDEN SECTIONS (reveal after pitch) ===== */
+    /* ===== HIDDEN SECTIONS (VTurb controla o reveal) ===== */
     .pricing-section,
     .guarantee-section,
     .cta-section {
-      display: none !important;
-    }
-    .pricing-section.revealed,
-    .guarantee-section.revealed,
-    .cta-section.revealed {
-      display: flex !important;
-    }
-    .cta-section.revealed {
-      display: block !important;
+      display: none;
     }
 
     /* ===== RESPONSIVE ===== */
@@ -867,14 +859,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     })();
   </script>
 
-  <script>
-    // Revela kits, garantia e CTA ap&oacute;s 41:30 (2490 segundos)
-    setTimeout(function() {
-      document.querySelector('.pricing-section').classList.add('revealed');
-      document.querySelector('.guarantee-section').classList.add('revealed');
-      document.querySelector('.cta-section').classList.add('revealed');
-    }, 2490000);
-  </script>
+  <!-- VTurb controla o reveal das seções ocultas -->
 
   <script>
     // Repassa par&acirc;metros da URL (UTM, gclid, etc.) para os links de checkout

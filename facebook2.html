@@ -631,24 +631,12 @@
       font-size: 12px;
     }
 
-    /* ===== HIDDEN SECTIONS (reveal after pitch) ===== */
+    /* ===== HIDDEN SECTIONS (VTurb controla o reveal) ===== */
     .faq-section,
     .guarantee-section,
     .pricing-section,
     .cta-section {
-      display: none !important;
-    }
-    .faq-section.revealed,
-    .guarantee-section.revealed,
-    .pricing-section.revealed,
-    .cta-section.revealed {
-      display: flex !important;
-    }
-    .cta-section.revealed {
-      display: block !important;
-    }
-    .faq-section.revealed {
-      display: block !important;
+      display: none;
     }
 
     /* ===== RESPONSIVE ===== */
@@ -900,25 +888,6 @@
       color: #fff;
     }
 
-    /* Elementos ocultos até 40 minutos */
-    .faq-section,
-    .guarantee-section,
-    .pricing-section,
-    .cta-section {
-      display: none !important;
-    }
-    .faq-section.revealed,
-    .guarantee-section.revealed,
-    .pricing-section.revealed,
-    .cta-section.revealed {
-      display: flex !important;
-    }
-    .cta-section.revealed {
-      display: block !important;
-    }
-    .faq-section.revealed {
-      display: block !important;
-    }
   </style>
 </head>
 <body>
@@ -1426,15 +1395,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     })();
   </script>
 
-  <script>
-    // Revela FAQ, garantia, kits e CTA após 40 minutos (2400 segundos)
-    setTimeout(function() {
-      document.querySelector('.faq-section').classList.add('revealed');
-      document.querySelector('.guarantee-section').classList.add('revealed');
-      document.querySelector('.pricing-section').classList.add('revealed');
-      document.querySelector('.cta-section').classList.add('revealed');
-    }, 2520000);
-  </script>
+  <!-- VTurb controla o reveal das seções ocultas -->
 
   <script>
     // FAQ Accordion
