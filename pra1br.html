@@ -1,286 +1,187 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assista Agora</title>
-
-    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-    <link rel="preload" href="https://scripts.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/players/69c5a3b796fd2c2d9b236afe/v4/player.js" as="script">
-    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-    <link rel="preload" href="https://cdn.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/69a0b0dadfeab82d62493612/main.m3u8" as="fetch">
-    <link rel="dns-prefetch" href="https://cdn.converteai.net">
-    <link rel="dns-prefetch" href="https://scripts.converteai.net">
-    <link rel="dns-prefetch" href="https://images.converteai.net">
-    <link rel="dns-prefetch" href="https://api.vturb.com.br">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+    <title>Especialização em Excel Avançado e Inteligência de Dados | Dropix Editora</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.8; color: #2d3436; margin: 0; padding: 0; background-color: #f9f9f9; }
+        header { background: #1b5e20; color: #fff; padding: 1.2rem 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .logo { font-size: 1.5rem; letter-spacing: -1px; }
+        nav a { color: #fff; text-decoration: none; margin-left: 25px; font-size: 0.95rem; font-weight: 500; opacity: 0.9; transition: 0.3s; }
+        nav a:hover { opacity: 1; text-decoration: underline; }
+        .container { width: 85%; max-width: 1000px; margin: auto; padding: 3rem 0; }
+        .hero { background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%); color: white; text-align: center; padding: 6rem 1rem; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.1; }
+        .hero p { font-size: 1.3rem; max-width: 800px; margin: auto; opacity: 0.9; }
+        
+        .section-title { text-align: center; margin-bottom: 3rem; color: #1b5e20; }
+        .section-title h2 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .section-title .underline { width: 60px; height: 4px; background: #2e7d32; margin: auto; border-radius: 2px; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            min-height: 100vh;
-            background: #0a0e1a;
-            background-image: radial-gradient(ellipse at 50% 0%, #161d3a 0%, #0a0e1a 70%);
-            background-attachment: fixed;
-            color: #e2e8f0;
-        }
+        .content-block { background: #fff; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin-bottom: 3rem; }
+        .syllabus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .module { border-bottom: 1px solid #eee; padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+        .module h3 { color: #2e7d32; font-size: 1.4rem; margin-bottom: 0.8rem; }
+        .module ul { list-style: none; padding: 0; font-size: 0.95rem; color: #636e72; }
+        .module ul li { margin-bottom: 8px; position: relative; padding-left: 20px; }
+        .module ul li::before { content: "✔"; position: absolute; left: 0; color: #2e7d32; }
 
-        .top-bar {
-            background: rgba(255, 255, 255, 0.04);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 12px 20px;
-            text-align: center;
-        }
+        .faq { background: #f1f8e9; padding: 4rem 2rem; border-radius: 12px; }
+        .faq-item { margin-bottom: 2rem; }
+        .faq-item h4 { color: #1b5e20; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .faq-item p { font-size: 0.95rem; color: #4b4b4b; }
 
-        .top-bar span {
-            font-size: 12px;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.45);
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-        }
+        .methodology { display: flex; align-items: center; gap: 40px; margin-top: 4rem; }
+        .methodology-text { flex: 1; }
 
-        .hero-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px 60px;
-            max-width: 820px;
-            margin: 0 auto;
-        }
+        footer { background: #1a1a1a; color: #d1d1d1; padding: 4rem 8% 2rem; font-size: 0.85rem; line-height: 1.6; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; border-bottom: 1px solid #333; padding-bottom: 3rem; }
+        .footer-bottom { text-align: center; padding-top: 2rem; color: #888; }
+        .footer-bottom a { color: #888; text-decoration: none; margin: 0 10px; }
+        .footer-bottom a:hover { color: #fff; }
+        .disclaimer { display: block; margin-top: 20px; font-style: italic; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.4; opacity: 0.7; }
 
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.25);
-            border-radius: 20px;
-            padding: 6px 16px;
-            margin-bottom: 30px;
-        }
-
-        .badge-dot {
-            width: 6px;
-            height: 6px;
-            background: #22c55e;
-            border-radius: 50%;
-            animation: pulse-dot 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse-dot {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
-
-        .badge-text {
-            font-size: 11px;
-            font-weight: 600;
-            color: #22c55e;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .player-wrapper {
-            width: 100%;
-            margin-bottom: 36px;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid rgba(99, 130, 191, 0.15);
-            background: #0d1225;
-        }
-
-        .player-wrapper vturb-smartplayer {
-            display: block;
-            width: 100%;
-        }
-
-        .info-text {
-            font-size: 20px;
-            font-weight: 400;
-            color: rgba(226, 232, 240, 0.85);
-            margin-bottom: 32px;
-            text-align: center;
-            line-height: 1.6;
-        }
-
-        .info-text strong {
-            color: #ffffff;
-            font-weight: 600;
-            border-bottom: 2px solid rgba(34, 197, 94, 0.5);
-            padding-bottom: 1px;
-        }
-
-        .cta-link {
-            background: #22c55e;
-            color: #fff;
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            font-weight: 600;
-            padding: 16px 48px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            letter-spacing: 0.5px;
-        }
-
-        .cta-link:hover {
-            background: #16a34a;
-            transform: scale(1.03);
-        }
-
-        .cta-link .play-icon {
-            font-size: 14px;
-        }
-
-        .site-footer {
-            margin-top: 300px;
-            padding: 24px 20px;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .site-footer-nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .site-footer-nav a {
-            color: rgba(255, 255, 255, 0.25);
-            text-decoration: none;
-            font-size: 11px;
-            transition: color 0.2s;
-        }
-
-        .site-footer-nav a:hover {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .site-footer-nav .sep {
-            color: rgba(255, 255, 255, 0.12);
-            font-size: 10px;
-            user-select: none;
-        }
-
-        @media (max-width: 600px) {
-            .top-bar {
-                padding: 10px 15px;
-            }
-
-            .top-bar span {
-                font-size: 10px;
-                letter-spacing: 2px;
-            }
-
-            .hero-section {
-                padding: 28px 16px 40px;
-            }
-
-            .badge {
-                margin-bottom: 22px;
-            }
-
-            .player-wrapper {
-                border-radius: 6px;
-                margin-bottom: 28px;
-            }
-
-            .info-text {
-                font-size: 17px;
-                margin-bottom: 26px;
-            }
-
-            .cta-link {
-                font-size: 15px;
-                padding: 15px 36px;
-                width: 100%;
-                max-width: 340px;
-                justify-content: center;
-            }
-
-            .site-footer {
-                margin-top: 200px;
-            }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .syllabus-grid { grid-template-columns: 1fr; }
+            .container { width: 92%; }
         }
     </style>
 </head>
 <body>
-    <div class="top-bar">
-        <span>Apresentação Exclusiva</span>
+
+<header>
+    <div class="logo"><strong>Dropix</strong> Editora</div>
+    <nav>
+        <a href="#curriculo">Currículo Técnico</a>
+        <a href="#metodo">Metodologia</a>
+        <a href="#faq">Perguntas Frequentes</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>Especialização em Excel Avançado e Business Intelligence</h1>
+        <p>Aprenda a manipular grandes volumes de dados, criar dashboards interativos e automatizar processos corporativos com o treinamento técnico oficial da Dropix Editora.</p>
+    </div>
+</section>
+
+<div class="container">
+    
+    <div class="content-block" id="curriculo">
+        <div class="section-title">
+            <h2>Conteúdo Programático Detalhado</h2>
+            <div class="underline"></div>
+        </div>
+        
+        <div class="syllabus-grid">
+            <div class="module">
+                <h3>Módulo 1: Arquitetura de Dados</h3>
+                <ul>
+                    <li>Lógica de referenciamento absoluto e relativo ($).</li>
+                    <li>Estruturação de tabelas para análise dinâmica.</li>
+                    <li>Validação de dados e proteção de planilhas.</li>
+                    <li>Nomenclatura de intervalos e gerenciador de nomes.</li>
+                </ul>
+            </div>
+            <div class="module">
+                <h3>Módulo 2: Funções de Pesquisa</h3>
+                <ul>
+                    <li>Domínio completo de PROCV e PROCH.</li>
+                    <li>Implementação avançada de ÍNDICE e CORRESP.</li>
+                    <li>Uso da função DESLOC para intervalos dinâmicos.</li>
+                    <li>Fórmulas matriciais e funções de matriz dinâmica.</li>
+                </ul>
+            </div>
+            <div class="module">
+                <h3>Módulo 3: Lógica Condicional</h3>
+                <ul>
+                    <li>Aninhamento de funções SE, E, OU.</li>
+                    <li>Contagens e somas condicionais (CONT.SE, SOMASE).</li>
+                    <li>Formatação condicional baseada em fórmulas.</li>
+                    <li>Tratamento de erros com SEERRO e ÉERROS.</li>
+                </ul>
+            </div>
+            <div class="module">
+                <h3>Módulo 4: Dashboards e Relatórios</h3>
+                <ul>
+                    <li>Criação de Tabelas Dinâmicas de alta performance.</li>
+                    <li>Segmentação de dados (Slicers) e Linha do Tempo.</li>
+                    <li>Gráficos dinâmicos e técnicas de Visualização de Dados.</li>
+                    <li>Integração de fontes de dados externas.</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <section class="hero-section">
-        <div class="player-wrapper">
-            <vturb-smartplayer id="vid-69c5a3b796fd2c2d9b236afe" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+    <div class="content-block" id="metodo">
+        <div class="section-title">
+            <h2>Metodologia de Ensino Dropix</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="methodology">
+            <div class="methodology-text">
+                <p>A <strong>Dropix Editora e Marketing Ltda</strong> aplica o método de <em>Aprendizado Baseado em Problemas (PBL)</em>. Em vez de apenas ensinar as ferramentas de forma isolada, apresentamos desafios reais do cotidiano administrativo e financeiro. O aluno aprende a ferramenta enquanto resolve o problema.</p>
+                <p>Este treinamento foi estruturado por especialistas em Business Intelligence, garantindo que o conteúdo não seja apenas teórico, mas focado na empregabilidade e eficiência operacional dentro de ambientes corporativos modernos.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq" id="faq">
+        <div class="section-title">
+            <h2>Perguntas Frequentes</h2>
+            <div class="underline"></div>
+        </div>
+        
+        <div class="faq-item">
+            <h4>O certificado é reconhecido?</h4>
+            <p>Sim. A Dropix Editora emite um certificado de conclusão de curso livre, válido em todo o território nacional como capacitação técnica, conforme a legislação vigente de cursos profissionalizantes.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>Preciso ter a versão mais recente do Excel?</h4>
+            <p>As aulas são ministradas no Microsoft 365, porém 95% do conteúdo é aplicável a versões a partir de 2016, incluindo as funções de compatibilidade legada.</p>
         </div>
 
-        <div class="badge">
-            <span class="badge-dot"></span>
-            <span class="badge-text">Disponível agora</span>
+        <div class="faq-item">
+            <h4>Como funciona o suporte ao aluno?</h4>
+            <p>Nossa equipe técnica da Dropix responde a todas as dúvidas diretamente na plataforma de ensino em até 24 horas úteis, garantindo que nenhum aluno fique travado em fórmulas complexas.</p>
         </div>
+    </div>
+</div>
 
-        <p class="info-text">Assista a apresentação exclusiva<br><strong>neste momento</strong></p>
+<footer>
+    <div class="footer-grid">
+        <div>
+            <h3>Sobre a Dropix</h3>
+            <p>A Dropix Editora e Marketing Ltda é uma empresa brasileira focada em educação técnica e soluções de marketing, ajudando milhares de alunos a dominarem as ferramentas essenciais para o mercado de trabalho.</p>
+        </div>
+        <div>
+            <h3>Institucional</h3>
+            <p><strong>Razão Social:</strong> Dropix Editora e Marketing Ltda</p>
+            <p><strong>CNPJ:</strong> [SEU CNPJ AQUI]</p>
+            <p><strong>Sede:</strong> São José - Santa Catarina</p>
+        </div>
+        <div>
+            <h3>Suporte</h3>
+            <p>Email: contato@dropixeditora.com.br</p>
+            <p>Atendimento das 09:00 às 18:00</p>
+        </div>
+    </div>
 
-        <a href="/google2.html" class="cta-link" id="ctaButton">
-            <span class="play-icon">&#9654;</span>
-            Assistir Agora
-        </a>
-    </section>
+    <div class="footer-bottom">
+        <p>
+            <a href="#">Políticas de Privacidade</a> | 
+            <a href="#">Termos de Uso</a> | 
+            <a href="#">Código de Ética</a>
+        </p>
+        <span class="disclaimer">
+            <strong>Aviso Legal Importante:</strong> Este treinamento de Excel é fornecido pela Dropix Editora e Marketing Ltda. Não possuímos qualquer vínculo de afiliação direta com a Microsoft Corporation. O Google Inc. e o YouTube Inc. não endossam, patrocinam ou possuem responsabilidade sobre o conteúdo aqui apresentado. Resultados na carreira dependem exclusivamente do empenho e aplicação prática do aluno.
+        </span>
+        <p>© 2026 Dropix Editora. Todos os direitos reservados.</p>
+    </div>
+</footer>
 
-    <footer class="site-footer">
-        <nav class="site-footer-nav">
-            <a href="politica-privacidade.html">Privacidade</a>
-            <span class="sep">&middot;</span>
-            <a href="termos-uso.html">Termos</a>
-            <span class="sep">&middot;</span>
-            <a href="aviso-legal.html">Legal</a>
-            <span class="sep">&middot;</span>
-            <a href="politica-reembolso.html">Reembolso</a>
-        </nav>
-    </footer>
-
-    <script type="text/javascript">
-        var s = document.createElement("script");
-        s.src = "https://scripts.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/players/69c5a3b796fd2c2d9b236afe/v4/player.js";
-        s.async = !0;
-        document.head.appendChild(s);
-    </script>
-
-    <script>
-        (function() {
-            var currentParams = window.location.search;
-
-            if (currentParams) {
-                var ctaButton = document.getElementById('ctaButton');
-                var baseUrl = ctaButton.getAttribute('href');
-                ctaButton.setAttribute('href', baseUrl + currentParams);
-
-                var footerLinks = document.querySelectorAll('.site-footer-nav a');
-                footerLinks.forEach(function(link) {
-                    var linkHref = link.getAttribute('href');
-                    if (!linkHref.startsWith('http')) {
-                        link.setAttribute('href', linkHref + currentParams);
-                    }
-                });
-            }
-        })();
-    </script>
 </body>
 </html>
