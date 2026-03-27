@@ -1,229 +1,187 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apresentação Gratuita</title>
-    
-    <!-- Event snippet for Compra conversion page -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17873578635"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-17873578635');
-    </script>
-    
-    <!-- Performance preload scripts -->
-    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-<link rel="preload" href="https://scripts.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/players/69a0b0df4c57d8bd07c1f64d/v4/player.js" as="script">
-<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-<link rel="preload" href="https://cdn.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/69a0b0dadfeab82d62493612/main.m3u8" as="fetch">
-<link rel="dns-prefetch" href="https://cdn.converteai.net">
-<link rel="dns-prefetch" href="https://scripts.converteai.net">
-<link rel="dns-prefetch" href="https://images.converteai.net">
-<link rel="dns-prefetch" href="https://api.vturb.com.br">
-    
+    <title>Especialização em Excel Avançado e Inteligência de Dados | Dropix Editora</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.8; color: #2d3436; margin: 0; padding: 0; background-color: #f9f9f9; }
+        header { background: #1b5e20; color: #fff; padding: 1.2rem 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .logo { font-size: 1.5rem; letter-spacing: -1px; }
+        nav a { color: #fff; text-decoration: none; margin-left: 25px; font-size: 0.95rem; font-weight: 500; opacity: 0.9; transition: 0.3s; }
+        nav a:hover { opacity: 1; text-decoration: underline; }
+        .container { width: 85%; max-width: 1000px; margin: auto; padding: 3rem 0; }
+        .hero { background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%); color: white; text-align: center; padding: 6rem 1rem; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.1; }
+        .hero p { font-size: 1.3rem; max-width: 800px; margin: auto; opacity: 0.9; }
         
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            background: linear-gradient(180deg, #1a0a0a 0%, #4a0f0f 30%, #6b1515 60%, #4a0f0f 100%);
-            background-attachment: fixed;
-        }
-        
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 50px 20px;
-            min-height: 100vh;
-        }
-        
-        .video-container {
-            width: 100%;
-            max-width: 750px;
-            margin-bottom: 40px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-        
-        .video-container vturb-smartplayer {
-            display: block;
-            width: 100%;
-        }
-        
-        .presentation-text {
-            font-size: 32px;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 35px;
-            text-align: center;
-            line-height: 1.4;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        .presentation-text .highlight {
-            color: #ff4444;
-            font-weight: 700;
-        }
-        
-        .watch-button {
-            background: linear-gradient(180deg, #e53935 0%, #c62828 100%);
-            color: white;
-            font-size: 18px;
-            font-weight: 600;
-            padding: 18px 50px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 8px 25px rgba(229, 57, 53, 0.4);
-        }
-        
-        .watch-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(229, 57, 53, 0.5);
-            background: linear-gradient(180deg, #ef5350 0%, #d32f2f 100%);
-        }
-        
-        .watch-button svg {
-            width: 20px;
-            height: 20px;
-            transition: transform 0.3s ease;
-        }
-        
-        .watch-button:hover svg {
-            transform: translateX(4px);
-        }
-        
-        .footer {
-            margin-top: 350px;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.3);
-            text-decoration: none;
-            font-size: 11px;
-        }
-        
-        .footer-links a:hover {
-            color: rgba(255, 255, 255, 0.5);
-        }
-        
-        @media (max-width: 600px) {
-            .main-content {
-                padding: 30px 15px;
-            }
-            
-            .video-container {
-                border-radius: 12px;
-                margin-bottom: 30px;
-            }
-            
-            .presentation-text {
-                font-size: 22px;
-                margin-bottom: 25px;
-            }
-            
-            .watch-button {
-                font-size: 16px;
-                padding: 16px 35px;
-                width: 100%;
-                max-width: 320px;
-                justify-content: center;
-            }
-            
-            .footer {
-                margin-top: 250px;
-            }
-            
-            .footer-links {
-                gap: 15px;
-            }
-            
-            .footer-links a {
-                font-size: 10px;
-            }
+        .section-title { text-align: center; margin-bottom: 3rem; color: #1b5e20; }
+        .section-title h2 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .section-title .underline { width: 60px; height: 4px; background: #2e7d32; margin: auto; border-radius: 2px; }
+
+        .content-block { background: #fff; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin-bottom: 3rem; }
+        .syllabus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .module { border-bottom: 1px solid #eee; padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+        .module h3 { color: #2e7d32; font-size: 1.4rem; margin-bottom: 0.8rem; }
+        .module ul { list-style: none; padding: 0; font-size: 0.95rem; color: #636e72; }
+        .module ul li { margin-bottom: 8px; position: relative; padding-left: 20px; }
+        .module ul li::before { content: "✔"; position: absolute; left: 0; color: #2e7d32; }
+
+        .faq { background: #f1f8e9; padding: 4rem 2rem; border-radius: 12px; }
+        .faq-item { margin-bottom: 2rem; }
+        .faq-item h4 { color: #1b5e20; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .faq-item p { font-size: 0.95rem; color: #4b4b4b; }
+
+        .methodology { display: flex; align-items: center; gap: 40px; margin-top: 4rem; }
+        .methodology-text { flex: 1; }
+
+        footer { background: #1a1a1a; color: #d1d1d1; padding: 4rem 8% 2rem; font-size: 0.85rem; line-height: 1.6; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; border-bottom: 1px solid #333; padding-bottom: 3rem; }
+        .footer-bottom { text-align: center; padding-top: 2rem; color: #888; }
+        .footer-bottom a { color: #888; text-decoration: none; margin: 0 10px; }
+        .footer-bottom a:hover { color: #fff; }
+        .disclaimer { display: block; margin-top: 20px; font-style: italic; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.4; opacity: 0.7; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .syllabus-grid { grid-template-columns: 1fr; }
+            .container { width: 92%; }
         }
     </style>
 </head>
 <body>
-    <div class="main-content">
-        <div class="video-container">
-            <vturb-smartplayer id="vid-69a0b0df4c57d8bd07c1f64d" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
-        </div>
-        
-        <p class="presentation-text">Clique no botão abaixo para assistir à<br>apresentação <span class="highlight">GRATUITAMENTE!</span></p>
-        
-        <a href="/google.html" class="watch-button" id="ctaButton">
-            ASSISTIR AGORA
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-        </a>
+
+<header>
+    <div class="logo"><strong>Dropix</strong> Editora</div>
+    <nav>
+        <a href="#curriculo">Currículo Técnico</a>
+        <a href="#metodo">Metodologia</a>
+        <a href="#faq">Perguntas Frequentes</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>Especialização em Excel Avançado e Business Intelligence</h1>
+        <p>Aprenda a manipular grandes volumes de dados, criar dashboards interativos e automatizar processos corporativos com o treinamento técnico oficial da Dropix Editora.</p>
     </div>
+</section>
+
+<div class="container">
     
-    <footer class="footer">
-        <div class="footer-links">
-            <a href="politica-privacidade.html">Privacidade</a>
-            <a href="termos-uso.html">Termos</a>
-            <a href="aviso-legal.html">Legal</a>
-            <a href="politica-reembolso.html">Reembolso</a>
+    <div class="content-block" id="curriculo">
+        <div class="section-title">
+            <h2>Conteúdo Programático Detalhado</h2>
+            <div class="underline"></div>
         </div>
-    </footer>
-    
-    <!-- Vturb Player Script -->
-    <script type="text/javascript">
-        var s = document.createElement("script");
-        s.src = "https://scripts.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/players/69a0b0df4c57d8bd07c1f64d/v4/player.js";
-        s.async = !0;
-        document.head.appendChild(s);
-    </script>
-    
-    <!-- URL Parameters Forwarding (gclid, utm, etc) -->
-    <script>
-        (function() {
-            const currentParams = window.location.search;
-            
-            if (currentParams) {
-                const ctaButton = document.getElementById('ctaButton');
-                const baseUrl = ctaButton.getAttribute('href');
-                ctaButton.setAttribute('href', baseUrl + currentParams);
-                
-                // Also update footer links
-                const footerLinks = document.querySelectorAll('.footer-links a');
-                footerLinks.forEach(function(link) {
-                    const linkHref = link.getAttribute('href');
-                    if (!linkHref.startsWith('http')) {
-                        link.setAttribute('href', linkHref + currentParams);
-                    }
-                });
-            }
-        })();
-    </script>
+        
+        <div class="syllabus-grid">
+            <div class="module">
+                <h3>Módulo 1: Arquitetura de Dados</h3>
+                <ul>
+                    <li>Lógica de referenciamento absoluto e relativo ($).</li>
+                    <li>Estruturação de tabelas para análise dinâmica.</li>
+                    <li>Validação de dados e proteção de planilhas.</li>
+                    <li>Nomenclatura de intervalos e gerenciador de nomes.</li>
+                </ul>
+            </div>
+            <div class="module">
+                <h3>Módulo 2: Funções de Pesquisa</h3>
+                <ul>
+                    <li>Domínio completo de PROCV e PROCH.</li>
+                    <li>Implementação avançada de ÍNDICE e CORRESP.</li>
+                    <li>Uso da função DESLOC para intervalos dinâmicos.</li>
+                    <li>Fórmulas matriciais e funções de matriz dinâmica.</li>
+                </ul>
+            </div>
+            <div class="module">
+                <h3>Módulo 3: Lógica Condicional</h3>
+                <ul>
+                    <li>Aninhamento de funções SE, E, OU.</li>
+                    <li>Contagens e somas condicionais (CONT.SE, SOMASE).</li>
+                    <li>Formatação condicional baseada em fórmulas.</li>
+                    <li>Tratamento de erros com SEERRO e ÉERROS.</li>
+                </ul>
+            </div>
+            <div class="module">
+                <h3>Módulo 4: Dashboards e Relatórios</h3>
+                <ul>
+                    <li>Criação de Tabelas Dinâmicas de alta performance.</li>
+                    <li>Segmentação de dados (Slicers) e Linha do Tempo.</li>
+                    <li>Gráficos dinâmicos e técnicas de Visualização de Dados.</li>
+                    <li>Integração de fontes de dados externas.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-block" id="metodo">
+        <div class="section-title">
+            <h2>Metodologia de Ensino Dropix</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="methodology">
+            <div class="methodology-text">
+                <p>A <strong>Dropix Editora e Marketing Ltda</strong> aplica o método de <em>Aprendizado Baseado em Problemas (PBL)</em>. Em vez de apenas ensinar as ferramentas de forma isolada, apresentamos desafios reais do cotidiano administrativo e financeiro. O aluno aprende a ferramenta enquanto resolve o problema.</p>
+                <p>Este treinamento foi estruturado por especialistas em Business Intelligence, garantindo que o conteúdo não seja apenas teórico, mas focado na empregabilidade e eficiência operacional dentro de ambientes corporativos modernos.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq" id="faq">
+        <div class="section-title">
+            <h2>Perguntas Frequentes</h2>
+            <div class="underline"></div>
+        </div>
+        
+        <div class="faq-item">
+            <h4>O certificado é reconhecido?</h4>
+            <p>Sim. A Dropix Editora emite um certificado de conclusão de curso livre, válido em todo o território nacional como capacitação técnica, conforme a legislação vigente de cursos profissionalizantes.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>Preciso ter a versão mais recente do Excel?</h4>
+            <p>As aulas são ministradas no Microsoft 365, porém 95% do conteúdo é aplicável a versões a partir de 2016, incluindo as funções de compatibilidade legada.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Como funciona o suporte ao aluno?</h4>
+            <p>Nossa equipe técnica da Dropix responde a todas as dúvidas diretamente na plataforma de ensino em até 24 horas úteis, garantindo que nenhum aluno fique travado em fórmulas complexas.</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div>
+            <h3>Sobre a Dropix</h3>
+            <p>A Dropix Editora e Marketing Ltda é uma empresa brasileira focada em educação técnica e soluções de marketing, ajudando milhares de alunos a dominarem as ferramentas essenciais para o mercado de trabalho.</p>
+        </div>
+        <div>
+            <h3>Institucional</h3>
+            <p><strong>Razão Social:</strong> Dropix Editora e Marketing Ltda</p>
+            <p><strong>CNPJ:</strong> [SEU CNPJ AQUI]</p>
+            <p><strong>Sede:</strong> São José - Santa Catarina</p>
+        </div>
+        <div>
+            <h3>Suporte</h3>
+            <p>Email: contato@dropixeditora.com.br</p>
+            <p>Atendimento das 09:00 às 18:00</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>
+            <a href="#">Políticas de Privacidade</a> | 
+            <a href="#">Termos de Uso</a> | 
+            <a href="#">Código de Ética</a>
+        </p>
+        <span class="disclaimer">
+            <strong>Aviso Legal Importante:</strong> Este treinamento de Excel é fornecido pela Dropix Editora e Marketing Ltda. Não possuímos qualquer vínculo de afiliação direta com a Microsoft Corporation. O Google Inc. e o YouTube Inc. não endossam, patrocinam ou possuem responsabilidade sobre o conteúdo aqui apresentado. Resultados na carreira dependem exclusivamente do empenho e aplicação prática do aluno.
+        </span>
+        <p>© 2026 Dropix Editora. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
 </body>
 </html>
