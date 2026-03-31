@@ -1,951 +1,197 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LordVigor - Saúde</title>
-  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-  <link rel="preload" href="https://scripts.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/players/69a35d0a39c8b3b88468d00c/v4/player.js" as="script">
-  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-  <link rel="preload" href="https://cdn.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/69a35b58260b750c46a6003a/main.m3u8" as="fetch">
-  <link rel="dns-prefetch" href="https://cdn.converteai.net">
-  <link rel="dns-prefetch" href="https://scripts.converteai.net">
-  <link rel="dns-prefetch" href="https://images.converteai.net">
-  <link rel="dns-prefetch" href="https://api.vturb.com.br">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Montserrat', Arial, sans-serif;
-      background: #fff;
-      color: #333;
-    }
-
-    /* Header */
-    .header {
-      background: #cc0000;
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .header h1 {
-      color: #fff;
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    .header .menu-icon {
-      position: absolute;
-      right: 20px;
-      color: #fff;
-      font-size: 28px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .header .menu-icon span {
-      display: block;
-      width: 28px;
-      height: 3px;
-      background: #fff;
-      border-radius: 2px;
-    }
-
-    /* Banner de urgência */
-    .urgency-banner {
-      background: #990000;
-      color: #fff;
-      text-align: center;
-      padding: 10px 15px;
-      font-size: 14px;
-    }
-
-    .urgency-banner strong {
-      font-weight: 700;
-    }
-
-    /* Seção do vídeo */
-    .video-section {
-      background: #fff;
-      padding: 30px 15px 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .video-wrapper {
-      width: 100%;
-      max-width: 400px;
-    }
-
-    .sound-notice {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 16px;
-      font-size: 14px;
-      font-weight: 700;
-      color: #333;
-    }
-
-    .sound-icon {
-      width: 22px;
-      height: 22px;
-    }
-
-    /* Seção de preços */
-    .pricing-section {
-      background: #1a3a5c;
-      padding: 40px 15px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .price-card {
-      background: #fff;
-      border: 3px solid #2980b9;
-      border-radius: 12px;
-      padding: 25px 20px;
-      width: 300px;
-      text-align: center;
-      position: relative;
-    }
-
-    .price-card.featured {
-      border-color: #2980b9;
-      transform: scale(1.03);
-    }
-
-    .badge {
-      position: absolute;
-      top: -1px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #cc0000;
-      color: #fff;
-      padding: 4px 18px;
-      font-size: 13px;
-      font-weight: 700;
-      border-radius: 0 0 8px 8px;
-      white-space: nowrap;
-    }
-
-    .price-card h3 {
-      font-size: 28px;
-      font-weight: 900;
-      color: #1a3a5c;
-      margin-top: 20px;
-    }
-
-    .price-card .subtitle {
-      font-size: 14px;
-      color: #555;
-      margin-bottom: 15px;
-      font-weight: 600;
-    }
-
-    .price-card .product-img {
-      width: 180px;
-      height: 160px;
-      margin: 10px auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .price-card .product-img img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-    }
-
-    .product-placeholder {
-      width: 180px;
-      height: 160px;
-      margin: 10px auto;
-      background: #e8f4f8;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #2980b9;
-      font-weight: 700;
-      font-size: 14px;
-      text-align: center;
-      padding: 10px;
-    }
-
-    .installments {
-      font-size: 14px;
-      color: #555;
-      margin-top: 10px;
-    }
-
-    .installments span {
-      display: inline;
-    }
-
-    .price {
-      font-size: 36px;
-      font-weight: 900;
-      color: #1a3a5c;
-    }
-
-    .price .currency {
-      font-size: 20px;
-      vertical-align: super;
-    }
-
-    .btn-group {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin: 15px 0 10px;
-    }
-
-    .btn-buy {
-      display: block;
-      font-size: 14px;
-      font-weight: 900;
-      padding: 14px 20px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      text-decoration: none;
-      transition: background 0.2s;
-      text-align: center;
-    }
-
-    .btn-cartao {
-      background: #f4d03f;
-      color: #333;
-    }
-
-    .btn-cartao:hover {
-      background: #f1c40f;
-    }
-
-    .btn-pix {
-      background: #2ecc71;
-      color: #fff;
-    }
-
-    .btn-pix:hover {
-      background: #27ae60;
-    }
-
-    .total-price {
-      font-size: 14px;
-      color: #555;
-      margin: 5px 0;
-    }
-
-    .shipping {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 13px;
-      color: #555;
-      font-style: italic;
-      margin: 5px 0;
-    }
-
-    .guarantee-days {
-      font-size: 13px;
-      color: #555;
-      margin: 8px 0;
-    }
-
-    .payment-flags {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .payment-flags img {
-      height: 28px;
-    }
-
-    .flag {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 4px;
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    .flag-visa { background: #1a1f71; }
-    .flag-master { background: #eb001b; }
-    .flag-discover { background: #ff6000; }
-    .flag-amex { background: #006fcf; }
-
-    /* Garantia */
-    .guarantee-section {
-      background: #fdf8e8;
-      padding: 40px 20px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .guarantee-box {
-      max-width: 900px;
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      background: #fdf8e8;
-      border: 2px solid #e8dcc8;
-      border-radius: 12px;
-      padding: 30px;
-    }
-
-    .guarantee-img {
-      flex-shrink: 0;
-      width: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .guarantee-img-placeholder {
-      width: 200px;
-      height: 200px;
-      background: #f0e6cc;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #8b7a50;
-      font-weight: 700;
-      font-size: 13px;
-      padding: 10px;
-    }
-
-    .guarantee-content h2 {
-      font-size: 26px;
-      font-weight: 900;
-      color: #333;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-    }
-
-    .guarantee-content p {
-      font-size: 14px;
-      color: #555;
-      line-height: 1.7;
-      margin-bottom: 10px;
-    }
-
-    .guarantee-content strong {
-      color: #333;
-    }
-
-    /* CTA final */
-    .cta-section {
-      padding: 40px 20px;
-      text-align: center;
-      background: #fff;
-    }
-
-    .btn-cta {
-      display: inline-block;
-      background: #f4d03f;
-      color: #333;
-      font-size: 14px;
-      font-weight: 900;
-      padding: 14px 30px;
-      border: 2px solid #333;
-      border-radius: 6px;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-
-    .btn-cta:hover {
-      background: #f1c40f;
-    }
-
-    /* Referências */
-    .references-section {
-      padding: 30px 20px 50px;
-      text-align: center;
-      background: #fff;
-    }
-
-    .references-badge {
-      display: inline-block;
-      background: #2c5aa0;
-      color: #fff;
-      font-size: 18px;
-      font-weight: 700;
-      padding: 12px 40px;
-      border-radius: 30px;
-      margin-bottom: 25px;
-    }
-
-    .references-logos {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
-    .references-logos span {
-      font-size: 22px;
-      font-weight: 800;
-      color: #555;
-    }
-
-    .ref-globo { color: #e31e24; }
-    .ref-terra { color: #e35d22; }
-    .ref-cnn { color: #cc0000; background: #cc0000; color: #fff; padding: 4px 12px; border-radius: 4px; font-size: 16px; }
-    .ref-uol { color: #f5a623; }
-
-    /* Responsivo */
-    @media (max-width: 960px) {
-      .pricing-section {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .price-card.featured {
-        transform: none;
-        order: -1;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .header h1 {
-        font-size: 22px;
-      }
-
-      .guarantee-box {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .price-card {
-        width: 100%;
-        max-width: 320px;
-      }
-
-      .guarantee-content h2 {
-        font-size: 20px;
-      }
-    }
-
-    /* Seção de Comentários estilo Facebook */
-    .fb-comments-wrapper {
-      background: #f0f2f5;
-      padding: 20px 0;
-    }
-
-    .fb-comments-section {
-      background: #fff;
-      padding: 16px 16px 8px;
-      max-width: 700px;
-      margin: 0 auto;
-      border-radius: 8px;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-    }
-
-    .fb-comments-header {
-      font-size: 14px;
-      font-weight: 700;
-      color: #65676b;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      font-family: Helvetica, Arial, sans-serif;
-    }
-
-    .fb-comments-header span {
-      font-weight: 400;
-      margin-left: 4px;
-    }
-
-    .fb-comment {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      margin-bottom: 16px;
-      position: relative;
-      font-family: Helvetica, Arial, sans-serif;
-    }
-
-    .fb-comment-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
-
-    .fb-comment-body {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .fb-comment-bubble {
-      background: #fff;
-      border-radius: 18px;
-      padding: 8px 12px;
-      position: relative;
-    }
-
-    .fb-comment-name {
-      font-size: 13px;
-      font-weight: 700;
-      color: #050505;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 2px;
-    }
-
-    .fb-comment-name:hover {
-      text-decoration: underline;
-    }
-
-    .fb-comment-text {
-      font-size: 15px;
-      color: #050505;
-      line-height: 1.34;
-      word-wrap: break-word;
-    }
-
-    .fb-comment-actions {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      margin-top: 4px;
-      padding-left: 12px;
-      font-size: 12px;
-      color: #65676b;
-      font-weight: 700;
-    }
-
-    .fb-comment-actions a {
-      color: #65676b;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 12px;
-    }
-
-    .fb-comment-actions a:hover {
-      text-decoration: underline;
-    }
-
-    .fb-comment-actions .fb-separator {
-      margin: 0 6px;
-      color: #65676b;
-    }
-
-    .fb-comment-actions .fb-time {
-      font-weight: 400;
-    }
-
-    .fb-comment-reactions {
-      position: absolute;
-      right: 0;
-      bottom: -4px;
-      display: flex;
-      align-items: center;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-      padding: 2px 6px 2px 2px;
-      gap: 0;
-    }
-
-    .fb-reaction-icon {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      margin-left: -2px;
-    }
-
-    .fb-reaction-icon:first-child {
-      margin-left: 0;
-    }
-
-    .fb-reaction-like {
-      background: #1877f2;
-      color: #fff;
-    }
-
-    .fb-reaction-heart {
-      background: #f33e58;
-      color: #fff;
-    }
-
-    .fb-reaction-count {
-      font-size: 12px;
-      color: #65676b;
-      margin-left: 4px;
-    }
-
-    .fb-bubble-wrapper {
-      position: relative;
-      display: inline-block;
-    }
-
-    /* Disclaimer / Footer */
-    .disclaimer-footer {
-      background: #1a1a1a;
-      color: #999;
-      padding: 40px 20px;
-      font-size: 12px;
-      line-height: 1.8;
-      text-align: center;
-    }
-
-    .disclaimer-footer p {
-      max-width: 900px;
-      margin: 0 auto 15px;
-    }
-
-    .disclaimer-footer .footer-links {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .disclaimer-footer .footer-links a {
-      color: #ccc;
-      text-decoration: underline;
-      font-size: 12px;
-    }
-
-    .disclaimer-footer .footer-links a:hover {
-      color: #fff;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Homem Ativo | Saúde e Longevidade Masculina</title>
+    <style>
+        :root {
+            --primary-color: #1a3a5f;
+            --secondary-color: #2a5298;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            padding: 20px 0;
+            border-bottom: 3px solid var(--primary-color);
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Artigo */
+        h1 {
+            color: var(--primary-color);
+            font-size: 28px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .meta-info {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 400px;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            color: #777;
+            text-align: center;
+            /* Troque a URL abaixo por uma imagem real de homem praticando esportes */
+            background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #444;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            margin-top: 35px;
+        }
+
+        .cta-box {
+            background: #f0f4f8;
+            padding: 25px;
+            border-left: 5px solid var(--primary-color);
+            margin: 40px 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #fff;
+            padding: 50px 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer-links a {
+            color: #999;
+            margin: 0 10px;
+            text-decoration: underline;
+        }
+
+        .disclaimer {
+            max-width: 700px;
+            margin: 20px auto;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px; margin: 10px; }
+            h1 { font-size: 22px; }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header">
-    <h1>SA&Uacute;DE</h1>
-    <div class="menu-icon">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </header>
+    <header>
+        <div class="logo">Portal Homem Ativo</div>
+        <nav>
+            <a href="#">INÍCIO</a>
+            <a href="#">ARTIGOS</a>
+            <a href="#">SOBRE NÓS</a>
+            <a href="#">CONTATO</a>
+        </nav>
+    </header>
 
-  <!-- Banner de urgência -->
-  <div class="urgency-banner">
-    Apresenta&ccedil;&atilde;o dispon&iacute;vel somente at&eacute;: <strong id="deadline-date">quarta, 04/03/2026</strong>
-  </div>
+    <div class="container">
+        <div class="meta-info">Publicado em: 31 de Março de 2026 • Leitura de 5 min • Por Redação Saúde Masculina</div>
+        
+        <h1>A Ciência da Vitalidade: Como a Microcirculação Influencia o Bem-Estar Masculino após os 40</h1>
 
-  <!-- Vídeo -->
-  <section class="video-section">
-    <div class="video-wrapper">
-      <vturb-smartplayer id="vid-69a35d0a39c8b3b88468d00c" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
-      <script type="text/javascript">
-        var s=document.createElement("script");
-        s.src="https://scripts.converteai.net/88c2dd25-2774-43f4-a038-f2a84bb4bd89/players/69a35d0a39c8b3b88468d00c/v4/player.js",
-        s.async=!0,document.head.appendChild(s);
-      </script>
-    </div>
-    <div class="sound-notice">
-      <svg class="sound-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
-        <path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.08"/>
-      </svg>
-      Por favor, verifique se o som est&aacute; ligado.
-    </div>
-  </section>
+        <div class="featured-image"></div>
 
-  <!-- Preços -->
-  <section class="pricing-section" id="kits">
+        <p>Manter um estilo de vida ativo e saudável é uma prioridade crescente para homens que atingem a maturidade. Estudos recentes apontam que a base da vitalidade masculina não está apenas nos níveis hormonais, mas principalmente na eficiência do sistema cardiovascular e da microcirculação sanguínea.</p>
 
-    <!-- 10 Frascos -->
-    <div class="price-card featured">
-      <div class="badge">Mais vendido</div>
-      <h3>10 Frascos</h3>
-      <p class="subtitle">Suficiente para 10 meses</p>
-      <div class="product-img">
-        <img src="t10 frasco.png" alt="10 Frascos LordVigor">
-      </div>
-      <div class="installments">
-        12x de <span class="price"><span class="currency">R$</span> 72,09</span>
-      </div>
-      <div class="btn-group">
-        <a href="https://checkout.payt.com.br/fd50cabb132077c1993b8d09a7e93f99?split=12" class="btn-buy btn-cartao">COMPRAR AGORA VIA CART&Atilde;O DE CR&Eacute;DITO</a>
-        <a href="https://checkout.payt.com.br/fd50cabb132077c1993b8d09a7e93f99?payment=pix" class="btn-buy btn-pix">COMPRAR AGORA VIA PIX</a>
-      </div>
-      <p class="total-price">Total: R$ 697,00</p>
-      <p class="shipping"><span>&#128666;</span> Frete Gr&aacute;tis</p>
-      <p class="guarantee-days">Garantia de 600 dias</p>
-      <div class="payment-flags">
-        <img src="bandeiras-cartao.webp" alt="Bandeiras de cart&atilde;o">
-      </div>
-    </div>
+        <p>À medida que o corpo amadurece, a capacidade de oxigenação dos tecidos periféricos tende a diminuir, o que pode impactar diretamente na disposição diária, na recuperação muscular e na performance física geral.</p>
 
-    <!-- 5 Frascos -->
-    <div class="price-card">
-      <h3>5 Frascos</h3>
-      <p class="subtitle">Suficiente para 5 meses</p>
-      <div class="product-img">
-        <img src="t5 frasco.png" alt="5 Frascos LordVigor">
-      </div>
-      <div class="installments">
-        12x de <span class="price"><span class="currency">R$</span> 41,06</span>
-      </div>
-      <div class="btn-group">
-        <a href="https://checkout.payt.com.br/301663af69e4461de3abb7ab4f9409d7?split=12" class="btn-buy btn-cartao">COMPRAR AGORA VIA CART&Atilde;O DE CR&Eacute;DITO</a>
-        <a href="https://checkout.payt.com.br/301663af69e4461de3abb7ab4f9409d7?payment=pix" class="btn-buy btn-pix">COMPRAR AGORA VIA PIX</a>
-      </div>
-      <p class="total-price">Total: R$ 397,00</p>
-      <p class="shipping"><span>&#128666;</span> Frete Gr&aacute;tis</p>
-      <p class="guarantee-days">Garantia de 300 dias</p>
-      <div class="payment-flags">
-        <img src="bandeiras-cartao.webp" alt="Bandeiras de cart&atilde;o">
-      </div>
-    </div>
+        <h2>O Papel dos Bioativos Naturais</h2>
+        <p>A nutrição moderna tem investigado compostos específicos que auxiliam na síntese de óxido nítrico — uma molécula fundamental para o relaxamento dos vasos sanguíneos. Alimentos ricos em flavonoides e aminoácidos específicos têm sido o foco de grandes institutos de saúde masculina ao redor do mundo.</p>
 
-    <!-- 3 Frascos -->
-    <div class="price-card">
-      <h3>3 Frascos</h3>
-      <p class="subtitle">Suficiente para 3 meses</p>
-      <div class="product-img">
-        <img src="t3 frasco.png" alt="3 Frascos LordVigor">
-      </div>
-      <div class="installments">
-        5x de <span class="price"><span class="currency">R$</span> 65,76</span>
-      </div>
-      <div class="btn-group">
-        <a href="https://checkout.payt.com.br/6f5ead1f4256eac39bff7abb00c6f238?split=5" class="btn-buy btn-cartao">COMPRAR AGORA VIA CART&Atilde;O DE CR&Eacute;DITO</a>
-        <a href="https://checkout.payt.com.br/6f5ead1f4256eac39bff7abb00c6f238?payment=pix" class="btn-buy btn-pix">COMPRAR AGORA VIA PIX</a>
-      </div>
-      <p class="total-price">Total: R$ 297,00</p>
-      <p class="shipping"><span>&#128666;</span> Frete Gr&aacute;tis</p>
-      <p class="guarantee-days">Garantia de 180 dias</p>
-      <div class="payment-flags">
-        <img src="bandeiras-cartao.webp" alt="Bandeiras de cart&atilde;o">
-      </div>
-    </div>
-
-    <!-- 1 Frasco -->
-    <div class="price-card">
-      <h3>1 Frasco</h3>
-      <p class="subtitle">Suficiente para 1 m&ecirc;s</p>
-      <div class="product-img">
-        <img src="t1 frasco.png" alt="1 Frasco LordVigor">
-      </div>
-      <div class="installments">
-        <span class="price"><span class="currency">R$</span> 197,00</span>
-      </div>
-      <div class="btn-group">
-        <a href="https://checkout.payt.com.br/5e94fac6e972b0c182a1692872bc1281?split=12" class="btn-buy btn-cartao">COMPRAR AGORA VIA CART&Atilde;O DE CR&Eacute;DITO</a>
-        <a href="https://checkout.payt.com.br/5e94fac6e972b0c182a1692872bc1281?payment=pix" class="btn-buy btn-pix">COMPRAR AGORA VIA PIX</a>
-      </div>
-      <p class="total-price">Total: R$ 197,00</p>
-      <p class="shipping"><span>&#128666;</span> Frete Gr&aacute;tis</p>
-      <p class="guarantee-days">Garantia de 60 dias</p>
-      <div class="payment-flags">
-        <img src="bandeiras-cartao.webp" alt="Bandeiras de cart&atilde;o">
-      </div>
-    </div>
-
-  </section>
-
-  <!-- Garantia -->
-  <section class="guarantee-section">
-    <div class="guarantee-box">
-      <div class="guarantee-img">
-        <img src="garantia blindada.png" alt="Garantia Blindada LordVigor" style="max-width: 100%; height: auto;">
-      </div>
-      <div class="guarantee-content">
-        <h2>GARANTIA BLINDADA LORDVIGOR</h2>
-        <p>Quando voc&ecirc; pedir o LordVigor, tamb&eacute;m receber&aacute; uma <strong>garantia blindada de 60 dias em cada frasco</strong> para solicitar todo o seu dinheiro de volta.</p>
-        <p>Estamos t&atilde;o confiantes que o LordVigor vai te trazer resultados, que se voc&ecirc; n&atilde;o estiver 100% satisfeito e n&atilde;o notar uma grande melhora na sua qualidade de vida, <strong>n&oacute;s vamos te devolver at&eacute; o &uacute;ltimo centavo pago.</strong></p>
-        <p>Basta enviar um e-mail para sac@lordvigor.com.br em at&eacute; 60 dias a partir da sua compra que faremos a devolu&ccedil;&atilde;o integral do seu dinheiro, <strong>sem qualquer questionamento!</strong></p>
-        <p>Por isso, fa&ccedil;a seu pedido agora. Voc&ecirc; n&atilde;o tem absolutamente NADA a perder, e tudo a ganhar.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section">
-    <a href="#kits" class="btn-cta">ESCOLHER MEU KIT</a>
-  </section>
-
-  <!-- Referências Científicas -->
-  <section class="references-section">
-    <div class="references-badge">Refer&ecirc;ncias Cient&iacute;ficas</div>
-    <img src="referencias-cientificas.png" alt="Refer&ecirc;ncias Cient&iacute;ficas" style="max-width: 100%; height: auto;">
-  </section>
-
-  <!-- Comentários estilo Facebook -->
-  <div class="fb-comments-wrapper">
-  <section class="fb-comments-section">
-    <div class="fb-comments-header">448 COMENTÁRIOS <span>– EXIBINDO OS 23 MAIS RELEVANTES</span></div>
-
-    <!-- Comentário 1 -->
-    <div class="fb-comment">
-      <img class="fb-comment-avatar" src="HOMEM 1.jpg" alt="Eduardo Coelhor">
-      <div class="fb-comment-body">
-        <div class="fb-bubble-wrapper">
-          <div class="fb-comment-bubble">
-            <a class="fb-comment-name" href="#">Eduardo Coelhor</a>
-            <div class="fb-comment-text">Ainda bem que eu vi o vídeo até o final. Fico feliz demais Muito obrigado Dra. por ter descoberto, fiz o teste e em dois dias já voltei duro, azulzinho nunca mais!.</div>
-          </div>
-          <div class="fb-comment-reactions">
-            <span class="fb-reaction-icon fb-reaction-like"><svg width="12" height="12" viewBox="0 0 16 16" fill="white"><path d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.5 12.5h3c.3 0 .5-.2.6-.5l1.4-3.3V5h-4.4l.7-3.2v-.2c0-.2-.1-.4-.2-.5L7.1 .5 3.3 4.3c-.2.2-.3.4-.3.7v6c0 .8.7 1.5 1.5 1.5z"/></svg></span>
-            <span class="fb-reaction-icon fb-reaction-heart"><svg width="12" height="12" viewBox="0 0 16 16" fill="white"><path d="M8 15s-6.8-5.5-6.8-9.2C1.2 3.1 3.3 1 5.8 1 7 1 8 1.6 8 1.6S9 1 10.2 1c2.5 0 4.6 2.1 4.6 4.8C14.8 9.5 8 15 8 15z"/></svg></span>
-            <span class="fb-reaction-count">38</span>
-          </div>
+        <div class="cta-box">
+            <strong>Nota da Redação:</strong> Consultar um especialista e manter exames de rotina em dia é o primeiro passo para qualquer homem que deseja otimizar sua saúde cardiovascular e longevidade.
         </div>
-        <div class="fb-comment-actions">
-          <a href="#">Curtir</a>
-          <span class="fb-separator">·</span>
-          <a href="#">Responder</a>
-          <span class="fb-separator">·</span>
-          <span class="fb-time">21 min</span>
-        </div>
-      </div>
+
+        <h2>Dicas Práticas para o Dia a Dia</h2>
+        <ul>
+            <li><strong>Treino Resistido:</strong> O exercício com pesos auxilia na manutenção da massa magra e na saúde metabólica.</li>
+            <li><strong>Hidratação Estratégica:</strong> O volume sanguíneo depende diretamente da ingestão adequada de água.</li>
+            <li><strong>Gestão do Cortisol:</strong> O estresse crônico é um dos maiores vilões da vitalidade masculina moderna.</li>
+        </ul>
+
+        <p>Em resumo, a saúde masculina é um ecossistema que exige atenção multifatorial. Ao focar na circulação e na nutrição celular, é possível manter altos níveis de bem-estar em todas as fases da vida.</p>
     </div>
 
-    <!-- Comentário 2 -->
-    <div class="fb-comment">
-      <img class="fb-comment-avatar" src="HOMEM 2.jpg" alt="Roberto Belmonte">
-      <div class="fb-comment-body">
-        <div class="fb-bubble-wrapper">
-          <div class="fb-comment-bubble">
-            <a class="fb-comment-name" href="#">Roberto Belmonte</a>
-            <div class="fb-comment-text">O negócio funciona moço</div>
-          </div>
-          <div class="fb-comment-reactions">
-            <span class="fb-reaction-icon fb-reaction-like"><svg width="12" height="12" viewBox="0 0 16 16" fill="white"><path d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.5 12.5h3c.3 0 .5-.2.6-.5l1.4-3.3V5h-4.4l.7-3.2v-.2c0-.2-.1-.4-.2-.5L7.1 .5 3.3 4.3c-.2.2-.3.4-.3.7v6c0 .8.7 1.5 1.5 1.5z"/></svg></span>
-            <span class="fb-reaction-icon fb-reaction-heart"><svg width="12" height="12" viewBox="0 0 16 16" fill="white"><path d="M8 15s-6.8-5.5-6.8-9.2C1.2 3.1 3.3 1 5.8 1 7 1 8 1.6 8 1.6S9 1 10.2 1c2.5 0 4.6 2.1 4.6 4.8C14.8 9.5 8 15 8 15z"/></svg></span>
-            <span class="fb-reaction-count">7</span>
-          </div>
+    <footer>
+        <div class="footer-links">
+            <a href="#">Políticas de Privacidade</a> | 
+            <a href="#">Termos de Uso</a> | 
+            <a href="#">Contato</a>
         </div>
-        <div class="fb-comment-actions">
-          <a href="#">Curtir</a>
-          <span class="fb-separator">·</span>
-          <a href="#">Responder</a>
-          <span class="fb-separator">·</span>
-          <span class="fb-time">1 min</span>
+        
+        <div class="disclaimer">
+            Este site não faz parte do site do Facebook ou da Meta Platforms, Inc. Além disso, este site NÃO é endossado pelo Facebook de nenhuma maneira. FACEBOOK é uma marca comercial da META PLATFORMS, Inc. As informações contidas neste portal têm caráter meramente informativo e educativo.
         </div>
-      </div>
-    </div>
 
-    <!-- Comentário 3 -->
-    <div class="fb-comment">
-      <img class="fb-comment-avatar" src="HOMEM 3.jpg" alt="Pedro Paulo">
-      <div class="fb-comment-body">
-        <div class="fb-bubble-wrapper">
-          <div class="fb-comment-bubble">
-            <a class="fb-comment-name" href="#">Pedro Paulo</a>
-            <div class="fb-comment-text">No início eu duvidava muito, até porque já tinha tentado de tudo antes Mas mesmo assim resolvi dar uma chance e fiquei impressionado!</div>
-          </div>
-          <div class="fb-comment-reactions">
-            <span class="fb-reaction-icon fb-reaction-like"><svg width="12" height="12" viewBox="0 0 16 16" fill="white"><path d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.5 12.5h3c.3 0 .5-.2.6-.5l1.4-3.3V5h-4.4l.7-3.2v-.2c0-.2-.1-.4-.2-.5L7.1 .5 3.3 4.3c-.2.2-.3.4-.3.7v6c0 .8.7 1.5 1.5 1.5z"/></svg></span>
-            <span class="fb-reaction-icon fb-reaction-heart"><svg width="12" height="12" viewBox="0 0 16 16" fill="white"><path d="M8 15s-6.8-5.5-6.8-9.2C1.2 3.1 3.3 1 5.8 1 7 1 8 1.6 8 1.6S9 1 10.2 1c2.5 0 4.6 2.1 4.6 4.8C14.8 9.5 8 15 8 15z"/></svg></span>
-            <span class="fb-reaction-count">219</span>
-          </div>
-        </div>
-        <div class="fb-comment-actions">
-          <a href="#">Curtir</a>
-          <span class="fb-separator">·</span>
-          <a href="#">Responder</a>
-          <span class="fb-separator">·</span>
-          <span class="fb-time">3 hr</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Comentário 4 -->
-    <div class="fb-comment">
-      <img class="fb-comment-avatar" src="homem 44.jpg" alt="Lucas Almeida">
-      <div class="fb-comment-body">
-        <div class="fb-bubble-wrapper">
-          <div class="fb-comment-bubble">
-            <a class="fb-comment-name" href="#">Lucas Almeida</a>
-            <div class="fb-comment-text">Tava querendo saber se funcionava de verdade e agora vendo todos esses comentários positivos, já sei a resposta. Mto obg gente!!</div>
-          </div>
-          <div class="fb-comment-reactions">
-            <span class="fb-reaction-icon fb-reaction-like"><svg width="12" height="12" viewBox="0 0 16 16" fill="white"><path d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.5 12.5h3c.3 0 .5-.2.6-.5l1.4-3.3V5h-4.4l.7-3.2v-.2c0-.2-.1-.4-.2-.5L7.1 .5 3.3 4.3c-.2.2-.3.4-.3.7v6c0 .8.7 1.5 1.5 1.5z"/></svg></span>
-            <span class="fb-reaction-icon fb-reaction-heart"><svg width="12" height="12" viewBox="0 0 16 16" fill="white"><path d="M8 15s-6.8-5.5-6.8-9.2C1.2 3.1 3.3 1 5.8 1 7 1 8 1.6 8 1.6S9 1 10.2 1c2.5 0 4.6 2.1 4.6 4.8C14.8 9.5 8 15 8 15z"/></svg></span>
-            <span class="fb-reaction-count">24</span>
-          </div>
-        </div>
-        <div class="fb-comment-actions">
-          <a href="#">Curtir</a>
-          <span class="fb-separator">·</span>
-          <a href="#">Responder</a>
-          <span class="fb-separator">·</span>
-          <span class="fb-time">51 min</span>
-        </div>
-      </div>
-    </div>
-
-  </section>
-  </div>
-
-  <!-- Disclaimer -->
-  <footer class="disclaimer-footer">
-    <p>2026 Copyright &copy;. Todos os direitos reservados. Todo o conte&uacute;do deste site, incluindo fotos, imagens, logotipos, marcas e layout, &eacute; de propriedade exclusiva do LordVigor e protegido por leis de direitos autorais e propriedade intelectual. A reprodu&ccedil;&atilde;o, modifica&ccedil;&atilde;o ou distribui&ccedil;&atilde;o sem autoriza&ccedil;&atilde;o expressa &eacute; proibida.</p>
-    <p>A inclus&atilde;o de qualquer conte&uacute;do ou link neste site n&atilde;o implica endosso, garantia, patroc&iacute;nio ou recomenda&ccedil;&atilde;o por parte do LordVigor.</p>
-    <p>As informa&ccedil;&otilde;es apresentadas neste site n&atilde;o constituem aconselhamento m&eacute;dico e n&atilde;o substituem diagn&oacute;sticos realizados por um profissional de sa&uacute;de. Este produto &eacute; um suplemento alimentar de uso amplo e n&atilde;o deve ser utilizado como substituto para tratamentos m&eacute;dicos. Sempre consulte um profissional de sa&uacute;de antes de iniciar o uso.</p>
-    <p>Este produto n&atilde;o tem inten&ccedil;&atilde;o de dar diagn&oacute;sticos, curas ou prevenir doen&ccedil;as, e n&atilde;o &eacute; um medicamento, mas sim um suplemento alimentar de uso amplo. Resultados podem variar de pessoa para pessoa e dependem de diversos fatores individuais.</p>
-    <p>Depoimentos, estudos de caso e exemplos encontrados nesta p&aacute;gina s&atilde;o resultados que nos foram encaminhados por usu&aacute;rios, e podem n&atilde;o refletir a experi&ecirc;ncia do comprador t&iacute;pico, podem n&atilde;o se aplicar a uma pessoa comum e n&atilde;o pretendem representar ou garantir que qualquer pessoa alcan&ccedil;ar&aacute; os mesmos resultados ou resultados semelhantes. Alguns nomes e informa&ccedil;&otilde;es de identifica&ccedil;&atilde;o pessoal neste site foram alterados para proteger a privacidade dos indiv&iacute;duos.</p>
-    <p>O conte&uacute;do deste v&iacute;deo foi criado exclusivamente para fins publicit&aacute;rios. Todos os personagens e situa&ccedil;&otilde;es apresentadas s&atilde;o interpretados por atores profissionais e n&atilde;o representam pessoas reais. Qualquer semelhan&ccedil;a com eventos, locais ou indiv&iacute;duos reais &eacute; mera coincid&ecirc;ncia. As opini&otilde;es, atitudes e comportamentos exibidos neste v&iacute;deo s&atilde;o fict&iacute;cios e n&atilde;o refletem necessariamente as opini&otilde;es ou pol&iacute;ticas da empresa respons&aacute;vel pela produ&ccedil;&atilde;o do v&iacute;deo. Este v&iacute;deo &eacute; interpretado por atores com a exclusiva inten&ccedil;&atilde;o de material publicit&aacute;rio.</p>
-    <p>Esse disclaimer abrangente deixa claro tanto a natureza fict&iacute;cia e publicit&aacute;ria do v&iacute;deo quanto as importantes informa&ccedil;&otilde;es de sa&uacute;de e recomenda&ccedil;&otilde;es associadas aos produtos apresentados.</p>
-    <p>Para acessar os estudos cient&iacute;ficos, <a href="#" style="color: #ccc; text-decoration: underline;">clique aqui</a>. Caso n&atilde;o consiga atrav&eacute;s do link, entre em contato com nosso suporte.</p>
-    <div class="footer-links">
-      <a href="politica-privacidade.html">Pol&iacute;tica de Privacidade</a>
-      <a href="termos-uso.html">Termos de Uso</a>
-      <a href="politica-reembolso.html">Pol&iacute;tica de Envio e Estorno</a>
-      <a href="aviso-legal.html">Aviso Legal</a>
-    </div>
-  </footer>
-
-  <script>
-    // Atualiza a data do banner dinamicamente
-    (function() {
-      var dias = ['domingo','segunda','ter\u00e7a','quarta','quinta','sexta','s\u00e1bado'];
-      var hoje = new Date();
-      var dia = dias[hoje.getDay()];
-      var dd = String(hoje.getDate()).padStart(2, '0');
-      var mm = String(hoje.getMonth() + 1).padStart(2, '0');
-      var yyyy = hoje.getFullYear();
-      document.getElementById('deadline-date').textContent = dia + ', ' + dd + '/' + mm + '/' + yyyy;
-    })();
-  </script>
+        <p>&copy; 2026 Portal Homem Ativo - Todos os direitos reservados.<br>
+        Dropix Editora e Marketing Ltda - CNPJ: 00.000.000/0001-00</p>
+    </footer>
 
 </body>
 </html>
