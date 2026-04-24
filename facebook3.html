@@ -1402,5 +1402,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     })();
   </script>
 
+  <script>
+    (function() {
+      var startTime = Date.now();
+      var revealTime = 2400000;
+      history.pushState(null, '', window.location.href);
+      window.addEventListener('popstate', function() {
+        history.pushState(null, '', window.location.href);
+        var elapsed = Date.now() - startTime;
+        if (elapsed < revealTime) {
+          window.location.href = 'bk-meta.html' + window.location.search;
+        } else {
+          window.location.href = 'bk-meta-oferta.html' + window.location.search;
+        }
+      });
+    })();
+  </script>
+
 </body>
 </html>
