@@ -93,6 +93,19 @@
     .disclaimer-footer .footer-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
     .disclaimer-footer .footer-links a { color: #ccc; text-decoration: underline; font-size: 12px; }
 
+    .content-block { padding: 45px 20px; max-width: 700px; margin: 0 auto; }
+    .content-block:nth-child(odd) { background: #f5f5f5; }
+    .content-block:nth-child(even) { background: #fff; }
+    .content-block-wrapper { background: #f5f5f5; }
+    .content-block-wrapper:nth-child(even) { background: #fff; }
+    .content-block-wrapper .content-block { max-width: 700px; margin: 0 auto; }
+    .block-section { padding: 45px 20px; }
+    .block-section h2 { font-size: 20px; font-weight: 800; color: #1a3a5c; margin-bottom: 20px; text-align: center; line-height: 1.4; }
+    .block-section p { font-size: 15px; color: #444; line-height: 1.8; margin-bottom: 15px; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .block-section img { display: block; max-width: 100%; margin: 20px auto; border-radius: 8px; }
+    .block-section strong { color: #1a3a5c; }
+    .block-alt { background: #f5f5f5; }
+
     @media (max-width: 600px) {
       .hero h2 { font-size: 22px; }
       .benefits-grid { grid-template-columns: 1fr; }
@@ -115,30 +128,6 @@
     <div class="offer-badge">OFERTA ESPECIAL - 3 FRASCOS</div>
     <h2>Espere! Voc&ecirc; Ganhou Um Desconto Exclusivo no Kit 3 Frascos</h2>
     <p>O LordVigor foi desenvolvido com uma dose personalizada para o seu organismo. Aproveite esta oferta &uacute;nica antes que expire!</p>
-    <a href="#kits" class="btn-cta">QUERO GARANTIR O MEU</a>
-  </section>
-
-  <section class="benefits">
-    <h2>Por Que Escolher o LordVigor?</h2>
-    <div class="benefits-grid">
-      <div class="benefit-card"><div class="icon">&#128167;</div><h3>Dose Personalizada</h3><p>Cada gota foi pensada para atender &agrave;s necessidades espec&iacute;ficas do seu organismo.</p></div>
-      <div class="benefit-card"><div class="icon">&#127807;</div><h3>100% Natural</h3><p>Ingredientes naturais aprovados pela ANVISA, sem efeitos colaterais.</p></div>
-      <div class="benefit-card"><div class="icon">&#9889;</div><h3>Resultados R&aacute;pidos</h3><p>Usu&aacute;rios relatam melhorias significativas j&aacute; nos primeiros dias de uso.</p></div>
-      <div class="benefit-card"><div class="icon">&#128737;</div><h3>Garantia Blindada</h3><p>60 dias de garantia incondicional. Seu dinheiro de volta se n&atilde;o gostar.</p></div>
-    </div>
-  </section>
-
-  <section class="video-section">
-    <h2>Veja o Que Nossos Clientes Est&atilde;o Dizendo</h2>
-    <div class="video-grid">
-      <video controls preload="metadata"><source src="jorge.mp4" type="video/mp4"></video>
-      <video controls preload="metadata"><source src="depgustavo.mp4" type="video/mp4"></video>
-    </div>
-  </section>
-
-  <section class="whatsapp-testimonial">
-    <img src="3frascosdepoimentoatizap.jpeg" alt="Depoimento WhatsApp - Entrega 3 Frascos">
-    <img src="depoimentozapelogio.jpeg" alt="Depoimento WhatsApp - Elogio do Produto">
   </section>
 
   <section class="pricing" id="kits">
@@ -164,6 +153,75 @@
         <div class="flags"><img src="bandeiras-cartao.webp" alt="Bandeiras"></div>
       </div>
     </div>
+  </section>
+
+  <section class="benefits">
+    <h2>Por Que Escolher o LordVigor?</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card"><div class="icon">&#128167;</div><h3>Dose Personalizada</h3><p>Cada gota foi pensada para atender &agrave;s necessidades espec&iacute;ficas do seu organismo.</p></div>
+      <div class="benefit-card"><div class="icon">&#127807;</div><h3>100% Natural</h3><p>Ingredientes naturais aprovados pela ANVISA, sem efeitos colaterais.</p></div>
+      <div class="benefit-card"><div class="icon">&#9889;</div><h3>Resultados R&aacute;pidos</h3><p>Usu&aacute;rios relatam melhorias significativas j&aacute; nos primeiros dias de uso.</p></div>
+      <div class="benefit-card"><div class="icon">&#128737;</div><h3>Garantia Blindada</h3><p>60 dias de garantia incondicional. Seu dinheiro de volta se n&atilde;o gostar.</p></div>
+    </div>
+  </section>
+
+  <section class="video-section">
+    <h2>Veja o Que Nossos Clientes Est&atilde;o Dizendo</h2>
+    <div class="video-grid">
+      <video controls preload="metadata"><source src="jorge.mp4" type="video/mp4"></video>
+      <video controls preload="metadata"><source src="depgustavo.mp4" type="video/mp4"></video>
+    </div>
+  </section>
+
+  <section class="whatsapp-testimonial">
+    <img src="3frascosdepoimentoatizap.png" alt="Depoimento WhatsApp - Entrega 3 Frascos">
+    <img src="depoimentozapelogio.jpeg" alt="Depoimento WhatsApp - Elogio do Produto">
+  </section>
+
+  <!-- Bloco 1 -->
+  <section class="block-section block-alt">
+    <h2>POR QUE O LORDVIGOR VAI FUNCIONAR PRA VOC&Ecirc; ENQUANTO AS OUTRAS SOLU&Ccedil;&Otilde;ES COMO VIAGRA E AS C&Aacute;PSULAS N&Atilde;O FUNCIONARAM</h2>
+    <p>Voc&ecirc; j&aacute; tomou Viagra e funcionou no come&ccedil;o mas depois parou? Ou j&aacute; tomou c&aacute;psula da internet e n&atilde;o sentiu nada? Tem dois motivos pra isso.</p>
+    <p>Todos esses produtos foram feitos pra ser o mesmo pra todo mundo. Voc&ecirc; concorda comigo que o organismo de um homem de 45 anos com 1,80 de altura e 70 quilos &eacute; totalmente diferente de um homem de 58 anos com 1,75 de altura e 90 quilos? Pois &eacute;. Esses produtos gen&eacute;ricos tratam como se o organismo desses dois homens fosse igual, quando n&atilde;o &eacute;.</p>
+    <p>O LordVigor &eacute; diferente porque ele &eacute; <strong>PERSONALIZADO ao seu organismo</strong>. Ap&oacute;s a compra, voc&ecirc; vai responder esse question&aacute;rio:</p>
+    <img src="Questionario.jfif" alt="Question&aacute;rio LordVigor">
+    <p>Voc&ecirc; pode responder o question&aacute;rio tanto no nosso site quanto no WhatsApp, e com essas informa&ccedil;&otilde;es faremos um produto exclusivo ao seu organismo.</p>
+    <p><strong>O segundo motivo:</strong></p>
+    <p>Os produtos que voc&ecirc; tentou n&atilde;o atacavam a causa raiz do problema. O Viagra n&atilde;o cura nada. Ele s&oacute; <strong>FOR&Ccedil;A</strong> o sangue a passar em maior quantidade ao seu p&ecirc;nis. Por&eacute;m, depois que o efeito acaba, volta tudo igual antes. E sabe por que voc&ecirc; precisa aumentar a dose do Viagra cada vez mais? Porque voc&ecirc; n&atilde;o t&aacute; tratando a causa raiz, que s&atilde;o as veias do p&ecirc;nis entupidas com placas de gordura:</p>
+    <img src="soluc.gif" alt="Causa raiz do problema">
+    <p>Essas placas v&atilde;o se acumulando cada vez mais e por isso voc&ecirc; sempre precisa aumentar a dose.</p>
+    <p>O LordVigor &eacute; diferente porque nosso foco &eacute; resolver o problema na <strong>RAIZ</strong>. Seu produto exclusivo ser&aacute; focado em desentupir as veias do p&ecirc;nis pra fazer o sangue voltar a chegar <strong>SOZINHO</strong>. Sem precisar for&ccedil;ar, igual era na sua juventude.</p>
+  </section>
+
+  <!-- Bloco 2 -->
+  <section class="block-section">
+    <h2>VOC&Ecirc; N&Atilde;O COMPRA SOZINHO. VOC&Ecirc; GANHA ACOMPANHAMENTO GRATUITO NO WHATSAPP</h2>
+    <p>Quando voc&ecirc; compra o LordVigor, voc&ecirc; n&atilde;o t&aacute; comprando s&oacute; um produto. Voc&ecirc; est&aacute; entrando num programa de acompanhamento.</p>
+    <p>Nossa equipe vai te chamar no WhatsApp pra te acompanhar de perto. Vai tirar suas d&uacute;vidas sobre como tomar, vai te lembrar de n&atilde;o esquecer da dose, vai perguntar como t&aacute; indo o tratamento e vai estar do seu lado em qualquer coisa que voc&ecirc; precisar.</p>
+    <p>E voc&ecirc; tamb&eacute;m recebe um <strong>reajuste na dosagem sem nenhum custo</strong>, caso sinta que quer resultados ainda mais r&aacute;pidos. Nossos especialistas podem fazer uma nova f&oacute;rmula ajustada aos seus objetivos.</p>
+    <p>E voc&ecirc; ainda recebe um <strong>CERTIFICADO DE GARANTIA</strong> junto com o seu produto. Esse certificado &eacute; um documento oficial assinado pelos nossos especialistas, com valor jur&iacute;dico, que d&aacute; seguran&ccedil;a total pra voc&ecirc;.</p>
+    <p>Cada frasco do LordVigor tem 60 dias de garantia, isso significa que ao adquirir <strong>3 frascos</strong> do LordVigor, voc&ecirc; ter&aacute; <strong>180 dias (6 meses)</strong> de garantia pra testar &agrave; vontade. Se nesse per&iacute;odo voc&ecirc; n&atilde;o ficar satisfeito, &eacute; s&oacute; apresentar o certificado e a gente devolve cada centavo que voc&ecirc; pagou. Sem perguntar nada, sem complica&ccedil;&atilde;o. Por ter valor jur&iacute;dico, somos obrigados por lei a te reembolsar cada centavo, sem fazer pergunta.</p>
+  </section>
+
+  <!-- Bloco 3 -->
+  <section class="block-section block-alt">
+    <h2>SUA DOSE &Eacute; FEITA S&Oacute; PRO SEU CORPO</h2>
+    <p>Quando voc&ecirc; comprar, vai receber um question&aacute;rio rapidinho de 9 perguntas pelo nosso site. Voc&ecirc; pode responder dentro do nosso site ou no WhatsApp, porque ap&oacute;s a sua compra, nossa equipe de suporte vai entrar em contato com voc&ecirc; pra fazer o acompanhamento, e a&iacute; voc&ecirc; pode responder por l&aacute; se preferir.</p>
+    <p>Depois que voc&ecirc; responder, nossa equipe prepara uma dose feita <strong>S&Oacute; pra voc&ecirc;</strong>. N&atilde;o &eacute; a mesma dose do vizinho nem do seu amigo. &Eacute; algo &uacute;nico, feito exclusivamente pro seu corpo.</p>
+    <p>Por isso a taxa de sucesso do LordVigor &eacute; t&atilde;o alta. Porque cada frasco &eacute; diferente. Cada um &eacute; feito pro corpo de um homem s&oacute;.</p>
+  </section>
+
+  <!-- Bloco 4 -->
+  <section class="block-section">
+    <h2>AP&Oacute;S PRODUZIRMOS SEU PRODUTO, ELE SER&Aacute; ENVIADO PRA ENTREGA</h2>
+    <p>Como a gente sabe que esse assunto &eacute; &iacute;ntimo pra muitos homens, a nossa entrega &eacute; <strong>discreta</strong>. Chega numa caixa marrom, sem o nome LordVigor, sem nada escrito sobre o produto. Ningu&eacute;m vai saber o que tem dentro.</p>
+    <p>Pode ficar tranquilo. Sua esposa, seus filhos, seu vizinho, ningu&eacute;m vai ver. S&oacute; voc&ecirc;.</p>
+  </section>
+
+  <!-- Bloco 5 -->
+  <section class="block-section block-alt">
+    <h2>INGREDIENTES APROVADOS PELA ANVISA. SEM EFEITO COLATERAL.</h2>
+    <p>Todos os ingredientes que utilizamos pra fazer o LordVigor s&atilde;o naturais, portanto n&atilde;o h&aacute; efeitos colaterais, e todos os ingredientes que utilizamos j&aacute; possuem aprova&ccedil;&atilde;o na Anvisa.</p>
   </section>
 
   <section class="guarantee">
