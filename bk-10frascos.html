@@ -118,7 +118,7 @@
 <body>
 
   <div class="countdown-bar">
-    OFERTA EXCLUSIVA! Expira em: <span class="timer" id="countdown">05:00</span>
+    OFERTA EXCLUSIVA! Expira em: <span class="timer" id="countdown">10:00</span>
     <span class="scarcity">Apenas para os <span id="scarcity-top">10</span> primeiros compradores</span>
   </div>
 
@@ -280,12 +280,16 @@
 
   <script>
     (function() {
-      var total = 300;
+      var duration = 600;
+      var key = 'bk_timer_start';
+      var saved = localStorage.getItem(key);
+      if (!saved) { saved = Date.now(); localStorage.setItem(key, saved); }
       var el = document.getElementById('countdown');
       var interval = setInterval(function() {
-        total--;
-        if (total <= 0) { clearInterval(interval); el.textContent = 'EXPIRADA!'; el.parentElement.innerHTML = 'OFERTA EXPIRADA!'; return; }
-        var m = Math.floor(total / 60); var s = total % 60;
+        var elapsed = Math.floor((Date.now() - Number(saved)) / 1000);
+        var remaining = duration - elapsed;
+        if (remaining <= 0) { clearInterval(interval); el.textContent = 'EXPIRADA!'; el.parentElement.innerHTML = 'OFERTA EXPIRADA!'; return; }
+        var m = Math.floor(remaining / 60); var s = remaining % 60;
         el.textContent = (m < 10 ? '0' + m : m) + ':' + (s < 10 ? '0' + s : s);
       }, 1000);
     })();
