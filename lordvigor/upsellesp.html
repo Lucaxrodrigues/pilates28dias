@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oferta Especial - Alfa Max</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Inter',system-ui,-apple-system,sans-serif;
+      background:#FAFAFA;
+      color:#1A1A1A;
+      line-height:1.65;
+      font-size:20px;
+      -webkit-font-smoothing:antialiased;
+      padding-bottom:120px;
+    }
+
+    /* Container central */
+    .wrap{max-width:600px;margin:0 auto;padding:30px 22px}
+
+    /* Header sutil */
+    .top-bar{background:#1A1A1A;color:#FAFAFA;text-align:center;padding:14px 20px;font-size:14px;font-weight:600;letter-spacing:.5px}
+    .top-bar span{color:#FFD700}
+
+    /* Tipografia */
+    p{font-size:20px;line-height:1.65;margin-bottom:26px;color:#1A1A1A}
+    p strong{font-weight:700}
+    .impacto{font-size:24px;font-weight:800;text-align:center;margin:38px 0;color:#1A1A1A;line-height:1.4}
+    h1,h2{font-size:26px;font-weight:800;line-height:1.3;margin-bottom:24px;color:#1A1A1A;text-align:center}
+    h2{font-size:24px;margin-top:30px}
+
+    /* Imagens */
+    .media{margin:34px 0;text-align:center}
+    .media img,.media video{display:block;max-width:100%;width:100%;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,.08);margin:0 auto}
+    .media video{background:#000}
+    .media-caption{font-size:14px;color:#666;margin-top:10px;font-style:italic}
+
+    /* Divisor sutil */
+    .divider{display:flex;align-items:center;justify-content:center;margin:42px 0;gap:14px}
+    .divider::before,.divider::after{content:'';height:1px;background:#e0e0e0;flex:1;max-width:80px}
+    .divider-dot{width:6px;height:6px;border-radius:50%;background:#1A1A1A;opacity:.3}
+
+    /* Scroll reveal */
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* Preço */
+    .price-box{
+      background:#fff;border:2px solid #e0e0e0;border-radius:16px;
+      padding:30px 24px;text-align:center;margin:38px 0;
+      box-shadow:0 6px 24px rgba(0,0,0,.06)
+    }
+    .price-box .label{font-size:15px;color:#666;font-weight:600;margin-bottom:10px;letter-spacing:.5px;text-transform:uppercase}
+    .price-old{font-size:28px;color:#888;text-decoration:line-through;font-weight:600;margin-bottom:6px}
+    .price-new{font-size:56px;font-weight:800;color:#27AF60;line-height:1;margin-bottom:10px}
+    .price-new .cur{font-size:32px;vertical-align:top;margin-right:2px;font-weight:700}
+    .price-info{font-size:15px;color:#666;margin-top:8px}
+
+    /* Escassez */
+    .scarcity{
+      background:#FFF3E0;border:2px solid #FFB74D;border-radius:14px;
+      padding:18px 20px;text-align:center;margin:30px 0;
+    }
+    .scarcity-label{font-size:15px;color:#5D4037;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+    .scarcity-number{font-size:42px;font-weight:800;color:#E64A19;line-height:1}
+    .scarcity-sub{font-size:14px;color:#5D4037;margin-top:6px;font-weight:500}
+
+    /* CTA */
+    .cta-wrap{margin:30px 0;text-align:center}
+    .cta-btn,.kiwify-cta button{
+      display:inline-block;width:100%;max-width:520px;
+      background:#27AF60;color:#fff;
+      font-family:inherit;font-size:21px;font-weight:800;
+      padding:22px 18px;border:none;border-radius:12px;
+      cursor:pointer;text-transform:uppercase;letter-spacing:.5px;
+      box-shadow:0 6px 22px rgba(39,175,96,.35);
+      animation:pulse 2.2s ease-in-out infinite;
+      text-decoration:none;line-height:1.3;
+    }
+    .cta-sub{font-size:14px;color:#666;margin-top:10px;font-weight:500}
+    @keyframes pulse{
+      0%,100%{transform:scale(1);box-shadow:0 6px 22px rgba(39,175,96,.35)}
+      50%{transform:scale(1.03);box-shadow:0 10px 30px rgba(39,175,96,.5)}
+    }
+
+    /* Kiwify upsell styling override */
+    #payt-upsell{margin:24px 0;text-align:center}
+    #kiwify-upsell-trigger-Zeo6Tr2{
+      background:#27AF60!important;
+      color:#fff!important;
+      font-family:inherit!important;
+      font-size:21px!important;
+      font-weight:800!important;
+      padding:22px 18px!important;
+      border:none!important;
+      border-radius:12px!important;
+      cursor:pointer;
+      width:100%;max-width:520px;
+      box-shadow:0 6px 22px rgba(39,175,96,.35);
+      animation:pulse 2.2s ease-in-out infinite;
+      text-transform:uppercase;
+      letter-spacing:.5px;
+      line-height:1.3;
+    }
+    #kiwify-upsell-cancel-trigger-Zeo6Tr2{
+      margin-top:18px!important;
+      font-size:14px!important;
+      color:#999!important;
+      font-family:inherit!important;
+    }
+
+    /* Sticky CTA bottom */
+    .sticky-cta{
+      position:fixed;bottom:0;left:0;right:0;z-index:9999;
+      background:#fff;border-top:1px solid #e0e0e0;
+      padding:12px 16px;
+      box-shadow:0 -4px 20px rgba(0,0,0,.08);
+      transform:translateY(120%);transition:transform .35s ease;
+    }
+    .sticky-cta.show{transform:translateY(0)}
+    .sticky-cta-inner{max-width:600px;margin:0 auto}
+    .sticky-cta a{
+      display:block;background:#27AF60;color:#fff;
+      text-align:center;text-decoration:none;
+      font-weight:800;font-size:17px;
+      padding:16px 14px;border-radius:10px;
+      text-transform:uppercase;letter-spacing:.3px;
+      box-shadow:0 4px 14px rgba(39,175,96,.3);
+      animation:pulse 2.2s ease-in-out infinite;
+      line-height:1.3;
+    }
+
+    /* Imagens "antes/depois" galeria */
+    .gallery{display:grid;grid-template-columns:1fr;gap:18px;margin:30px 0}
+    .gallery img{width:100%;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,.08)}
+
+    @media(min-width:520px){
+      .gallery{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:380px){
+      body,p{font-size:18px}
+      h1,h2,.impacto{font-size:22px}
+      .price-new{font-size:46px}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <span>&#10004;</span> Pago aprobado &mdash; Oferta exclusiva por &uacute;nica vez
+  </div>
+
+  <main class="wrap">
+
+    <!-- BLOCO 1 -->
+    <div class="reveal">
+      <h1>&iexcl;Espera! No cierres esta p&aacute;gina.</h1>
+      <p>Soy el Dr. Juan de nuevo. Necesito hablar contigo, de hombre a hombre.</p>
+      <p>No hagas clic en volver y no cierres esta p&aacute;gina bajo ninguna circunstancia.</p>
+    </div>
+
+    <div class="divider reveal"><span class="divider-dot"></span></div>
+
+    <!-- BLOCO 2 -->
+    <div class="reveal">
+      <p>En primer lugar, &iexcl;muchas felicidades! &iexcl;Tu pago fue aprobado con &eacute;xito!</p>
+      <p>Est&aacute;s en el lugar correcto y tomaste la decisi&oacute;n que cambiar&aacute; tu vida. &iexcl;Recuperar&aacute;s la potencia y el vigor que ten&iacute;as en los a&ntilde;os dorados de tu vida!</p>
+      <p>Eso ya est&aacute; resuelto.</p>
+    </div>
+
+    <div class="divider reveal"><span class="divider-dot"></span></div>
+
+    <!-- BLOCO 3 - Carlos -->
+    <div class="reveal">
+      <p>Pero vi que en tu cuestionario marcaste que deseas <strong>aumentar el tama&ntilde;o del pene</strong> y por eso necesito decirte algo.</p>
+      <p>Tuve un paciente, Carlos, que era como t&uacute;. Resolvi&oacute; la firmeza, volvi&oacute; a ponerse duro igual que a los 20 a&ntilde;os. Todo estaba bien.</p>
+      <p>Solo que un tiempo despu&eacute;s conoci&oacute; a una mujer m&aacute;s joven. Hermosa. Y ella estaba loca por &eacute;l.</p>
+      <p>&iquest;Pero sabes qu&eacute; hizo Carlos? <strong>Huy&oacute;</strong>. Inventaba excusas para no ir a la cama con ella. Porque a pesar de ponerse duro, le daba verg&uuml;enza el tama&ntilde;o.</p>
+      <p>Me dijo:</p>
+    </div>
+
+    <!-- IMAGEM 01 - Depoimento WhatsApp -->
+    <div class="media reveal">
+      <img src="upsell-img-01.png" alt="Depoimento Carlos">
+    </div>
+
+    <div class="reveal">
+      <p>Su firmeza volvi&oacute;, pero <strong>su confianza no</strong>. Por culpa del tama&ntilde;o.</p>
+      <p>Y es por eso que necesito mostrarte esto ahora, antes de que salgas de esta p&aacute;gina.</p>
+      <p>Porque no quiero que vivas con esa inseguridad, y por eso, en celebraci&oacute;n a los m&aacute;s de 20.000 hombres que confiaron en la Aplicaci&oacute;n <strong>Alfa Max</strong>, te voy a dar una sorpresa.</p>
+    </div>
+
+    <div class="divider reveal"><span class="divider-dot"></span></div>
+
+    <!-- IMAGEM 02 - Foto com Jordi -->
+    <div class="media reveal">
+      <img src="upsell-img-02.png" alt="Dr. Juan con Jordi el Ni&ntilde;o">
+    </div>
+
+    <div class="reveal">
+      <p>&iquest;Est&aacute;s viendo esta foto? Es con <strong>Jordi el Ni&ntilde;o</strong>, conocido por tener un pene de 22 cent&iacute;metros.</p>
+      <p>&iquest;Y por qu&eacute; te estoy mostrando esta foto m&iacute;a con &eacute;l?</p>
+      <p>Es porque seguramente ya te preguntaste por qu&eacute; los actores porno tienen penes tan grandes...</p>
+      <p>D&eacute;jame preguntarte algo. &iquest;Crees que el actor de cine para adultos nace con ese pene enorme? &iquest;Que es suerte? &iquest;Que es gen&eacute;tica?</p>
+    </div>
+
+    <p class="impacto reveal">Mentira. Mentira completa.</p>
+
+    <div class="reveal">
+      <p>Lo s&eacute; porque atiendo a estos tipos. Cuido de su salud.</p>
+      <p>Y te voy a contar el <strong>mayor secreto de esta industria</strong>, un secreto que te ocultan.</p>
+      <p>En primer lugar, debes saber que <strong>NING&Uacute;N actor naci&oacute; con un pene grande</strong>. Cuando empezaron, la mayor&iacute;a ten&iacute;a un pene normal, igual que el tuyo. Algunos incluso m&aacute;s peque&ntilde;os.</p>
+      <p>Lo vi con mis propios ojos. Y hoy son famosos por su tama&ntilde;o, como el mism&iacute;simo Jordi el Ni&ntilde;o, que pas&oacute; de <strong>13 cent&iacute;metros a 22 cent&iacute;metros</strong>.</p>
+    </div>
+
+    <p class="impacto reveal">&ldquo;Pero Doctor, &iquest;qu&eacute; hacen para que crezca?&rdquo;</p>
+
+    <div class="reveal">
+      <p>&iquest;Alguna vez fuiste al gimnasio? &iquest;Sabes que cuando haces ejercicio el m&uacute;sculo recibe est&iacute;mulo y entonces crece?</p>
+      <p>Lo que hacen los actores para aumentar el tama&ntilde;o es simple:</p>
+    </div>
+
+    <!-- IMAGEM/GIF 03 - Ducha -->
+    <div class="media reveal">
+      <img src="upsell-img-03.png" alt="Ejercicio en la ducha">
+    </div>
+
+    <div class="reveal">
+      <p>Hacen un <strong>ejercicio de ducha con el pene</strong>. Lo fuerzas de la manera correcta, todos los d&iacute;as, y se va haciendo m&aacute;s grande.</p>
+      <p>Y lo mejor: a diferencia de un m&uacute;sculo, como el pene es un tejido esponjoso, el tama&ntilde;o que ganas <strong>no retrocede</strong>. Se queda para siempre.</p>
+      <p>Solo que para que funcione, tiene que ser en la ducha y con el agua caliente cayendo, porque la sangre corre m&aacute;s f&aacute;cil, y ah&iacute; har&aacute;s un movimiento con la mano que fuerza el pene a estirarse y engrosarse.</p>
+      <p>Toma unos pocos minutos al d&iacute;a. Bajo la ducha, que de todos modos ya tomas todos los d&iacute;as. Nadie lo ver&aacute; y nadie lo sabr&aacute;. Lo haces en el ba&ntilde;o y listo.</p>
+      <p>Y fue este protocolo el que salv&oacute; a Carlos de su inseguridad:</p>
+    </div>
+
+    <!-- IMAGEM 04 - Carlos transformado -->
+    <div class="media reveal">
+      <img src="upsell-img-04.png" alt="Carlos transformado">
+    </div>
+
+    <div class="divider reveal"><span class="divider-dot"></span></div>
+
+    <p class="impacto reveal">Y no solo a Carlos, sino a <strong>miles de hombres</strong>:</p>
+
+    <!-- VIDEO 01 -->
+    <div class="media reveal">
+      <video controls preload="metadata" playsinline>
+        <source src="upsell-video-01.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- VIDEO 02 -->
+    <div class="media reveal">
+      <video controls preload="metadata" playsinline>
+        <source src="upsell-video-02.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- IMAGENS 05, 06, 07 - galeria de depoimentos -->
+    <div class="gallery reveal">
+      <img src="upsell-img-05.png" alt="Depoimento 5">
+      <img src="upsell-img-06.png" alt="Depoimento 6">
+      <img src="upsell-img-07.png" alt="Depoimento 7">
+    </div>
+
+    <div class="divider reveal"><span class="divider-dot"></span></div>
+
+    <!-- BLOCO FINAL - Oferta -->
+    <div class="reveal">
+      <p>Seguramente ya has visto varios videos de Jordi el Ni&ntilde;o, y por eso, lo llam&eacute; para que nosotros dos juntos cre&aacute;ramos un protocolo <strong>JUNTOS</strong> mostrando en la pr&aacute;ctica c&oacute;mo los actores porno aumentan el tama&ntilde;o del pene.</p>
+      <p>Mostramos todo en vivo, sin esconder nada, ense&ntilde;ando, paso a paso, exactamente c&oacute;mo hacer cada movimiento bajo la ducha. <strong>Solo copias lo que ellos hacen y listo</strong>.</p>
+      <p>En pocas semanas vas a mirar hacia abajo y no lo vas a creer. Vas a ver tu miembro m&aacute;s grueso, m&aacute;s largo.</p>
+      <p>Y tu mujer va a sentir cada cent&iacute;metro de m&aacute;s, tu mujer te ver&aacute; como el hombre m&aacute;s grande de su vida, se va a obsesionar contigo, porque ning&uacute;n hombre jam&aacute;s podr&aacute; proporcionarle las sensaciones de placer que <strong>SOLO T&Uacute;</strong> y tu nuevo pene pueden proporcionar.</p>
+      <p>Yo vend&iacute;a este protocolo por separado por <strong>197 d&oacute;lares</strong>. Pero como acabas de garantizar tu acceso y est&aacute;s conmigo ahora, el d&iacute;a de hoy:</p>
+      <p class="impacto" style="margin:20px 0">EN celebraci&oacute;n a los m&aacute;s de 20 mil usuarios de la aplicaci&oacute;n Alfa Max, te lo voy a liberar por solo <strong>37 d&oacute;lares</strong>.</p>
+      <p style="text-align:center"><strong>Una sola vez.</strong> Para tener el pene m&aacute;s grande por el resto de la vida.</p>
+    </div>
+
+    <!-- PRICE BOX -->
+    <div class="price-box reveal" id="price-anchor">
+      <div class="label">Oferta &Uacute;nica Hoy</div>
+      <div class="price-old">$197 USD</div>
+      <div class="price-new"><span class="cur">$</span>37</div>
+      <div class="price-info">Pago &uacute;nico &mdash; Acceso de por vida</div>
+    </div>
+
+    <!-- ESCASSEZ -->
+    <div class="scarcity reveal" id="scarcity-box">
+      <div class="scarcity-label">&#9888; Cupos disponibles</div>
+      <div class="scarcity-number" id="scarcity-count">50</div>
+      <div class="scarcity-sub">despu&eacute;s de agotarse, vuelve a $197</div>
+    </div>
+
+    <!-- BOTÃO KIWIFY UPSELL -->
+    <div id="payt-upsell" style="text-align:center">
+      <div id="kiwify-upsell-Zeo6Tr2" data-upsell-url="" data-downsell-url="https://pizzalabays.shop/downsell.html">
+        <button id="kiwify-upsell-trigger-Zeo6Tr2">&iexcl;S&iacute;, acepto esta oferta especial!</button>
+        <div id="kiwify-upsell-cancel-trigger-Zeo6Tr2" style="cursor:pointer;text-decoration:underline">No, prefiero rechazar esta oferta.</div>
+      </div>
+      <p class="cta-sub" style="margin-top:14px">No necesitas ingresar tu tarjeta de nuevo. Un solo clic.</p>
+      <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
+    </div>
+
+    <div class="reveal" style="margin-top:36px">
+      <p>Pero este bot&oacute;n solo aparece <strong>ahora</strong>. Si cierras esta p&aacute;gina, desaparece, y despu&eacute;s solo por los 197 d&oacute;lares.</p>
+      <p>Ya garantizaste la firmeza. Ahora asegura el tama&ntilde;o y conviértete en un hombre completo con un pene de 22 cent&iacute;metros.</p>
+      <p>Haz clic en el bot&oacute;n verde aqu&iacute; abajo. <strong>No necesitas digitar la tarjeta de nuevo</strong>. Un clic y el protocolo ya es tuyo.</p>
+    </div>
+
+  </main>
+
+  <!-- STICKY CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <div class="sticky-cta-inner">
+      <a href="#price-anchor">&iexcl;S&Iacute;, QUIERO AGRANDAR MI TAMA&Ntilde;O POR $37!</a>
+    </div>
+  </div>
+
+  <script>
+    // Scroll reveal
+    (function(){
+      var els = document.querySelectorAll('.reveal');
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      },{threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+      els.forEach(function(el){ obs.observe(el); });
+    })();
+
+    // Sticky CTA aparece após 50% de scroll
+    (function(){
+      var sticky = document.getElementById('stickyCta');
+      window.addEventListener('scroll', function(){
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        var p = window.scrollY / h;
+        if(p > 0.4) sticky.classList.add('show');
+        else sticky.classList.remove('show');
+      },{passive:true});
+    })();
+
+    // Contador de escassez — só ativa quando o usuário rola até a seção
+    (function(){
+      var box = document.getElementById('scarcity-box');
+      var el  = document.getElementById('scarcity-count');
+      var started = false;
+      var count = 50;
+
+      function tick(){
+        if(count <= 8) return;
+        var drop = Math.random() < 0.55 ? 1 : 0;
+        if(drop){ count -= 1; el.textContent = count; }
+        var delay = 6000 + Math.random()*9000;
+        setTimeout(tick, delay);
+      }
+
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting && !started){
+            started = true;
+            setTimeout(tick, 4000);
+            obs.unobserve(box);
+          }
+        });
+      },{threshold:0.5});
+      obs.observe(box);
+    })();
+  </script>
+</body>
+</html>
