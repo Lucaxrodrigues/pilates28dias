@@ -128,7 +128,7 @@
       0%,100%{transform:scale(1);box-shadow:0 6px 22px rgba(39,175,96,.35)}
       50%{transform:scale(1.025);box-shadow:0 10px 28px rgba(39,175,96,.45)}
     }
-    #kiwify-upsell-trigger-lBKgkcR{
+    .cta-accept{
       animation:pulse 2.4s ease-in-out infinite;
     }
     .cta-sub{
@@ -192,6 +192,11 @@
 
     <!-- BLOCO TELEGRAM -->
     <div class="telegram-card reveal">
+      <div class="telegram-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
+        </svg>
+      </div>
       <div class="t-title">Acceso directo por Telegram</div>
       <div class="t-sub">A m&iacute; y a mi equipo de especialistas</div>
     </div>
@@ -224,16 +229,20 @@
       </div>
     </div>
 
+    <!-- IMAGEM PREÇO EM MOEDAS LOCAIS -->
+    <div class="reveal" style="margin:28px 0;text-align:center">
+      <img src="preco9.png" alt="Precio en monedas locales" style="display:block;max-width:100%;width:100%;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,.08);margin:0 auto">
+    </div>
+
     <div class="reveal">
       <p>Pagas una vez y listo. Sin mensualidades, sin sorpresas. Un solo pago de <strong class="accent">$9 d&oacute;lares</strong> y me tienes a tu lado por los pr&oacute;ximos 365 d&iacute;as.</p>
       <p>Pero te lo pido de coraz&oacute;n: no enfrentes esto solo. Por solo <strong class="accent">$9 d&oacute;lares</strong>, deja que yo te acompa&ntilde;e durante todo un a&ntilde;o.</p>
     </div>
 
-    <!-- BOTÃO KIWIFY -->
-    <div style="text-align:center" id="kiwify-upsell-lBKgkcR" data-upsell-url="" data-downsell-url="">
-          <button id="kiwify-upsell-trigger-lBKgkcR" style="background-color:#27AF60;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #27AF60;font-size:20px;">&iexcl;S&iacute;, acepto esta oferta especial!</button>
-          <div id="kiwify-upsell-cancel-trigger-lBKgkcR" style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">No, me gustar&iacute;a rechazar esta oferta.</div>
-        </div><script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
+    <!-- BOTÃO CTA -->
+    <div style="text-align:center">
+      <a href="https://go.centerpag.com/PPU38CQE2FN?upsell=true" class="cta-accept" style="display:inline-block;background:#27AF60;padding:14px 22px;color:#fff;font-weight:700;border-radius:6px;border:1px solid #27AF60;font-size:20px;text-decoration:none;font-family:inherit;line-height:1.3">&iexcl;S&iacute;, acepto esta oferta especial!</a>
+    </div>
     <p class="cta-sub">No necesitas ingresar tu tarjeta de nuevo. Un solo clic.</p>
 
     <div class="reveal" style="margin-top:36px">
