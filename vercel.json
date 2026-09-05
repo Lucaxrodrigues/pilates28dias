@@ -2,7 +2,5 @@
   "framework": null,
   "buildCommand": null,
   "outputDirectory": null,
-  "installCommand": null,
-  "cleanUrls": true,
-  "trailingSlash": false
+  "installCommand": null
 }
