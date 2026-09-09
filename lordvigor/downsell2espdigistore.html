@@ -90,9 +90,6 @@
 </head>
 <body>
 
-  <!-- Begin of Digistore24 Trusted Badge Code -->
-  <script type="text/javascript" src="https://www.digistore24.com/trusted-badge/47482/EnQSPDKcfGsM8k0/salespage"></script>
-  <!-- End of Digistore24 Trusted Badge Code -->
 
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKF9HT6T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -122,14 +119,6 @@
     <p>Es exactamente la misma receta. El mismo ebook con el mismo contenido. Solo estoy quitando un pedazo al precio, porque quiero mucho que aproveches esta oportunidad.</p>
 
     <p>Pero cuidado: si sales de esta p&aacute;gina, esta oferta desaparece <strong>para siempre</strong>. Es la &uacute;ltima vez que ver&aacute;s este precio.</p>
-
-    <p>Debajo hay un reloj. Cuando llegue a cero, la promoci&oacute;n termina y el ebook vuelve a costar <strong>$67 USD</strong>.</p>
-
-    <div class="big-timer" id="bigTimer">
-      <div class="t-label">&#9888; Esta oferta expira en</div>
-      <div class="t-clock" id="bigClock">05:00</div>
-      <div class="t-sub">&Uacute;ltima vez que ver&aacute;s este precio</div>
-    </div>
 
     <div class="ficha">
       <span class="ficha-title">&#128213; Ficha del producto</span>
@@ -174,26 +163,6 @@
       <p>Digistore24 Inc. es el vendedor autorizado de este producto. El papel de Digistore24 Inc. como vendedor no constituye respaldo, aprobaci&oacute;n ni revisi&oacute;n de este producto ni de ninguna afirmaci&oacute;n, declaraci&oacute;n u opini&oacute;n utilizada en su promoci&oacute;n. Para preguntas sobre el pedido, reembolsos o soporte t&eacute;cnico del checkout, contacte a Digistore24 en <a href="https://www.digistore24.com/support" target="_blank" style="color:#a8b8c8;text-decoration:underline">digistore24.com/support</a>.</p>
     </div>
   </footer>
-
-  <script>
-    (function(){
-      var KEY='dsds_downsell2_expiry';
-      var DURATION=5*60*1000;
-      var now=Date.now();
-      var expiry=parseInt(localStorage.getItem(KEY)||'0',10);
-      if(!expiry||expiry<now){expiry=now+DURATION;localStorage.setItem(KEY,expiry);}
-      var clock=document.getElementById('bigClock');
-      function tick(){
-        var left=expiry-Date.now();
-        if(left<=0){clock.textContent='00:00';clearInterval(iv);return;}
-        var m=Math.floor(left/60000);
-        var s=Math.floor((left%60000)/1000);
-        clock.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
-      }
-      tick();
-      var iv=setInterval(tick,1000);
-    })();
-  </script>
 
 </body>
 </html>
