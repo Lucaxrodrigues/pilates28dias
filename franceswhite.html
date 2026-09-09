@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alfa Max &mdash; Retrouvez Votre Vigueur Naturelle Apr&egrave;s 50 ans</title>
+  <meta name="description" content="M&eacute;thode naturelle pour hommes de plus de 50 ans. Formule personnalis&eacute;e approuv&eacute;e par des sp&eacute;cialistes pour retrouver la circulation et la confiance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#fff;color:#1A1A1A;line-height:1.65;font-size:18px;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;height:auto}
+    .site-header{background:#fff;border-bottom:1px solid #eef0f3;padding:14px 20px;position:sticky;top:0;z-index:100}
+    .header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:22px;font-weight:900;color:#0F2A45;text-decoration:none;letter-spacing:.5px}
+    .logo span{color:#27AF60}
+    .header-badge{font-size:12px;color:#3B7EA1;font-weight:700;background:#EAF3F8;padding:6px 12px;border-radius:20px;letter-spacing:.5px;text-transform:uppercase}
+    .hero{background:linear-gradient(135deg,#0F2A45 0%,#1a3a5c 100%);color:#fff;padding:60px 20px;text-align:center}
+    .hero .badge{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#f4d03f;font-size:12px;font-weight:700;padding:8px 18px;border-radius:30px;margin-bottom:20px;letter-spacing:1px;text-transform:uppercase}
+    .hero h1{font-size:34px;font-weight:800;line-height:1.2;max-width:780px;margin:0 auto 22px}
+    .hero h1 span{color:#f4d03f}
+    .hero-sub{font-size:18px;color:rgba(255,255,255,.85);max-width:640px;margin:0 auto 32px;line-height:1.6}
+    .hero-cta{display:inline-block;background:#27AF60;color:#fff;font-size:17px;font-weight:800;padding:18px 38px;border-radius:8px;text-decoration:none;text-transform:uppercase;letter-spacing:.5px;box-shadow:0 6px 20px rgba(39,175,96,.35);transition:transform .2s}
+    .hero-cta:hover{transform:scale(1.04)}
+    .hero-small{font-size:13px;color:rgba(255,255,255,.6);margin-top:14px}
+    .trust-bar{background:#f8f9fa;border-bottom:1px solid #eef0f3;padding:18px 20px}
+    .trust-inner{max-width:900px;margin:0 auto;display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
+    .trust-item{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#3B7EA1}
+    .trust-item .ico{font-size:18px}
+    .section{padding:60px 20px}
+    .section-inner{max-width:740px;margin:0 auto}
+    .section h2{font-size:28px;font-weight:800;color:#0F2A45;line-height:1.3;margin-bottom:22px;text-align:center}
+    .section h3{font-size:22px;font-weight:800;color:#0F2A45;line-height:1.35;margin:32px 0 14px}
+    .section p{font-size:18px;color:#333;line-height:1.75;margin-bottom:20px}
+    .section p strong{color:#0F2A45;font-weight:700}
+    .section-alt{background:#f8f9fa}
+    .impacto{font-size:22px;font-weight:800;text-align:center;color:#0F2A45;margin:36px 0;line-height:1.4}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:40px auto}
+    .stat-card{background:#fff;border:1px solid #e6ecf0;border-radius:14px;padding:26px 18px;text-align:center;box-shadow:0 4px 16px rgba(15,42,69,.05)}
+    .stat-num{font-size:42px;font-weight:900;color:#27AF60;line-height:1;margin-bottom:8px}
+    .stat-label{font-size:14px;color:#555;font-weight:600;line-height:1.4}
+    .doctor-card{background:#fff;border:1px solid #d8e6ed;border-radius:16px;padding:36px 30px;margin:40px 0;display:flex;gap:24px;align-items:center;box-shadow:0 6px 24px rgba(15,42,69,.06)}
+    .doctor-card .avatar{width:110px;height:110px;flex-shrink:0;border-radius:50%;background:linear-gradient(135deg,#EAF3F8,#c8dde8);display:flex;align-items:center;justify-content:center;font-size:44px;color:#3B7EA1;font-weight:800}
+    .doctor-card .info h3{margin:0 0 6px;font-size:20px;color:#0F2A45}
+    .doctor-card .info p{margin:0;font-size:14px;color:#3B7EA1;font-weight:600;line-height:1.5}
+    .solution-visual{background:linear-gradient(135deg,#EAF3F8,#f8fbfd);border:1px solid #d8e6ed;border-radius:14px;padding:28px 22px;margin:30px 0;text-align:center}
+    .solution-visual h3{color:#3B7EA1;margin:0 0 10px;font-size:20px}
+    .solution-visual p{font-size:16px;color:#2C5F7C;margin:0;line-height:1.6}
+    .steps{display:flex;flex-direction:column;gap:20px;margin:34px 0}
+    .step{display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid #eef0f3;border-radius:12px;padding:22px 20px}
+    .step-num{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:#27AF60;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800}
+    .step-body h3{font-size:18px;color:#0F2A45;margin:0 0 6px;font-weight:800}
+    .step-body p{font-size:15px;color:#555;margin:0;line-height:1.6}
+    .testimonials{display:flex;flex-direction:column;gap:20px;margin:30px 0}
+    .test-card{background:#fff;border:1px solid #e6ecf0;border-radius:14px;padding:26px 22px;box-shadow:0 4px 16px rgba(15,42,69,.05)}
+    .test-header{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+    .test-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#EAF3F8,#c8dde8);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#3B7EA1}
+    .test-name{font-size:16px;font-weight:800;color:#0F2A45;line-height:1.2}
+    .test-loc{font-size:13px;color:#666;margin-top:2px}
+    .test-stars{color:#f4b400;font-size:16px;letter-spacing:2px;margin-bottom:8px}
+    .test-text{font-size:16px;color:#333;line-height:1.65;font-style:italic}
+    .guarantee-box{background:linear-gradient(135deg,#fef9ec,#fef4d8);border:2px solid #f4d03f;border-radius:16px;padding:34px 28px;margin:30px 0;text-align:center}
+    .guarantee-box h3{font-size:22px;color:#0F2A45;margin:0 0 12px;font-weight:800}
+    .guarantee-box p{font-size:16px;color:#555;line-height:1.65;margin:0}
+    .faq-item{background:#fff;border:1px solid #eef0f3;border-radius:10px;margin-bottom:12px;overflow:hidden}
+    .faq-q{width:100%;background:none;border:none;font-family:inherit;font-size:16px;font-weight:700;color:#0F2A45;padding:18px 50px 18px 20px;text-align:left;cursor:pointer;position:relative}
+    .faq-q::after{content:'+';position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:22px;color:#3B7EA1;transition:transform .3s;font-weight:800}
+    .faq-item.active .faq-q::after{transform:translateY(-50%) rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+    .faq-a p{padding:0 20px 18px;font-size:15px;color:#555;line-height:1.65;margin:0}
+    .faq-item.active .faq-a{max-height:400px}
+    .final-cta{background:linear-gradient(135deg,#0F2A45,#1a3a5c);color:#fff;padding:60px 20px;text-align:center}
+    .final-cta h2{color:#fff;margin-bottom:18px;font-size:28px}
+    .final-cta p{color:rgba(255,255,255,.85);font-size:17px;margin-bottom:30px;max-width:560px;margin-left:auto;margin-right:auto}
+    .final-cta .btn{display:inline-block;background:#27AF60;color:#fff;font-size:18px;font-weight:800;padding:20px 42px;border-radius:8px;text-decoration:none;text-transform:uppercase;letter-spacing:.5px;box-shadow:0 8px 24px rgba(39,175,96,.4);transition:transform .2s}
+    .final-cta .btn:hover{transform:scale(1.04)}
+    .final-cta .small{color:rgba(255,255,255,.5);font-size:13px;margin-top:14px}
+    .site-footer{background:#0a1a2b;color:#7a8a9a;padding:40px 20px;font-size:13px;line-height:1.7;text-align:center}
+    .site-footer p{max-width:800px;margin:0 auto 12px}
+    .footer-links{margin-top:18px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+    .footer-links a{color:#a8b8c8;text-decoration:underline;font-size:13px}
+    @media(max-width:640px){
+      .hero{padding:44px 20px}.hero h1{font-size:26px}.hero-sub{font-size:16px}
+      .section{padding:44px 20px}.section h2{font-size:24px}.section h3{font-size:19px}
+      .section p, .test-text{font-size:16px}.impacto{font-size:19px}
+      .stats{grid-template-columns:1fr;gap:14px}.stat-card{padding:22px 16px}.stat-num{font-size:36px}
+      .doctor-card{flex-direction:column;text-align:center;padding:28px 22px}
+      .final-cta h2{font-size:24px}.final-cta .btn{font-size:16px;padding:18px 32px}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo">Alfa<span>Max</span></a>
+      <span class="header-badge">M&eacute;thode M&eacute;dicale</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="badge">Recommand&eacute; pour les hommes 50+</div>
+    <h1>Retrouvez votre <span>vigueur naturelle</span> avec la premi&egrave;re formule personnalis&eacute;e pour hommes apr&egrave;s 50 ans</h1>
+    <p class="hero-sub">Une m&eacute;thode d&eacute;velopp&eacute;e par des sp&eacute;cialistes pour les hommes qui veulent retrouver le sentiment de leurs meilleures ann&eacute;es &mdash; sans recourir aux m&eacute;dicaments &agrave; effets secondaires.</p>
+    <a href="TROQUE-URL-FR-KIWIFY-AQUI" class="hero-cta">D&eacute;couvrez si c'est pour vous</a>
+    <div class="hero-small">Questionnaire de 60 secondes &middot; 100 % confidentiel</div>
+  </section>
+
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-item"><span class="ico">&#129514;</span> Formule Personnalis&eacute;e</div>
+      <div class="trust-item"><span class="ico">&#127807;</span> 100 % Naturel</div>
+      <div class="trust-item"><span class="ico">&#128274;</span> Livraison Discr&egrave;te</div>
+      <div class="trust-item"><span class="ico">&#11088;</span> 20 000+ Hommes</div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-inner">
+      <h2>Si apr&egrave;s 50 ans vous n'&ecirc;tes plus performant comme avant...</h2>
+      <p>...ce n'est pas de votre faute. Et vous n'&ecirc;tes pas seul.</p>
+      <p>Les &eacute;tudes montrent que <strong>3 hommes sur 5</strong> apr&egrave;s 50 ans perdent une partie de leur vigueur et de leur confiance dans l'intimit&eacute;. Et ce n'est pas parce qu'ils sont &laquo; moins hommes &raquo; &mdash; c'est de la simple biologie.</p>
+      <p>Avec les ann&eacute;es, les veines qui apportent le sang aux zones les plus importantes du corps perdent leur &eacute;lasticit&eacute; et se bouchent avec de petites plaques de graisse. Le sang passe de plus en plus difficilement. Et alors la fermet&eacute;, la r&eacute;sistance et la confiance commencent &agrave; d&eacute;faillir.</p>
+
+      <div class="stats">
+        <div class="stat-card"><div class="stat-num">60 %</div><div class="stat-label">des hommes 50+ font face &agrave; une perte de vigueur</div></div>
+        <div class="stat-card"><div class="stat-num">72 %</div><div class="stat-label">ne demandent pas d'aide par honte</div></div>
+        <div class="stat-card"><div class="stat-num">20K+</div><div class="stat-label">hommes ont d&eacute;j&agrave; retrouv&eacute; leur vigueur avec Alfa Max</div></div>
+      </div>
+
+      <p class="impacto">Et le pire : la plupart essaie de le r&eacute;soudre avec des pilules qui <strong>n'attaquent pas le vrai probl&egrave;me</strong>.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="section-inner">
+      <h2>Un message du sp&eacute;cialiste derri&egrave;re la m&eacute;thode</h2>
+      <div class="doctor-card">
+        <div class="avatar">Dr</div>
+        <div class="info">
+          <h3>Dr. Juan Guti&eacute;rrez</h3>
+          <p>Sp&eacute;cialiste en sant&eacute; masculine<br>Chercheur en circulation vasculaire<br>Cr&eacute;ateur de la m&eacute;thode Alfa Max</p>
+        </div>
+      </div>
+      <p>Pendant plus de 20 ans &agrave; suivre des hommes de plus de 50 ans, j'ai compris une v&eacute;rit&eacute; que l'industrie pharmaceutique pr&eacute;f&egrave;re que vous ignoriez.</p>
+      <p>Les pilules les plus connues du march&eacute; <strong>ne gu&eacute;rissent rien</strong>. Elles forcent simplement le sang &agrave; passer par les veines, m&ecirc;me quand celles-ci sont bouch&eacute;es. C'est comme essayer de faire passer de l'eau sous pression dans un tuyau plein de d&eacute;chets &mdash; &ccedil;a fonctionne sur le moment, mais le probl&egrave;me reste l&agrave;.</p>
+      <p>C'est pour &ccedil;a que les doses augmentent avec le temps. Et c'est pour &ccedil;a que beaucoup d'hommes commencent &agrave; souffrir de maux de t&ecirc;te, de probl&egrave;mes cardiaques ou sentent simplement que &laquo; &ccedil;a ne fait plus effet &raquo;.</p>
+      <p>Je voulais trouver une solution diff&eacute;rente. Une qui attaque la cause, pas le sympt&ocirc;me.</p>
+      <p class="impacto">C'est ainsi qu'est n&eacute;e la m&eacute;thode Alfa Max.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <h2>Qu'est-ce qu'Alfa Max ?</h2>
+      <p>Alfa Max est une huile naturelle &agrave; usage oral, avec une <strong>formule personnalis&eacute;e</strong> pour chaque homme. Ce n'est pas une pilule g&eacute;n&eacute;rique. Ce n'est pas un compl&eacute;ment quelconque. C'est un protocole d&eacute;velopp&eacute; pour s'attaquer &agrave; la cause r&eacute;elle de la perte de vigueur : <strong>la circulation obstru&eacute;e</strong>.</p>
+
+      <div class="solution-visual">
+        <h3>Pensez &agrave; votre corps comme une tuyauterie</h3>
+        <p>Avec les ann&eacute;es, les veines se remplissent de plaques de graisse. Le sang passe de plus en plus difficilement, et c'est pour &ccedil;a que la fermet&eacute; et la r&eacute;sistance diminuent. L'huile Alfa Max agit comme un <strong>nettoyant naturel</strong> : elle dissout ces plaques jour apr&egrave;s jour, pour que la circulation refonctionne comme quand vous aviez 25 ans.</p>
+      </div>
+
+      <h3>Comment &ccedil;a fonctionne en pratique ?</h3>
+
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><h3>R&eacute;pondez &agrave; un questionnaire rapide</h3><p>Neuf questions simples sur votre &acirc;ge, poids, habitudes et objectifs. &Ccedil;a prend moins de 2 minutes.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Recevez votre formule unique</h3><p>Notre &eacute;quipe pr&eacute;pare une huile <strong>exclusive pour votre organisme</strong>. Aucune autre personne ne re&ccedil;oit la m&ecirc;me dose que vous.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Une goutte sous la langue</h3><p>Utilisation simple : une goutte le matin, tous les jours. Sans besoin de programmer quoi que ce soit avant l'intimit&eacute;.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><h3>Retrouvez le sentiment d'avant</h3><p>La plupart de nos utilisateurs rapporte des am&eacute;liorations d&egrave;s la premi&egrave;re semaine. Les r&eacute;sultats complets apparaissent entre les jours 20 et 45 d'utilisation.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="section-inner">
+      <h2>Pourquoi une formule personnalis&eacute;e ?</h2>
+      <p>R&eacute;fl&eacute;chissez avec moi. L'organisme d'un homme de 52 ans avec 78 kilos <strong>n'est pas identique</strong> &agrave; celui d'un homme de 68 ans avec 92 kilos. Leurs veines sont diff&eacute;rentes. Leur circulation est diff&eacute;rente. Leurs besoins sont diff&eacute;rents.</p>
+      <p>Et pourtant, les produits g&eacute;n&eacute;riques du march&eacute; offrent aux deux exactement la m&ecirc;me dose. C'est pour &ccedil;a que la plupart &eacute;choue.</p>
+      <p>Alfa Max est diff&eacute;rent. Chaque flacon est pr&eacute;par&eacute; <strong>apr&egrave;s que vous r&eacute;pondez au questionnaire</strong>, en ajustant la concentration exacte dont votre corps a besoin. C'est la m&ecirc;me logique qu'une ordonnance m&eacute;dicale &mdash; seulement pour vous.</p>
+      <p class="impacto">C'est pour &ccedil;a qu'Alfa Max a un taux de r&eacute;ussite si &eacute;lev&eacute;.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <h2>Ce que disent les hommes qui ont d&eacute;j&agrave; retrouv&eacute; leur vigueur</h2>
+      <div class="testimonials">
+        <div class="test-card">
+          <div class="test-header"><div class="test-avatar">R</div><div><div class="test-name">Robert M., 63 ans</div><div class="test-loc">Lyon, France</div></div></div>
+          <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="test-text">&laquo; Je passais presque cinq ans &agrave; &eacute;viter l'intimit&eacute; avec ma femme par peur d'&eacute;chouer. J'ai essay&eacute; les pilules connues et elles m'ont donn&eacute; mal &agrave; la t&ecirc;te. &Agrave; la troisi&egrave;me semaine avec Alfa Max, j'ai commenc&eacute; &agrave; sentir le changement. Aujourd'hui ma femme dit que je suis un autre homme. &raquo;</p>
+        </div>
+        <div class="test-card">
+          <div class="test-header"><div class="test-avatar">M</div><div><div class="test-name">Michel A., 58 ans</div><div class="test-loc">Bruxelles, Belgique</div></div></div>
+          <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="test-text">&laquo; Ce qui m'a le plus impressionn&eacute; c'est l'accompagnement. Ce n'est pas juste acheter et attendre. L'&eacute;quipe m'a contact&eacute; par WhatsApp pour savoir comment j'allais. J'ai senti qu'ils tenaient vraiment &agrave; mon r&eacute;sultat. Et apr&egrave;s un mois, la diff&eacute;rence &eacute;tait notable. &raquo;</p>
+        </div>
+        <div class="test-card">
+          <div class="test-header"><div class="test-avatar">C</div><div><div class="test-name">Charles F., 67 ans</div><div class="test-loc">Gen&egrave;ve, Suisse</div></div></div>
+          <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="test-text">&laquo; Je pensais qu'&agrave; mon &acirc;ge il n'y avait plus de solution. Alfa Max m'a rendu quelque chose que je croyais perdu pour toujours : la confiance. Et pas seulement au lit &mdash; c'est en tout. Je marche plus droit, je parle plus ferme. Je me sens &agrave; nouveau un homme complet. &raquo;</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="section-inner">
+      <h2>Ce qui rend Alfa Max diff&eacute;rent de tout ce que vous avez d&eacute;j&agrave; essay&eacute;</h2>
+      <div class="steps">
+        <div class="step"><div class="step-num" style="background:#3B7EA1">&#10004;</div><div class="step-body"><h3>Formule personnalis&eacute;e, pas g&eacute;n&eacute;rique</h3><p>Ajust&eacute;e au profil de chaque homme, selon &acirc;ge, poids et objectifs.</p></div></div>
+        <div class="step"><div class="step-num" style="background:#3B7EA1">&#10004;</div><div class="step-body"><h3>100 % naturel, sans effets secondaires</h3><p>Sans augmenter le risque cardiaque. Sans maux de t&ecirc;te. Sans d&eacute;pendance.</p></div></div>
+        <div class="step"><div class="step-num" style="background:#3B7EA1">&#10004;</div><div class="step-body"><h3>Attaque la cause, pas seulement le sympt&ocirc;me</h3><p>Travaille pour restaurer la circulation naturelle du corps, ne la force pas artificiellement.</p></div></div>
+        <div class="step"><div class="step-num" style="background:#3B7EA1">&#10004;</div><div class="step-body"><h3>Accompagnement par WhatsApp</h3><p>Notre &eacute;quipe est &agrave; vos c&ocirc;t&eacute;s pendant tout le traitement. La moindre question, nous r&eacute;pondons.</p></div></div>
+        <div class="step"><div class="step-num" style="background:#3B7EA1">&#10004;</div><div class="step-body"><h3>Livraison 100 % discr&egrave;te</h3><p>Votre commande arrive dans un emballage neutre, sans identification. Personne ne saura ce qu'il y a &agrave; l'int&eacute;rieur.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="guarantee-box">
+        <h3>&#128737; Garantie de 60 jours</h3>
+        <p>Nous avons tellement confiance dans la m&eacute;thode Alfa Max que si en 60 jours vous ne sentez aucune am&eacute;lioration, nous vous remboursons <strong>100 % de votre argent</strong>. Sans questions. Sans complications. Un simple email &agrave; notre &eacute;quipe suffit.</p>
+      </div>
+      <p style="text-align:center;font-size:16px;color:#666">Nous avons tellement confiance dans les r&eacute;sultats que le risque est le n&ocirc;tre, pas le v&ocirc;tre.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="section-inner">
+      <h2>Questions fr&eacute;quentes</h2>
+      <div class="faq-item">
+        <button class="faq-q">Combien de temps avant de voir les r&eacute;sultats ?</button>
+        <div class="faq-a"><p>Les r&eacute;sultats varient d'un homme &agrave; l'autre. La plupart remarque des am&eacute;liorations d&egrave;s la premi&egrave;re semaine. Les r&eacute;sultats complets apparaissent entre les jours 20 et 45 d'utilisation continue.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Est-ce s&ucirc;r pour les hommes avec de l'hypertension ou du diab&egrave;te ?</button>
+        <div class="faq-a"><p>Alfa Max est une formule naturelle, sans les effets secondaires des m&eacute;dicaments traditionnels. Cependant, nous recommandons toujours de consulter votre m&eacute;decin avant de commencer tout nouveau traitement.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Comment utilise-t-on le produit ?</button>
+        <div class="faq-a"><p>Une goutte sous la langue tous les matins, apr&egrave;s le petit-d&eacute;jeuner. Tr&egrave;s simple, ne demande pas de planification avant quoi que ce soit.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Comment le produit arrive-t-il chez moi ?</button>
+        <div class="faq-a"><p>La livraison est 100 % discr&egrave;te. Votre commande arrive dans un emballage neutre, sans aucune identification du produit. Personne ne saura ce qu'il y a &agrave; l'int&eacute;rieur &agrave; part vous.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Et si &ccedil;a ne fonctionne pas pour moi ?</button>
+        <div class="faq-a"><p>Chaque flacon vient avec une garantie de 60 jours. Si vous ne sentez aucune am&eacute;lioration, il suffit de nous &eacute;crire et nous vous remboursons 100 % du montant pay&eacute;. Sans questions.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Est-il vendu en pharmacie ?</button>
+        <div class="faq-a"><p>Non. Comme c'est une formule personnalis&eacute;e, Alfa Max est uniquement commercialis&eacute; par ce site officiel. Si vous trouvez le produit ailleurs, il s'agit de contrefa&ccedil;on.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <h2>Commencez aujourd'hui votre questionnaire personnalis&eacute;</h2>
+    <p>R&eacute;pondez &agrave; 9 questions simples et d&eacute;couvrez si la m&eacute;thode Alfa Max est faite pour vous. &Ccedil;a prend moins de 2 minutes et c'est 100 % confidentiel.</p>
+    <a href="TROQUE-URL-FR-KIWIFY-AQUI" class="btn">Commencer le questionnaire</a>
+    <div class="small">Sans engagement &middot; Questionnaire gratuit</div>
+  </section>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Alfa Max. Tous droits r&eacute;serv&eacute;s.</p>
+    <p>Les informations pr&eacute;sent&eacute;es sur ce site ne constituent pas un conseil m&eacute;dical. Ce produit est un compl&eacute;ment naturel et ne remplace pas les traitements m&eacute;dicaux conventionnels. Consultez un professionnel de sant&eacute; avant de commencer tout nouveau traitement.</p>
+    <p>Les r&eacute;sultats peuvent varier d'une personne &agrave; l'autre. Les t&eacute;moignages correspondent &agrave; des utilisateurs r&eacute;els et peuvent ne pas refl&eacute;ter l'exp&eacute;rience typique.</p>
+    <div class="footer-links">
+      <a href="privacite.html">Politique de Confidentialit&eacute;</a>
+      <a href="termos.html">Conditions d'Utilisation</a>
+      <a href="etica.html">Mentions L&eacute;gales</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var item = this.parentElement;
+        var wasActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(function(el){ el.classList.remove('active'); });
+        if(!wasActive) item.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
