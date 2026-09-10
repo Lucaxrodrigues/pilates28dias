@@ -109,10 +109,12 @@
     .access-step .txt strong { color: var(--primary); font-weight: 700; }
     @media (min-width: 640px) { .access-step .txt { font-size: 1.05rem; } }
 
-    .pass-box { background: hsl(0 0% 0%); border: 2px dashed var(--primary); border-radius: 0.75rem; padding: 1rem 1rem 0.85rem; margin-top: 0.75rem; text-align: center; }
-    .pass-box .lbl { font-size: 0.75rem; color: var(--muted-foreground); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.35rem; font-weight: 600; }
-    .pass-box .val { font-size: 1.3rem; font-family: 'Courier New', monospace; color: var(--primary); font-weight: 800; letter-spacing: 1px; word-break: break-all; }
+    .pass-box { background: hsl(0 0% 0%); border: 2px dashed var(--primary); border-radius: 0.75rem; padding: 1rem 0.6rem 0.85rem; margin-top: 0.75rem; text-align: center; }
+    .pass-box .lbl { font-size: 0.75rem; color: var(--muted-foreground); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; font-weight: 600; }
+    .pass-box .val { font-size: 1.05rem; font-family: 'Courier New', monospace; color: var(--primary); font-weight: 800; letter-spacing: 0; white-space: nowrap; overflow-x: auto; padding: 0 0.3rem; -webkit-overflow-scrolling: touch; }
     @media (min-width: 640px) { .pass-box .val { font-size: 1.55rem; } }
+    @media (min-width: 380px) { .pass-box .val { font-size: 1.2rem; } }
+    @media (min-width: 480px) { .pass-box .val { font-size: 1.4rem; } }
     .copy-btn { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.65rem; padding: 0.5rem 1rem; background: var(--secondary); color: var(--foreground); border: 1px solid var(--primary); border-radius: 0.5rem; font-family: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.15s; }
     .copy-btn:hover { background: var(--primary); color: var(--primary-foreground); }
     .copy-btn.copied { background: #22c55e; color: #fff; border-color: #22c55e; }
@@ -130,6 +132,19 @@
 
     .access-help { margin-top: 1rem; text-align: center; font-size: 0.85rem; color: var(--muted-foreground); line-height: 1.55; }
     .access-help a { color: var(--primary); text-decoration: underline; font-weight: 600; }
+
+    .extras-box { background: linear-gradient(135deg, hsla(45,80%,55%,0.12), hsla(45,80%,55%,0.05)); border: 2px solid var(--primary); border-radius: 0.85rem; padding: 1.1rem 1rem; margin-top: 1.5rem; }
+    .extras-box .head { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.7rem; }
+    .extras-box .head .icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+    .extras-box .head .ttl { font-size: 1rem; font-weight: 800; color: var(--primary); line-height: 1.3; }
+    @media (min-width: 640px) { .extras-box .head .ttl { font-size: 1.1rem; } }
+    .extras-box .desc { font-size: 0.9rem; color: var(--foreground); line-height: 1.6; margin-bottom: 0.7rem; }
+    @media (min-width: 640px) { .extras-box .desc { font-size: 0.98rem; } }
+    .extras-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .extras-item { display: flex; align-items: center; gap: 0.55rem; background: var(--secondary); padding: 0.55rem 0.75rem; border-radius: 0.5rem; border: 1px solid var(--border); font-size: 0.9rem; color: var(--foreground); }
+    .extras-item .check { color: #22c55e; font-weight: 800; flex-shrink: 0; font-size: 1.05rem; }
+    .extras-item strong { color: var(--primary); font-weight: 700; }
+    @media (min-width: 640px) { .extras-item { font-size: 0.98rem; } }
 
     @media (min-width: 640px) {
       .warning-bar p { font-size: 0.875rem; }
@@ -216,6 +231,19 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
         Acceder a mi contenido
       </a>
+
+      <div class="extras-box">
+        <div class="head">
+          <span class="icon">&#127873;</span>
+          <span class="ttl">&iquest;Compr&oacute; productos adicionales? &iexcl;Ya est&aacute;n incluidos!</span>
+        </div>
+        <p class="desc">Si adquiri&oacute; alguno de los productos adicionales durante su compra, <strong style="color:var(--primary);font-weight:700">ya fueron agregados autom&aacute;ticamente</strong> dentro de su &aacute;rea de miembros. No necesita hacer nada m&aacute;s &mdash; solo entre con su email y contrase&ntilde;a y los ver&aacute; disponibles:</p>
+        <div class="extras-list">
+          <div class="extras-item"><span class="check">&#10003;</span><span><strong>Protocolo X</strong> &mdash; incluido autom&aacute;ticamente</span></div>
+          <div class="extras-item"><span class="check">&#10003;</span><span><strong>T&oacute;nico Africano Acelerador</strong> &mdash; incluido autom&aacute;ticamente</span></div>
+          <div class="extras-item"><span class="check">&#10003;</span><span><strong>Acompa&ntilde;amiento VIP</strong> &mdash; incluido autom&aacute;ticamente</span></div>
+        </div>
+      </div>
 
       <p class="access-help">&iquest;No puede entrar? Escr&iacute;banos a <a href="mailto:guiasuporteoficial@gmail.com">guiasuporteoficial@gmail.com</a> o WhatsApp <a href="https://wa.me/5519999962986" target="_blank" rel="noopener noreferrer">+55 19 99996-2986</a> y le ayudamos.</p>
     </div>
