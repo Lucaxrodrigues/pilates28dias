@@ -94,6 +94,43 @@
     @keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     .animate-fade-in { animation: fade-in 0.3s ease-out; }
 
+    /* --- ACCESO CARD (login area) --- */
+    .access-card { background: var(--card); border-radius: 1rem; padding: 1.75rem; border: 2px solid var(--primary); box-shadow: 0 12px 48px -10px hsl(45 65% 55% / 0.5); margin-top: 2rem; }
+    @media (min-width: 640px) { .access-card { padding: 2.5rem; } }
+    .access-card h2 { font-size: 1.4rem; font-weight: 800; color: var(--primary); text-align: center; margin-bottom: 0.5rem; line-height: 1.3; }
+    @media (min-width: 640px) { .access-card h2 { font-size: 1.7rem; } }
+    .access-card .subtitle { font-size: 0.95rem; color: var(--muted-foreground); text-align: center; margin-bottom: 1.5rem; line-height: 1.5; }
+    @media (min-width: 640px) { .access-card .subtitle { font-size: 1.05rem; } }
+
+    .access-steps { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem; }
+    .access-step { display: flex; align-items: flex-start; gap: 0.9rem; background: var(--secondary); padding: 0.9rem 1rem; border-radius: 0.75rem; border: 1px solid var(--border); }
+    .access-step .num { flex-shrink: 0; width: 2rem; height: 2rem; border-radius: 50%; background: var(--gradient-primary); color: var(--primary-foreground); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; line-height: 1; }
+    .access-step .txt { flex: 1; font-size: 0.98rem; color: var(--foreground); line-height: 1.55; }
+    .access-step .txt strong { color: var(--primary); font-weight: 700; }
+    @media (min-width: 640px) { .access-step .txt { font-size: 1.05rem; } }
+
+    .pass-box { background: hsl(0 0% 0%); border: 2px dashed var(--primary); border-radius: 0.75rem; padding: 1rem 1rem 0.85rem; margin-top: 0.75rem; text-align: center; }
+    .pass-box .lbl { font-size: 0.75rem; color: var(--muted-foreground); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.35rem; font-weight: 600; }
+    .pass-box .val { font-size: 1.3rem; font-family: 'Courier New', monospace; color: var(--primary); font-weight: 800; letter-spacing: 1px; word-break: break-all; }
+    @media (min-width: 640px) { .pass-box .val { font-size: 1.55rem; } }
+    .copy-btn { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.65rem; padding: 0.5rem 1rem; background: var(--secondary); color: var(--foreground); border: 1px solid var(--primary); border-radius: 0.5rem; font-family: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+    .copy-btn:hover { background: var(--primary); color: var(--primary-foreground); }
+    .copy-btn.copied { background: #22c55e; color: #fff; border-color: #22c55e; }
+    .copy-btn svg { width: 1rem; height: 1rem; }
+
+    .access-img-wrap { margin: 1.5rem 0; background: #fff; border-radius: 0.75rem; padding: 0.5rem; box-shadow: 0 6px 24px rgba(0,0,0,.35); }
+    .access-img-wrap img { width: 100%; height: auto; display: block; border-radius: 0.5rem; }
+    .access-img-caption { text-align: center; font-size: 0.8rem; color: var(--muted-foreground); margin-top: 0.6rem; font-style: italic; }
+
+    .access-btn { display: flex; align-items: center; justify-content: center; gap: 0.6rem; width: 100%; margin-top: 1.5rem; padding: 1.15rem 1rem; background: #22c55e; color: #fff; text-decoration: none; border-radius: 0.85rem; font-size: 1.1rem; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; box-shadow: 0 8px 26px rgba(34,197,94,.45); transition: transform 0.2s, box-shadow 0.2s; animation: btn-pulse 2.4s ease-in-out infinite; }
+    @media (min-width: 640px) { .access-btn { font-size: 1.25rem; padding: 1.3rem 1rem; } }
+    .access-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(34,197,94,.6); }
+    .access-btn svg { width: 1.5rem; height: 1.5rem; flex-shrink: 0; }
+    @keyframes btn-pulse { 0%,100% { transform: scale(1); box-shadow: 0 8px 26px rgba(34,197,94,.45); } 50% { transform: scale(1.02); box-shadow: 0 14px 36px rgba(34,197,94,.65); } }
+
+    .access-help { margin-top: 1rem; text-align: center; font-size: 0.85rem; color: var(--muted-foreground); line-height: 1.55; }
+    .access-help a { color: var(--primary); text-decoration: underline; font-weight: 600; }
+
     @media (min-width: 640px) {
       .warning-bar p { font-size: 0.875rem; }
       .progress-title p { font-size: 1rem; }
@@ -137,6 +174,52 @@
       </div>
     </div>
 
+    <!-- CARD DE ACCESO AL ÁREA DE MIEMBROS -->
+    <div class="access-card">
+      <h2>&#128273; Acceda a su contenido ahora</h2>
+      <p class="subtitle">Siga estos 4 pasos simples para entrar a su &aacute;rea de miembros y ver todo su material:</p>
+
+      <div class="access-steps">
+        <div class="access-step">
+          <div class="num">1</div>
+          <div class="txt">Haga clic en el bot&oacute;n verde de <strong>abajo</strong>. Se abrir&aacute; una nueva ventana con la pantalla de login.</div>
+        </div>
+        <div class="access-step">
+          <div class="num">2</div>
+          <div class="txt">En el campo <strong>&laquo;Correo Electr&oacute;nico&raquo;</strong> escriba el <strong>MISMO email</strong> que us&oacute; cuando hizo su compra.</div>
+        </div>
+        <div class="access-step">
+          <div class="num">3</div>
+          <div class="txt">En el campo <strong>&laquo;Contrase&ntilde;a&raquo;</strong> escriba exactamente esto:
+            <div class="pass-box">
+              <div class="lbl">Su contrase&ntilde;a</div>
+              <div class="val" id="passVal">acceso@alfamax</div>
+              <button type="button" class="copy-btn" id="copyPassBtn" onclick="copyPass()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                <span id="copyBtnTxt">Copiar contrase&ntilde;a</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="access-step">
+          <div class="num">4</div>
+          <div class="txt">Haga clic en el bot&oacute;n <strong>&laquo;iniciar sesi&oacute;n&raquo;</strong> y listo, ya podr&aacute; ver su contenido.</div>
+        </div>
+      </div>
+
+      <div class="access-img-wrap">
+        <img src="acceso-instrucciones.png" alt="Instrucciones visuales para el login en el &aacute;rea de miembros de Alfa Max">
+      </div>
+      <p class="access-img-caption">&#128071; As&iacute; se ve la pantalla de login. Complete los datos como muestra la imagen.</p>
+
+      <a href="https://alfa-max-app.memberkit.com.br" target="_blank" rel="noopener noreferrer" class="access-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
+        Acceder a mi contenido
+      </a>
+
+      <p class="access-help">&iquest;No puede entrar? Escr&iacute;banos a <a href="mailto:guiasuporteoficial@gmail.com">guiasuporteoficial@gmail.com</a> o WhatsApp <a href="https://wa.me/5519999962986" target="_blank" rel="noopener noreferrer">+55 19 99996-2986</a> y le ayudamos.</p>
+    </div>
+
     <div class="card contact-card">
       <h2>&iquest;Necesita ayuda?</h2>
       <p class="subtitle">Cont&aacute;ctenos por cualquiera de los canales a continuaci&oacute;n:</p>
@@ -167,5 +250,33 @@
       <p>&#10003; Gracias por elegir Alfa Max</p>
     </div>
   </div>
+
+  <script>
+    function copyPass(){
+      var val = document.getElementById('passVal').textContent.trim();
+      var btn = document.getElementById('copyPassBtn');
+      var txt = document.getElementById('copyBtnTxt');
+      var done = function(){
+        btn.classList.add('copied');
+        txt.textContent = '✓ ¡Copiado!';
+        setTimeout(function(){
+          btn.classList.remove('copied');
+          txt.innerHTML = 'Copiar contraseña';
+        }, 2200);
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(val).then(done, function(){ fallback(); });
+      } else {
+        fallback();
+      }
+      function fallback(){
+        var ta = document.createElement('textarea');
+        ta.value = val; ta.style.position='fixed'; ta.style.left='-9999px';
+        document.body.appendChild(ta); ta.select();
+        try{ document.execCommand('copy'); done(); } catch(e){}
+        document.body.removeChild(ta);
+      }
+    }
+  </script>
 </body>
 </html>
