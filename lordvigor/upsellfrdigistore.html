@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <!-- Digistore24 One-Click Upsell -->
   <script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
-  <script>digistoreUpsell()</script>
+  <script>document.addEventListener("DOMContentLoaded",function(){if(typeof digistoreUpsell==="function")digistoreUpsell();});</script>
   <!-- End Digistore24 -->
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -116,7 +116,7 @@
       <div class="ficha-row"><strong>&#127760; Langue :</strong><span>Fran&ccedil;ais</span></div>
       <div class="ficha-row"><strong>&#128231; Livraison :</strong><span>automatique par email, imm&eacute;diate</span></div>
       <div class="ficha-row"><strong>&#128190; Acc&egrave;s :</strong><span>t&eacute;l&eacute;chargement permanent</span></div>
-      <div class="ficha-row"><strong>&#128176; Prix de cette offre :</strong><span><strong style="color:#27AF60;font-size:16px">37 $ USD</strong> &mdash; paiement unique</span></div>
+      <div class="ficha-row"><strong>&#128176; Prix de cette offre :</strong><span><strong style="color:#27AF60;font-size:16px">37 &euro; EUR</strong> &mdash; paiement unique</span></div>
     </div>
 
     <h2 class="section-title">Ce que vous allez trouver &agrave; l'int&eacute;rieur</h2>
@@ -131,7 +131,7 @@
     <div class="price-box">
       <div class="price-label">Offre Unique</div>
       <div>
-        <span class="price-old">97 $ USD</span>
+        <span class="price-old">97 &euro; EUR</span>
         <span class="price-new"><span class="cur">$</span>37</span>
       </div>
       <div class="price-info">Paiement unique &mdash; acc&egrave;s permanent &mdash; sans renouvellements</div>
@@ -140,8 +140,9 @@
     <p style="text-align:center;font-size:16px">Ce bouton n'appara&icirc;t que <strong>maintenant</strong>. Si vous fermez cette page, l'offre dispara&icirc;t et l'ebook revient &agrave; son prix normal de 97 $.</p>
 
     <div class="cta-block">
-      <a href="https://www.checkout-ds24.com/answer/yes?template=light&amp;payplan=TROQUE-FR-UPSELL1" class="cta-accept">Ajouter &agrave; ma Commande</a>
-      <div><a href="https://www.checkout-ds24.com/answer/no" class="cta-decline">Non merci &mdash; je pr&eacute;f&egrave;re refuser cette offre.</a></div>
+      <input type="radio" name="digistore-upsell-button-radio" value="payplan-TROQUE-FR-UPSELL1" checked hidden>
+      <digistore-upsell-button template="dark">Ajouter &agrave; ma Commande</digistore-upsell-button>
+      <div><a href="downsell1frdigistoreeu.html" class="cta-decline">Non merci &mdash; je pr&eacute;f&egrave;re refuser cette offre.</a></div>
     </div>
     <p class="cta-sub">Un seul clic. Vous n'avez pas besoin de saisir votre carte &agrave; nouveau.</p>
 
@@ -157,8 +158,8 @@
     <p>Alfa Max et Protocole X sont des <strong>infoproduits num&eacute;riques &eacute;ducatifs</strong>. Les informations pr&eacute;sent&eacute;es ne constituent pas un conseil m&eacute;dical et ne remplacent pas les traitements m&eacute;dicaux conventionnels. Consultez un professionnel de sant&eacute; avant de commencer toute nouvelle m&eacute;thode ou routine d'exercice.</p>
     <p>Les r&eacute;sultats peuvent varier d'une personne &agrave; l'autre. Les t&eacute;moignages correspondent &agrave; des lecteurs r&eacute;els et peuvent ne pas refl&eacute;ter l'exp&eacute;rience typique.</p>
     <div class="footer-retailer">
-      <p><strong>Vendu par : Digistore24 Inc. (USA)</strong></p>
-      <p>Digistore24 Inc. est le vendeur autoris&eacute; de ce produit. Le r&ocirc;le de Digistore24 Inc. en tant que vendeur ne constitue pas une approbation, homologation ni r&eacute;vision de ce produit ni d'aucune affirmation, d&eacute;claration ou opinion utilis&eacute;e dans sa promotion. Pour toute question sur la commande, remboursement ou support technique du checkout, contactez Digistore24 sur <a href="https://www.digistore24.com/support" target="_blank" style="color:#a8b8c8;text-decoration:underline">digistore24.com/support</a>.</p>
+      <p><strong>Vendu par : Digistore24 GmbH (USA)</strong></p>
+      <p>Digistore24 GmbH est le vendeur autoris&eacute; de ce produit. Le r&ocirc;le de Digistore24 GmbH en tant que vendeur ne constitue pas une approbation, homologation ni r&eacute;vision de ce produit ni d'aucune affirmation, d&eacute;claration ou opinion utilis&eacute;e dans sa promotion. Pour toute question sur la commande, remboursement ou support technique du checkout, contactez Digistore24 sur <a href="https://www.digistore24.com/support" target="_blank" style="color:#a8b8c8;text-decoration:underline">digistore24.com/support</a>.</p>
     </div>
   </footer>
 
