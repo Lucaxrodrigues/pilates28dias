@@ -98,15 +98,7 @@
 
     <p>C'est exactement la m&ecirc;me recette. Le m&ecirc;me ebook avec le m&ecirc;me contenu. Je r&eacute;duis juste un peu le prix, parce que je veux vraiment que vous saisissiez cette opportunit&eacute;.</p>
 
-    <p>Mais attention : si vous quittez cette page, cette offre dispara&icirc;t <strong>pour toujours</strong>. C'est la derni&egrave;re fois que vous verrez ce prix.</p>
-
-    <p>En dessous il y a une horloge. Quand elle atteint z&eacute;ro, la promotion se termine et l'ebook revient &agrave; co&ucirc;ter <strong>67 &euro; EUR</strong>.</p>
-
-    <div class="big-timer" id="bigTimer">
-      <div class="t-label">&#9888; Cette offre expire dans</div>
-      <div class="t-clock" id="bigClock">05:00</div>
-      <div class="t-sub">Derni&egrave;re fois que vous verrez ce prix</div>
-    </div>
+    <p>Mais attention : si vous quittez cette page, cette offre dispara&icirc;t. C'est la derni&egrave;re fois que vous verrez ce prix.</p>
 
     <div class="ficha">
       <span class="ficha-title">&#128213; Fiche du produit</span>
@@ -122,7 +114,7 @@
       <div class="price-label">Offre Unique &mdash; Aujourd'hui Seulement</div>
       <div>
         <span class="price-old">67 &euro; EUR</span>
-        <span class="price-new"><span class="cur">$</span>15</span>
+        <span class="price-new">15 <span class="cur">&euro;</span></span>
       </div>
       <div class="price-info">Paiement unique &mdash; acc&egrave;s permanent</div>
     </div>
@@ -147,26 +139,16 @@
     <p>Alfa Max et Tonique Africain Acc&eacute;l&eacute;rateur sont des <strong>infoproduits num&eacute;riques &eacute;ducatifs</strong>. Les informations pr&eacute;sent&eacute;es ne constituent pas un conseil m&eacute;dical et ne remplacent pas les traitements m&eacute;dicaux conventionnels.</p>
     <p>Les r&eacute;sultats peuvent varier d'une personne &agrave; l'autre.</p>
     <div class="footer-retailer">
-      <p><strong>Vendu par : Digistore24 GmbH (USA)</strong></p>
+      <p><strong>Vendu par : Digistore24 GmbH (Allemagne)</strong></p>
       <p>Digistore24 GmbH est le vendeur autoris&eacute; de ce produit. Le r&ocirc;le de Digistore24 GmbH en tant que vendeur ne constitue pas une approbation, homologation ni r&eacute;vision de ce produit. Pour toute question, contactez Digistore24 sur <a href="https://www.digistore24.com/support" target="_blank" style="color:#a8b8c8;text-decoration:underline">digistore24.com/support</a>.</p>
     </div>
+    <div class="footer-links" style="margin-top:20px;padding-top:16px;border-top:1px solid #1a2a3b;font-size:13px">
+      <a href="../privacite.html" style="color:#a8b8c8;text-decoration:underline;margin:0 8px">Politique de Confidentialit&eacute;</a>&middot;
+      <a href="../termos.html" style="color:#a8b8c8;text-decoration:underline;margin:0 8px">Conditions d'Utilisation</a>&middot;
+      <a href="../etica.html" style="color:#a8b8c8;text-decoration:underline;margin:0 8px">Mentions L&eacute;gales</a>&middot;
+      <a href="mailto:guiasuporteoficial@gmail.com" style="color:#a8b8c8;text-decoration:underline;margin:0 8px">Contact / Support</a>
+    </div>
   </footer>
-
-  <script>
-    (function(){
-      var KEY='dsds_fr_downsell2eu_expiry';var DURATION=5*60*1000;var now=Date.now();
-      var expiry=parseInt(localStorage.getItem(KEY)||'0',10);
-      if(!expiry||expiry<now){expiry=now+DURATION;localStorage.setItem(KEY,expiry);}
-      var clock=document.getElementById('bigClock');
-      function tick(){
-        var left=expiry-Date.now();
-        if(left<=0){clock.textContent='00:00';clearInterval(iv);return;}
-        var m=Math.floor(left/60000);var s=Math.floor((left%60000)/1000);
-        clock.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
-      }
-      tick();var iv=setInterval(tick,1000);
-    })();
-  </script>
 
 </body>
 </html>
