@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T&oacute;nico Africano - Alfa Max</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Digistore24 One-Click Upsell (EU) -->
+  <script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
+  <script>document.addEventListener("DOMContentLoaded",function(){if(typeof digistoreUpsell==="function")digistoreUpsell();});</script>
+  <!-- End Digistore24 -->
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Inter',system-ui,-apple-system,sans-serif;
+      background:#FAFAFA;
+      color:#1A1A1A;
+      line-height:1.65;
+      font-size:20px;
+      -webkit-font-smoothing:antialiased;
+      padding-top:78px;
+    }
+
+    /* Barra de progresso sticky */
+    .progress-sticky{
+      position:fixed;top:0;left:0;right:0;z-index:9999;
+      background:#fff;border-bottom:1px solid #e0e0e0;
+      padding:12px 16px 10px;
+      box-shadow:0 2px 10px rgba(0,0,0,.06);
+    }
+    .progress-sticky-inner{max-width:600px;margin:0 auto}
+    .progress-label{
+      display:flex;justify-content:space-between;align-items:center;
+      font-size:13px;font-weight:600;color:#444;margin-bottom:6px;
+    }
+    .progress-label .left{display:flex;align-items:center;gap:6px}
+    .progress-label .dot{
+      width:8px;height:8px;border-radius:50%;background:#27AF60;
+      animation:pulseDot 1.4s ease-in-out infinite;
+    }
+    .progress-label .pct{color:#27AF60;font-weight:800}
+    @keyframes pulseDot{
+      0%,100%{opacity:.4;transform:scale(1)}
+      50%{opacity:1;transform:scale(1.3)}
+    }
+    .progress-track{
+      width:100%;height:8px;background:#f0f0f0;
+      border-radius:9999px;overflow:hidden;
+    }
+    .progress-fill{
+      height:100%;
+      background:linear-gradient(90deg,#27AF60,#34c46f);
+      border-radius:9999px;
+      transition:width .8s ease-out;
+      width:18%;
+    }
+
+    .wrap{max-width:600px;margin:0 auto;padding:30px 22px 60px}
+
+    h1{
+      font-size:28px;font-weight:800;line-height:1.25;color:#1A1A1A;
+      text-align:center;margin-bottom:28px;
+    }
+
+    p{font-size:20px;line-height:1.65;margin-bottom:26px;color:#1A1A1A}
+    p strong{font-weight:800;color:#1A1A1A}
+    p strong.price{color:#27AF60}
+    p strong.danger{color:#cc0000}
+
+    .impacto{
+      font-size:23px;font-weight:800;text-align:center;
+      margin:36px 0;color:#1A1A1A;line-height:1.4;
+    }
+
+    /* Scroll reveal sutil */
+    .reveal{opacity:0;transform:translateY(10px);transition:opacity .4s ease,transform .4s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* Divisor sutil */
+    .divider{display:flex;align-items:center;justify-content:center;margin:38px 0;gap:14px}
+    .divider::before,.divider::after{content:'';height:1px;background:#e0e0e0;flex:1;max-width:80px}
+    .divider-dot{width:6px;height:6px;border-radius:50%;background:#1A1A1A;opacity:.3}
+
+    /* Imagens */
+    .media{margin:32px 0;text-align:center}
+    .media img,.media video{
+      display:block;max-width:100%;width:100%;border-radius:12px;
+      box-shadow:0 4px 18px rgba(0,0,0,.08);margin:0 auto;
+    }
+    .media video{background:#000}
+    .video-stack{display:flex;flex-direction:column;gap:20px;margin:30px 0}
+
+    /* Bloco de preço */
+    .price-box{
+      background:#fff;border:2px solid #e0e0e0;border-radius:16px;
+      padding:30px 24px;text-align:center;margin:38px 0;
+      box-shadow:0 6px 24px rgba(0,0,0,.06);
+    }
+    .price-box .label-top{
+      font-size:14px;color:#666;font-weight:600;
+      margin-bottom:14px;letter-spacing:.5px;text-transform:uppercase;
+    }
+    .price-row{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap}
+    .price-old{font-size:30px;color:#888;text-decoration:line-through;font-weight:700;line-height:1}
+    .price-arrow{font-size:22px;color:#aaa;font-weight:700}
+    .price-new{font-size:62px;font-weight:800;color:#27AF60;line-height:1}
+    .price-new .cur{font-size:34px;vertical-align:top;margin-right:2px;font-weight:700}
+    .price-tagline{font-size:16px;color:#666;margin-top:14px;font-style:italic}
+
+    /* CTA Kiwify */
+    @keyframes pulse{
+      0%,100%{transform:scale(1);box-shadow:0 6px 22px rgba(39,175,96,.35)}
+      50%{transform:scale(1.03);box-shadow:0 10px 30px rgba(39,175,96,.5)}
+    }
+    #kiwify-upsell-trigger-Zeo6Tr2{
+      animation:pulse 2.2s ease-in-out infinite;
+    }
+    .cta-sub{
+      font-size:14px;color:#666;margin-top:14px;
+      font-weight:500;text-align:center;
+    }
+
+    @media(max-width:380px){
+      body,p{font-size:18px}
+      h1{font-size:24px}
+      .impacto{font-size:20px}
+      .price-new{font-size:52px}
+      .progress-label{font-size:12px}
+    }
+  </style>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MKF9HT6T');</script>
+  <!-- End Google Tag Manager -->
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKF9HT6T"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- BARRA DE PROGRESSO STICKY -->
+  <div class="progress-sticky">
+    <div class="progress-sticky-inner">
+      <div class="progress-label">
+        <span class="left"><span class="dot"></span> Generando tu receta personalizada...</span>
+        <span class="pct" id="progressPct">18%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+
+    <div class="reveal">
+      <h1>Attendez ! Ne fermez pas cette page, ne cliquez pas sur retour, n'actualisez pas le navigateur.</h1>
+      <p>Ici parle le Dr. Juan &agrave; nouveau.</p>
+      <p>Regardez, vous avez d&eacute;j&agrave; garanti votre protocole d'huile, et &ccedil;a c'est r&eacute;gl&eacute;. Mais avant que vous partiez, j'ai besoin de vous parler rapidement, d'homme &agrave; homme. Parce que j'ai vu quelque chose dans votre questionnaire qui a allum&eacute; une lumi&egrave;re rouge ici sur mon tableau.</p>
+    </div>
+
+    <div class="divider reveal"><span class="divider-dot"></span></div>
+
+    <div class="reveal">
+      <p>Quand je vous ai demand&eacute; en combien de temps vous aimeriez voir les r&eacute;sultats, vous avez coch&eacute; l'option : <strong>&laquo; le plus vite possible, pour hier &raquo;</strong>.</p>
+      <p>Et c'est exactement pour cette r&eacute;ponse que j'ai besoin de vous dire ceci maintenant.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Le traitement avec huile que vous avez d&eacute;j&agrave; est <strong>le rem&egrave;de</strong>. Jour apr&egrave;s jour, il va dissoudre les plaques de graisse qui bouchent les veines de votre p&eacute;nis, et va vous rendre des &eacute;rections dures de fa&ccedil;on naturelle, comme dans vos meilleures ann&eacute;es. C'est la solution d&eacute;finitive.</p>
+      <p>Mais je vais &ecirc;tre honn&ecirc;te sur le temps. Chez mes patients de votre &acirc;ge, l'huile commence &agrave; d&eacute;boucher compl&egrave;tement les veines entre le jour 10 et le jour 20 d'utilisation.</p>
+      <p>C'est rapide pour un rem&egrave;de d&eacute;finitif ? Oui. Mais c'est <strong>de 2 &agrave; 3 semaines</strong>. Et l&agrave; est le danger qui ne me laisse pas dormir.</p>
+    </div>
+
+    <p class="impacto reveal">Que se passe-t-il si l'opportunit&eacute; de votre vie appara&icirc;t <strong>ce soir</strong> ?</p>
+
+    <div class="reveal">
+      <p>Imaginez la sc&egrave;ne. Vous rentrez &agrave; la maison aujourd'hui, motiv&eacute;. Votre femme, ou cette femme qui vous pla&icirc;t, remarque que vous &ecirc;tes diff&eacute;rent, plus s&ucirc;r de vous. L'ambiance chauffe. Elle vous appelle dans la chambre, ou elle vous envoie ce message voulant vous voir maintenant.</p>
+      <p><strong>Qu'allez-vous faire ?</strong></p>
+      <p>Vous allez lui dire &laquo; d&eacute;sol&eacute; ma ch&eacute;rie, aujourd'hui je ne peux pas, mon traitement est encore au jour 1 &raquo; ? Vous allez la laisser tomber et attendre 15 jours de plus ? Ou pire, vous allez prendre le risque d'essayer avec les veines encore bouch&eacute;es et &eacute;chouer &agrave; nouveau ?</p>
+      <p>&Eacute;chouer maintenant, apr&egrave;s avoir franchi le pas, serait un seau d'eau froide. Ce serait la preuve, dans votre t&ecirc;te, que rien ne fonctionne pour vous.</p>
+    </div>
+
+    <div class="divider reveal"><span class="divider-dot"></span></div>
+
+    <div class="reveal">
+      <p>J'ai vu &ccedil;a arriver &agrave; un de mes patients, Robert, 63 ans. Il a achet&eacute; l'huile, il &eacute;tait heureux. Au deuxi&egrave;me jour sa femme l'a cherch&eacute;. Il a pens&eacute; &laquo; ah, je vais essayer &raquo;. Il est all&eacute; au lit et... rien.</p>
+      <p>L'ami ne s'est pas dress&eacute;. Elle l'a regard&eacute; avec cette mine de piti&eacute; et lui a dit : &laquo; je vois, m&ecirc;me tes nouveaux rem&egrave;des ne fonctionnent pas &raquo;.</p>
+      <p>Robert a presque sombr&eacute; dans la d&eacute;pression, il a presque demand&eacute; le remboursement. Uniquement parce qu'il n'a pas eu la patience d'attendre les 20 jours.</p>
+      <p><strong>Et je ne veux pas que &ccedil;a vous arrive.</strong></p>
+    </div>
+
+    <div class="reveal">
+      <p>Comme vous m'avez dit que vous &ecirc;tes press&eacute;, et je sais que la vie n'attend pas, je ne peux pas vous laisser partir sans une arme en main.</p>
+      <p>Il existe un moyen de tricher avec l'horloge. Un <strong>bouton d'urgence</strong> qui allume l'&eacute;rection presque instantan&eacute;ment.</p>
+    </div>
+
+    <div class="divider reveal"><span class="divider-dot"></span></div>
+
+    <div class="reveal">
+      <p>Il y a quelques ann&eacute;es, dans une de mes recherches sur la virilit&eacute;, j'ai voyag&eacute; dans l'int&eacute;rieur de l'Afrique Orientale. Et ce qui m'a le plus impact&eacute;, ce ne sont pas les jeunes. Ce sont les anciens. Des hommes de 70, 75 ans, avec 3 ou 4 &eacute;pouses jeunes. <strong>Et ces messieurs honoraient tous les soirs.</strong></p>
+      <p>Je devais comprendre comment un homme de 75 ans, avec les veines naturellement plus vieilles, r&eacute;ussissait &agrave; avoir une &eacute;rection de pierre en quelques minutes.</p>
+      <p>J'ai d&eacute;couvert qu'avant d'aller avec leurs &eacute;pouses, ils pr&eacute;paraient un tonique rouge et le buvaient. Ils l'appelaient <strong>&laquo; le r&eacute;veil du lion &raquo;</strong>.</p>
+    </div>
+
+    <!-- VÍDEO 01 - Tônico vermelho / África -->
+    <div class="media reveal">
+      <video controls preload="metadata" playsinline>
+        <source src="tonicoafricano.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="reveal">
+      <p>J'ai r&eacute;ussi &agrave; ramener des &eacute;chantillons et je l'ai &eacute;tudi&eacute;. Faites attention &agrave; la diff&eacute;rence, parce que c'est crucial.</p>
+      <p>Le protocole d'huile que vous avez d&eacute;j&agrave; <strong>nettoie la salet&eacute;</strong>. Il &eacute;limine la graisse des veines pour que le sang passe seul, de fa&ccedil;on naturelle. C'est le rem&egrave;de pour toujours.</p>
+      <p>Le tonique africain agit diff&eacute;remment. Il ne nettoie pas. Il <strong>force une dilatation brutale et instantan&eacute;e</strong> des vaisseaux, avec une explosion d'oxyde nitrique concentr&eacute;.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Je vous donne un exemple pour que vous ne l'oubliez jamais. Imaginez que votre p&eacute;nis est un tuyau d'arrosage, &agrave; moiti&eacute; pli&eacute; et sale. L'eau sort faible, n'est-ce pas ?</p>
+      <p><strong>Le protocole d'huile est le plombier</strong> qui vient et d&eacute;bouche le tuyau. Il r&eacute;sout le probl&egrave;me, mais &ccedil;a prend quelques jours.</p>
+      <p><strong>Le tonique africain c'est comme connecter ce m&ecirc;me tuyau &agrave; une bouche d'incendie.</strong> La pression est si forte, si violente, que l'eau passe par la salet&eacute; en force. Le tuyau devient dur instantan&eacute;ment, peu importe s'il est propre ou sale, parce que c'est &eacute;norm&eacute;ment de pression qui passe d'un coup.</p>
+    </div>
+
+    <!-- VÍDEO 02 - Mangueira / Hidrante -->
+    <div class="media reveal">
+      <video controls preload="metadata" playsinline>
+        <source src="Comparacao.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <p class="impacto reveal">Vous voyez la diff&eacute;rence ? L'un soigne. L'autre allume instantan&eacute;ment.</p>
+
+    <div class="reveal">
+      <p>Et quand vous combinez les deux, vous avez le sc&eacute;nario parfait. Vous traitez la dysfonction &agrave; la racine avec l'huile, et pendant que le nettoyage se fait pendant ces 2 &agrave; 3 semaines, vous utilisez le tonique africain pour avoir une &eacute;rection de pierre <strong>d&egrave;s aujourd'hui</strong>, quand vous voulez.</p>
+      <p>Ce m&ecirc;me tonique est &eacute;tudi&eacute; par des chercheurs ind&eacute;pendants aux &Eacute;tats-Unis, qui disent qu'il peut &ecirc;tre <strong>jusqu'&agrave; 3 fois plus puissant que le Viagra</strong>, et sans les effets secondaires sur le c&oelig;ur.</p>
+      <p>Attention : utilisez-le uniquement avant les rapports, parce que votre p&eacute;nis va devenir dur tr&egrave;s vite.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Ce sont des ingr&eacute;dients que vous trouvez dans n'importe quel supermarch&eacute;, mais qui doivent &ecirc;tre m&eacute;lang&eacute;s dans l'ordre exact que les anciens africains utilisaient. Vous le pr&eacute;parez en une minute dans la cuisine, vous le buvez, et en 15 &agrave; 20 minutes vous allez sentir une chaleur descendre dans le dos, votre sous-v&ecirc;tement va commencer &agrave; peser, vos veines vont se dilater, et votre ami va se r&eacute;veiller.</p>
+      <p><strong>Pas &agrave; moiti&eacute;. Dur, palpitant, demandant de l'action.</strong></p>
+      <p>Avec ce tonique vous n'avez pas &agrave; attendre les semaines jusqu'&agrave; ce que l'huile nettoie tout. Vous pouvez avoir votre premi&egrave;re nuit &agrave; casser le lit <strong>d&egrave;s aujourd'hui</strong>.</p>
+      <p>Imaginez tranquille, sachant que vous avez cette arme secr&egrave;te dans la poche. Si l'ambiance chauffe, vous courez &agrave; la cuisine, vous la pr&eacute;parez, vous la buvez, et vous revenez pr&ecirc;t.</p>
+    </div>
+
+    <div class="divider reveal"><span class="divider-dot"></span></div>
+
+    <!-- VÍDEOS DEPOIMENTOS -->
+    <div class="video-stack reveal">
+      <div class="media" style="margin:0">
+        <video controls preload="metadata" playsinline>
+          <source src="upsell2-video-01.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="media" style="margin:0">
+        <video controls preload="metadata" playsinline>
+          <source src="upsell2-video-02.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="media" style="margin:0">
+        <video controls preload="metadata" playsinline>
+          <source src="upsell2-video-03.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <div class="divider reveal"><span class="divider-dot"></span></div>
+
+    <div class="reveal">
+      <p>Maintenant vous devez vous demander : <strong>Docteur Juan, combien co&ucirc;te ce tonique africain ?</strong></p>
+      <p>Regardez, je vais &ecirc;tre honn&ecirc;te. C'est le produit favori de mes patients particuliers, ces grands entrepreneurs qui n'ont pas de temps &agrave; perdre. Je vends ce guide s&eacute;par&eacute;ment pour <strong>297 dollars</strong>, et ils le paient en souriant, parce que le pouvoir de devenir dur quand vous voulez n'a pas de prix.</p>
+      <p>Mais le syst&egrave;me m'a montr&eacute; votre profil. Vous avez coch&eacute; que vous vouliez des r&eacute;sultats pour hier. Et je ne veux pas que vous soyez comme Robert, qui a presque abandonn&eacute; parce qu'il n'a pas support&eacute; d'attendre. Je veux que vous ayez votre victoire aujourd'hui.</p>
+      <p>C'est pour &ccedil;a, uniquement maintenant, pendant que cette page est ouverte et que la barre de votre ordonnance continue &agrave; charger, je vais lib&eacute;rer le Tonique Africain Acc&eacute;l&eacute;rateur pour un tarif symbolique de seulement <strong class="price">24 dollars</strong>.</p>
+    </div>
+
+    <p class="impacto reveal">Exactement. <strong>Le prix d'une pizza.</strong></p>
+
+    <div class="reveal">
+      <p>Vous allez arr&ecirc;ter de garantir votre nuit d'aujourd'hui pour le prix d'une pizza ?</p>
+      <p>Mais je vous pr&eacute;viens s&eacute;rieusement : cette offre <strong class="danger">n'existe que maintenant</strong>, sur cette page. D&egrave;s que la barre finit de charger et que vous partez d'ici, ce bouton dispara&icirc;t pour toujours. Si vous regrettez plus tard et m'&eacute;crivez en demandant le tonique, mon &eacute;quipe devra vous facturer le prix complet de <strong>297 $</strong>.</p>
+    </div>
+
+    <!-- BLOCO DE PREÇO -->
+    <div class="price-box reveal">
+      <div class="label-top">Offre Unique Aujourd'hui</div>
+      <div class="price-row">
+        <span class="price-old">297 $</span>
+        <span class="price-arrow">&rarr;</span>
+        <span class="price-new"><span class="cur">$</span>24</span>
+      </div>
+      <div class="price-tagline">Le prix d'une pizza.</div>
+    </div>
+
+    <!-- IMAGEM PREÇO EM MOEDAS LOCAIS -->
+    <div class="media reveal">
+      <img src="preco24.png" alt="Prix en devises locales">
+    </div>
+
+    <div class="reveal">
+      <p>Alors soyez intelligent. Vous avez d&eacute;j&agrave; garanti le rem&egrave;de avec l'huile. Maintenant garantissez la vitesse avec le tonique africain. <strong>Allumez votre bouton d'&eacute;rection</strong> et donnez &agrave; votre femme la nuit la plus chaude de sa vie.</p>
+      <p>Descendez la page maintenant et cliquez sur le bouton vert ci-dessous.</p>
+    </div>
+
+    <!-- BOTÃO KIWIFY UPSELL 2 -->
+    <div style="text-align:center" class="cta-block">
+          <digistore-upsell-button template="dark">Oui, j&apos;accepte cette offre sp&eacute;ciale !</digistore-upsell-button>
+          <div style="margin-top:1rem"><a href="downsell2frdigistorenew.html" style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;color:#333;text-decoration:underline">Non, je pr&eacute;f&egrave;re refuser cette offre.</a></div>
+        </div>
+    <p class="cta-sub">Et tranquille, vous n'avez pas besoin de saisir votre carte &agrave; nouveau. Un seul clic et c'est r&eacute;gl&eacute;.</p>
+
+    <div class="reveal" style="margin-top:36px">
+      <p>La barre arrive &agrave; la fin. <strong>Cliquez maintenant.</strong> Je vous attends dans le groupe des hommes qui n'&eacute;chouent pas.</p>
+    </div>
+
+  </main>
+
+  <script>
+    // Scroll reveal sutil
+    (function(){
+      var els = document.querySelectorAll('.reveal');
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      },{threshold:0.08, rootMargin:'0px 0px -30px 0px'});
+      els.forEach(function(el){ obs.observe(el); });
+    })();
+
+    // Barra de progresso "Generando tu receta personalizada"
+    (function(){
+      var START = 18;     // % inicial
+      var MAX   = 95;     // % máximo (não chega a 100 de propósito)
+      var KEY   = 'upsell2_progress_max';
+
+      var fillEl = document.getElementById('progressFill');
+      var pctEl  = document.getElementById('progressPct');
+
+      var storedMax = parseFloat(localStorage.getItem(KEY)) || START;
+
+      function setBar(pct){
+        pct = Math.max(START, Math.min(MAX, pct));
+        fillEl.style.width = pct + '%';
+        pctEl.textContent = Math.round(pct) + '%';
+      }
+
+      setBar(storedMax);
+
+      function compute(){
+        var doc = document.documentElement;
+        var h = doc.scrollHeight - window.innerHeight;
+        if(h <= 0) return storedMax;
+        var scrollPct = Math.max(0, Math.min(1, window.scrollY / h));
+        // mapeia 0..1 do scroll para START..MAX
+        var byScroll = START + scrollPct * (MAX - START);
+        // nunca diminui
+        return Math.max(storedMax, byScroll);
+      }
+
+      function tick(){
+        var v = compute();
+        if(v > storedMax){
+          storedMax = v;
+          localStorage.setItem(KEY, storedMax.toFixed(2));
+          setBar(storedMax);
+        }
+      }
+
+      window.addEventListener('scroll', tick, {passive:true});
+      window.addEventListener('resize', tick);
+
+      // crescimento lento adicional baseado em tempo (mais sutil)
+      setInterval(function(){
+        if(storedMax < MAX){
+          storedMax += 0.05; // ~3% por minuto de leitura parada
+          localStorage.setItem(KEY, storedMax.toFixed(2));
+          setBar(storedMax);
+        }
+      }, 1000);
+    })();
+  </script>
+</body>
+</html>
